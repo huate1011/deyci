@@ -1,0 +1,42 @@
+<!--pages/login/login.wxml-->
+<view wx:if="{{!logged}}"> 
+  <text>欢迎登录，德新创公益</text>
+</view>
+<view wx:else>
+  <form bindsubmit='doRegister'>
+    <view>
+      <text>Name:</text>
+      <input type='text' value='{{userInfo.nickName}}'/>
+    </view>
+    <view>
+      <radio-group class="radio-group">
+        <label>Gender:
+          <radio value="Male" checked="{{userInfo.gender}}"/>
+        </label>
+        <label>
+          <radio value="Female" checked="{{!userInfo.gender}}"/>
+        </label>
+      </radio-group>
+    </view>
+    <view>
+      <label>City:</label>
+      <input type='text'>{{userInfo.city}}</input>
+    </view>
+    <view>
+      <checkbox-group>
+        <label>China:
+          <checkbox value="China" checked="{{userInfo.country === 'China'}}"/>
+        </label>
+        <label>Ireland
+          <checkbox value="Ireland" checked="{{userInfo.country === 'Ireland'}}"/>
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view>
+      <button formType="submit">Submit</button>
+      <button formType="reset">Reset</button>
+    </view>
+  </form>
+</view>
+

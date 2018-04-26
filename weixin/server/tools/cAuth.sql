@@ -34,4 +34,16 @@ CREATE TABLE `cSessionInfo` (
   KEY `skey` (`skey`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='会话管理用户信息';
 
+DROP TABLE IF EXISTS `MemberInfo`;
+CREATE TABLE `MemberInfo` (
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `country` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comments` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息';
+
 SET FOREIGN_KEY_CHECKS = 1;

@@ -14,11 +14,18 @@ Page({
     requestResult: ''
   },
 
-  doRegister: function () {
+  doRegister: function (e) {
     util.showBusy('请求中...')
     var that = this
+    var formData = e.detail.value
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    debugger;
     var options = {
       url: config.service.registerUrl,
+      data: formData,
+      header: {
+        'Content-Type': 'application/json'
+      },
       login: true,
       success(result) {
         util.showSuccess('请求成功完成')
@@ -44,7 +51,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 用户登录示例    
+    // 用户登录示例 
+      this.setData({logged: true})         
       if (this.data.logged) return
 
       util.showBusy('正在登录')

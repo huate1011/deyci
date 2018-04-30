@@ -34,6 +34,6 @@ router.get('/demo', controllers.demo)
 router.post('/message', controllers.message.post)
 
 // POST 用来处理微信转发过来的客服消息
-router.post('/register', controllers.register.post)
+router.post('/register', controllers.register)
 
 module.exports = router

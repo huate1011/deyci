@@ -24,9 +24,9 @@ Page({
       url: config.service.registerUrl,
       data: formData,
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      login: true,
+      method: 'POST',
       success(result) {
         util.showSuccess('请求成功完成')
         console.log('request success', result)
@@ -37,7 +37,11 @@ Page({
       fail(error) {
         util.showModel('请求失败', error);
         console.log('request fail', error);
+      },
+      complete(res) {
+        console.log('request complete', res); 
       }
+      
     }
     if (this.data.takeSession) {  // 使用 qcloud.request 带登录态登录
       qcloud.request(options)

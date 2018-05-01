@@ -6,24 +6,25 @@
   <form bindsubmit='doRegister'>
     <view>
       <text>Name:</text>
-      <input type='text' value='{{userInfo.nickName}}'/>
+      <input type='text' name='name' value='{{userInfo.nickName}}'/>
     </view>
     <view>
-      <radio-group class="radio-group">
-        <label>Gender:
+      <text>Gender:</text>
+      <radio-group name="gender">
+        <label>Male:
           <radio value="Male" checked="{{userInfo.gender}}"/>
         </label>
-        <label>
+        <label>Female:
           <radio value="Female" checked="{{!userInfo.gender}}"/>
         </label>
       </radio-group>
     </view>
     <view>
       <label>City:</label>
-      <input type='text'>{{userInfo.city}}</input>
+      <input type='text' name='city'>{{userInfo.city}}</input>
     </view>
     <view>
-      <checkbox-group>
+      <checkbox-group name='country'>
         <label>China:
           <checkbox value="China" checked="{{userInfo.country === 'China'}}"/>
         </label>

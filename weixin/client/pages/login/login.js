@@ -19,7 +19,6 @@ Page({
     var that = this
     var formData = e.detail.value
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    debugger;
     var options = {
       url: config.service.registerUrl,
       data: formData,

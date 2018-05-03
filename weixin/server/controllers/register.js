@@ -10,25 +10,16 @@ module.exports = async ctx => {
 //    * 解析微信发送过来的请求体
 //    * 可查看微信文档：https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/receive.html#接收消息和事件
 //    */
-  const body = JSON.stringify(ctx.request.body)
+  const member = ctx.request.body;
+  member['create_time'] = new Date()
+  member['last_visit_time'] = new Date()
 
-  console.log('exeu sql:' + body)
-//   var id = uuid.v1()
+  console.log('exeu sql:' + JSON.stringify(member))
   var memberTable = "MemberInfo"
-  var uuid = Date.now()
-//   //add
-  var member = {
-    uuid: uuid,
-    username: "bingyuhuozhige",
-    gender: "male",
-    country: "IE",
-    comments: body,
-    create_time: new Date(),
-    last_visit_time: new Date()
-  }
-  const res = await mysql('MemberInfo').insert(member)
+  
+  const res = await mysql(memberTable).insert(member)
   // search
-  const data = await mysql('MemberInfo').where({ 'uuid' : uuid }).first()
+  const data = await mysql(memberTable).where({ 'phone': member['phone'] }).first()
 //   console.log(res)
 //   //update
 //   await mysql(memberTable).update({ username: "new username" }).where({ id })

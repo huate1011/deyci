@@ -36,13 +36,19 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    dob: '2000-09-01',
+    pob: ['广东省', '广州市', '海珠区'],
+    customItem: '其他'
   },
 
   doRegister: function (e) {
     util.showBusy('请求中...')
     var that = this
     var formData = e.detail.value
+    formData['idhead'] = this.data.imgUrl
+    formData['dob'] = this.data.dob
+    formData['pob'] = this.data.pob
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var options = {
       url: config.service.registerUrl,
@@ -51,18 +57,21 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      success(result) {
-        util.showSuccess('请求成功完成')
+      success(result) {        
+        showSuccess('注册成功')
         console.log('request success', result)
         that.setData({
           requestResult: JSON.stringify(result.data)
         })
       },
       fail(error) {
+        showModel('注册失败', error)
         util.showModel('请求失败', error);
+        
         console.log('request fail', error);
       },
       complete(res) {
+        showModel('注册结束', res)
         console.log('request complete', res); 
       }
       
@@ -109,6 +118,18 @@ Page({
       fail: function (e) {
         console.error(e)
       }
+    })
+  },
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      dob: e.detail.value
+    })
+  },
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      pob: e.detail.value
     })
   },
 

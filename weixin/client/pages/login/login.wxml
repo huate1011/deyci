@@ -20,12 +20,18 @@
       </radio-group>
     </view>
     <view>
-      <label>Date Of Birth</label>
-      <input type='number' name='dob' value=''/>
+      <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
+      <view>
+        <label>Date Of Birth: {{dob}}</label>
+      </view>
+      </picker>
     </view>
     <view>
-      <label>Place Of Birth</label>
-      <input type='text' name='pob' value=''/>
+      <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
+      <view>
+        <label>Place Of Birth：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+      </view>
+      </picker>
     </view>
     <view>
       <label>Origin</label>

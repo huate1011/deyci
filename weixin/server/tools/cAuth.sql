@@ -63,8 +63,8 @@ CREATE TABLE `MemberInfo` (
   `availability` varchar(100) COLLATE utf8mb4_unicode_ci,
   `otheravailability` varchar(100) COLLATE utf8mb4_unicode_ci,
   `curriculum` varchar(2048) COLLATE utf8mb4_unicode_ci,
-  `idhead` varchar(500) COLLATE utf8mb4_unicode_ci UNIQUE,
-  `idback` varchar(500) COLLATE utf8mb4_unicode_ci UNIQUE,
+  `idhead` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `idback` varchar(500) COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息';
 

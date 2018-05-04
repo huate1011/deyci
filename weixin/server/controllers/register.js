@@ -14,12 +14,20 @@ module.exports = async ctx => {
   member['create_time'] = new Date()
   member['last_visit_time'] = new Date()
 
-  console.log('exeu sql:' + JSON.stringify(member))
+  // console.log('exeu sql:' + JSON.stringify(member))
   var memberTable = "MemberInfo"
   
-  const res = await mysql(memberTable).insert(member)
+  try{
+    const res = await mysql(memberTable).insert(member)
+  } catch (err) {
+    msg = 'Error: ' + JSON.stringify(err)
+    console.log(msg)
+    ctx.body = msg
+  }
+  ctx.body = "success"
+  
   // search
-  const data = await mysql(memberTable).where({ 'phone': member['phone'] }).first()
+  // const data = await mysql(memberTable).where({ 'phone': member['phone'] }).first()
 //   console.log(res)
 //   //update
 //   await mysql(memberTable).update({ username: "new username" }).where({ id })
@@ -31,10 +39,4 @@ module.exports = async ctx => {
 //   //search
 //   var res = await mysql(memberTable).where({ id }).first()
 //   console.log(res)
-
-  ctx.state.data = {
-    msg: 'zheng junfei hello'
-  }
-
-  ctx.body = 'success6'
 }

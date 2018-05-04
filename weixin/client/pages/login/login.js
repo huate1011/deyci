@@ -2,6 +2,31 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
+
+// 显示繁忙提示
+var showBusy = text => wx.showToast({
+  title: text,
+  icon: 'loading',
+  duration: 10000
+});
+
+// 显示成功提示
+var showSuccess = text => wx.showToast({
+  title: text,
+  icon: 'success'
+});
+
+// 显示失败提示
+var showModel = (title, content) => {
+  wx.hideToast();
+
+  wx.showModal({
+    title,
+    content: JSON.stringify(content),
+    showCancel: false
+  });
+};
+
 Page({
 
   /**
@@ -59,18 +84,15 @@ Page({
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
-        util.showBusy('正在上传')
         var filePath = res.tempFilePaths[0]
 
-        // 上传图片
         wx.uploadFile({
           url: config.service.uploadUrl,
           filePath: filePath,
           name: 'file',
 
           success: function (res) {
-            util.showSuccess('上传图片成功')
-            console.log(res)
+            showSuccess('上传图片成功')
             res = JSON.parse(res.data)
             console.log(res)
             that.setData({
@@ -79,7 +101,7 @@ Page({
           },
 
           fail: function (e) {
-            util.showModel('上传图片失败')
+            console.error(e)
           }
         })
 

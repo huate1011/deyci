@@ -41,7 +41,7 @@ CREATE TABLE `MemberInfo` (
   `gender` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
   `dob` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pob` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,			
   `origin` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -54,18 +54,22 @@ CREATE TABLE `MemberInfo` (
   `emergencyname` varchar(100) COLLATE utf8mb4_unicode_ci,
   `emergencyphone` varchar(100) COLLATE utf8mb4_unicode_ci,
   `politics` varchar(100) COLLATE utf8mb4_unicode_ci,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci UNIQUE,
   `address` varchar(500) COLLATE utf8mb4_unicode_ci,
   `council` varchar(100) COLLATE utf8mb4_unicode_ci,
-  `personalid` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `personalid` varchar(100) COLLATE utf8mb4_unicode_ci UNIQUE,
   `skills` varchar(100) COLLATE utf8mb4_unicode_ci,
   `otherskills` varchar(200) COLLATE utf8mb4_unicode_ci,
   `availability` varchar(100) COLLATE utf8mb4_unicode_ci,
   `otheravailability` varchar(100) COLLATE utf8mb4_unicode_ci,
   `curriculum` varchar(2048) COLLATE utf8mb4_unicode_ci,
-  `idhead` varchar(500) COLLATE utf8mb4_unicode_ci,
-  `idback` varchar(500) COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`ID`)231
+  `idhead` varchar(500) COLLATE utf8mb4_unicode_ci UNIQUE,
+  `idback` varchar(500) COLLATE utf8mb4_unicode_ci UNIQUE,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息';
+
+CREATE INDEX idx_name on `MemberInfo` (`name`);
+CREATE INDEX idx_phone on `MemberInfo` (`phone`);
+CREATE INDEX idx_personalid on `MemberInfo` (`personalid`);
 
 SET FOREIGN_KEY_CHECKS = 1;

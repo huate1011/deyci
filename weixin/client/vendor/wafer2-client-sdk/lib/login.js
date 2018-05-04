@@ -131,21 +131,7 @@ var login = function login(options) {
         });
     });
 
-    var session = Session.get();
-    if (session) {
-        wx.checkSession({
-            success: function () {
-                options.success(session.userInfo);
-            },
-
-            fail: function () {
-                Session.clear();
-                doLogin();
-            },
-        });
-    } else {
-        doLogin();
-    }
+    doLogin();
 };
 
 var setLoginUrl = function (loginUrl) {

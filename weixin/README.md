@@ -1,19 +1,23 @@
-# Wafer2 快速开发 Demo
+# Wafer2 Startup
 
-本仓库是最简版的 Wafer2 开发套件，建议配合腾讯云微信小程序开发者工具解决方案一起使用。适用于想要使用 Wafer SDK 开发的开发者，Demo 对 SDK 进行了详细的使用和介绍，降低开发者的学习成本。
+Wafer 2.0 客户端和服务端集合 Demo 仓库。
+
+本仓库适用于想要使用 Wafer SDK 开发的开发者，Demo 对 SDK 进行了详细的使用和介绍，降低开发者的学习成本。
+
+如果你想要更加简单的客户端 Demo，可以查看 [wafer2-quickstart](https://github.com/tencentyun/wafer2-quickstart)。
 
 ## 目录
 
-- [腾讯云一站式部署开通指引](#腾讯云一站式部署开通指引)
+- [开始使用](#开始使用)
   - [一、通过微信公众平台授权登录腾讯云](#一通过微信公众平台授权登录腾讯云)
   - [二、安装开发工具](#二安装开发工具)
   - [三、导入 DEMO 和配置](#三导入-demo-和配置)
   - [四、上传和部署代码](#四上传和部署代码)
-- [文档](#文档)
+- [文档](#其他文档)
 
-## 腾讯云一站式部署开通指引
+## 开始使用
 
-只需要四步即可部署属于自己的小程序**开发环境**。
+你只需要四步即可部署属于自己的小程序开发环境。
 
 ### 一、通过微信公众平台授权登录腾讯云
 
@@ -29,27 +33,29 @@
 
 ### 二、安装开发工具
 
-下载并安装最新版本的[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
+下载并安装[微信开发者工具 1.0](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
 
-![微信开发者工具](https://user-images.githubusercontent.com/3380894/30306146-39fca9f0-97a9-11e7-88a7-56efcdd1b323.png)
+![微信开发者工具](https://user-images.githubusercontent.com/3380894/29358006-2ba9cda4-82ac-11e7-8417-4df838750270.png)
 
 ### 三、导入 DEMO 和配置
 
-你可以通过两个途径访问 Github 上 `wafer2-quickstart` 项目下载 Demo 代码：
+你可以通过两个途径访问 Github 上 `wafer2-startup` 项目下载 Demo 代码：
 
-1. 访问[仓库主页](https://github.com/tencentyun/wafer2-quickstart)，绿色的 `clone or download` 按钮，并点击 `Download ZIP`，下载打包好的 Demo 代码。
-
-   ![下载代码](https://user-images.githubusercontent.com/3380894/30306680-320cd398-97ac-11e7-9f20-eda148861ee9.png)
+1. 直接访问 [Release](https://github.com/tencentyun/wafer2-startup/releases)，点击最新版本的代码，下载打包好的 Demo 代码。
 
 2. 通过 git clone 下载代码并安装依赖：
 
    ```bash
-   git clone https://github.com/tencentyun/wafer2-quickstart.git
+   git clone https://github.com/tencentyun/wafer2-startup.git
    ```
+
+下载好 Demo 代码之后，使用编辑器打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `mysql` 配置项的密码 `pass` 改成你的微信小程序 AppID 。
+
+![修改 MySQL 密码](https://user-images.githubusercontent.com/3380894/29360756-fb2412c4-82b6-11e7-8d6f-c4277cd5d783.jpg)
 
 **安装依赖**
 
-###### 这步可以跳过，你可以使用线上直接安装依赖
+###### 这步非常重要请不要忽略！
 
 接着在下载下来的目录打开 CMD 安装依赖：
 
@@ -61,45 +67,31 @@ cd server
 npm install
 ```
 
-![安装依赖](https://user-images.githubusercontent.com/3380894/30306727-7db4733c-97ac-11e7-95d1-253bc4b9c1ea.png)
-
 ### 四、上传和部署代码
 
 打开第二步安装的微信开发者工具，点击“小程序项目”按钮，输入小程序 AppID，项目目录选择上一步下载下来的代码目录，点击确定创建小程序项目。
 
-*** 注意：目录请选择 `quickstart` 根目录。包含有 `project.config.json`，请不要只选择 `client` 目录！** 
+![上传代码](https://user-images.githubusercontent.com/3380894/29361218-1bd9af72-82b9-11e7-9dab-d20fd9aebf7c.png)
 
-![上传代码](https://user-images.githubusercontent.com/3380894/30306247-b7b63636-97a9-11e7-9b5a-daa0b2db33e6.png)
+进入开发者工具之后，点击界面右上角的腾讯云按钮，在下拉的菜单栏中选择“上传测试代码”，选择“模块上传”并勾选“node_modules之外的代码”和“node_modules”，点击确定开始上传代码：
 
-点击 “确定” 进入开发者工具。
+<img width="1341" alt="上传代码" src="https://user-images.githubusercontent.com/3380894/29876217-bc3a37aa-8dce-11e7-9486-98417ccadfbf.png">
 
-![开发者工具](https://user-images.githubusercontent.com/3380894/30306318-0b7c442c-97aa-11e7-9080-ae47c50cec12.png)
-
-打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `mysql` 配置项的密码 `pass` 改成你的微信小程序 AppID，并**保存**。
-
-![修改 MySQL 密码](https://user-images.githubusercontent.com/3380894/30306357-41ac94ac-97aa-11e7-9872-7f5612f99fbc.png)
-
-接着点击界面右上角的腾讯云按钮，在下拉的菜单栏中选择“上传测试代码”，选择“模块上传”并勾选全部选项，然后勾选“部署后自动安装依赖”，点击确定开始上传代码：
-
-![上传按钮](https://user-images.githubusercontent.com/3380894/30306411-8c9a9aea-97aa-11e7-92bb-a571cc436b85.png)
-
-![选择模块](https://user-images.githubusercontent.com/3380894/30306412-8df08f4e-97aa-11e7-9a5b-7ab82c58c63d.png)
-
-![7](https://user-images.githubusercontent.com/3380894/30306455-dc3f612a-97aa-11e7-8add-d3268b63d725.png)
+<img width="1341" alt="勾选两个选项并点击确定" src="https://user-images.githubusercontent.com/3380894/29876209-b73f4b14-8dce-11e7-8d4b-cfb5a0b4c809.png">
 
 上传代码完成之后，点击右上角的“项目”按钮，接着选择“腾讯云状态”即可看到腾讯云自动分配给你的开发环境域名：
 
-![查看开发域名](https://user-images.githubusercontent.com/3380894/30306493-0f7b5b48-97ab-11e7-9225-ca6c9de9fcf4.png)
+![figure7](https://user-images.githubusercontent.com/3380894/29362023-b1ed75ea-82bc-11e7-87f4-88c21883196c.jpg)
 
-完整复制（包括 `https://`）开发环境 request 域名，然后在编辑器中打开 `client/config.js` 文件，将复制的域名填入 `host` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
+复制开发环境 request 域名，然后在编辑器中打开 `client/config.js` 文件，将复制的域名填入 `host` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
 
-![修改客户端配置](https://user-images.githubusercontent.com/3380894/30306556-6b32f144-97ab-11e7-90bd-576ebbcb7588.png)
+![修改 host 配置](https://user-images.githubusercontent.com/3380894/29362107-1e3fae84-82bd-11e7-8cc5-8831f432939a.jpg)
 
-在模拟器中点击登录，看到显示登陆成功，即为开通完成，可以开始你的其他开发了。
+在模拟器中点击登录，看到显示登陆成功，即为配置完成，可以开始你的其他开发了。
 
-![登录测试](https://user-images.githubusercontent.com/3380894/30306599-aa38da98-97ab-11e7-9e0f-57fa21a269f3.png)
+![登录测试](https://user-images.githubusercontent.com/3380894/29362214-968fd67a-82bd-11e7-899e-76cd7c92d969.jpg)
 
-## 文档
+## 其他文档
 
 我们还提供了服务端、客户端的 Demo、SDK 的具体文档：
 
@@ -127,4 +119,3 @@ npm install
 - [Wafer2 服务端 SDK 使用文档](https://github.com/tencentyun/wafer2-node-sdk/blob/master/README.md)
 - [Wafer2 服务端 SDK API 文档](https://github.com/tencentyun/wafer2-node-sdk/blob/master/API.md)
 - [Wafer2 客户端 SDK 使用文档](https://github.com/tencentyun/wafer2-client-sdk/blob/master/README.md)
-

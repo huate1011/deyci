@@ -1,13 +1,12 @@
 {
-  "pages": [
-    "pages/login/login",    
-    "pages/addCgi/addCgi"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Deyci Quick Start",
-    "navigationBarTextStyle": "black"
-  }
+    "pages": [
+        "pages/login/login",
+        "pages/chat/chat"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#333",
+        "navigationBarTitleText": "七彩Wafer211",
+        "navigationBarTextStyle": "white"
+    }
 }

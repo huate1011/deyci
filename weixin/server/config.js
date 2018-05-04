@@ -3,10 +3,10 @@ const CONF = {
     rootPathname: '',
 
     // 微信小程序 App ID
-    appId: 'wx3d3ec927e188c534',
+    appId: 'wxba78164407cb6d6e',
 
     // 微信小程序 App Secret
-    appSecret: '9d273c7ae6d705babb66e20d23a88df3',
+    appSecret: '0beccf0da4f06ced3c29be81c71c958a',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,
@@ -21,25 +21,24 @@ const CONF = {
         port: 3306,
         user: 'root',
         db: 'cAuth',
-        pass: 'wx3d3ec927e188c534',
+        pass: 'wxba78164407cb6d6e',
         char: 'utf8mb4'
     },
 
     cos: {
         /**
-         * 地区简称
+         * 区域
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
         region: 'ap-guangzhou',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'wximg',
         // 文件夹
         uploadFolder: ''
     },
 
     // 微信登录态有效期
-    wxLoginExpires: 7200,
-    wxMessageToken: 'abcdefgh'
+    wxLoginExpires: 7200
 }
 
-module.exports = CONF
+module.exports = process.env.NODE_ENV === 'local' ? Object.assign({}, CONF, require('./config.local')) : CONF;

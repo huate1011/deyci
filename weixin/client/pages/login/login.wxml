@@ -182,19 +182,19 @@
 
       <!-- 上传图片测试 -->
       <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
+        <view class="uploader-text" bindtap="doUpload" data-name="idhead">
           <text>身份证正面照片 （或者户口簿户主页）</text>
         </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-          <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit"></image>
+        <view class="uploader-container" wx:if="{{idhead}}">
+          <image class="uploader-image" src="{{idhead}}" mode="aspectFit"></image>
         </view>
       </view>
       <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
+        <view class="uploader-text" bindtap="doUpload" data-name="idback">
           <text>身份证反面照片 （或者户口簿个人页）</text>
         </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-          <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit"></image>
+        <view class="uploader-container" wx:if="{{idback}}">
+          <image class="uploader-image" src="{{idback}}" mode="aspectFit"></image>
         </view>
       </view>
       <view>

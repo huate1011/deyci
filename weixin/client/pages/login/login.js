@@ -47,7 +47,8 @@ Page({
     util.showBusy('请求中...')
     var that = this
     var formData = e.detail.value
-    formData['idhead'] = this.data.imgUrl
+    formData['idhead'] = this.data.idhead
+    formData['idback'] = this.data.idback
     formData['dob'] = this.data.dob
     formData['pob'] = this.data.pob
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -85,8 +86,9 @@ Page({
   },
 
   // 上传图片接口
-  doUpload: function () {
+  doUpload: function (e) {
     var that = this
+    var e_name = e.currentTarget["dataset"].name
 
     // 选择图片
     wx.chooseImage({
@@ -105,9 +107,9 @@ Page({
             showSuccess('上传图片成功')
             res = JSON.parse(res.data)
             console.log(res)
-            that.setData({
-              imgUrl: res.data.imgUrl
-            })
+            var data = {}
+            data[e_name] = res.data.imgUrl
+            that.setData(data)
           },
 
           fail: function (e) {

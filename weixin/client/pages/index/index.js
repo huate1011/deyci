@@ -124,7 +124,7 @@ Page({
             var filePath = res.tempFilePaths[0]
 
             wx.uploadFile({
-              url: config.service.uploadUrl,
+              url: that.data.uploadUrl,
               filePath: filePath,
               name: 'file',
 

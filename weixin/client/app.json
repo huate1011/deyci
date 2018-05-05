@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/index/index",
         "pages/login/login",
         "pages/chat/chat"
     ],
@@ -8,5 +9,17 @@
         "navigationBarBackgroundColor": "#333",
         "navigationBarTitleText": "新义工电子报名",
         "navigationBarTextStyle": "white"
+    },
+    "tarBar":{
+      "list":[
+        {
+          "text":"聊天室",
+          "pagePatch":"pages/chat/chat"
+        },
+        {
+          "text": "义工注册",
+          "pagePatch": "pages/login/login"
+        }
+      ]
     }
 }

@@ -28,6 +28,49 @@ var showModel = (title, content) => {
   });
 };
 
+// validate form
+var validateForm = (formData, thisData) => {
+  if (formData['origin'].trim() === "") {
+    return '籍贯忘记填了';
+  }
+  if (formData['workplace'].trim() === "") {
+    return '工作单位忘记填了';
+  }
+  if (formData['emergencyname'].trim() === "") {
+    return '紧急联系人忘记填了';
+  }
+  if (formData['emergencyphone'].trim() === "") {
+    return '紧急联系人电话忘记填了';
+  }
+  if (formData['politics'].trim() === "") {
+    return '政治面貌忘记填了';
+  }
+  if (formData['phone'].trim() === "") {
+    return '手机号码忘记填了';
+  }
+  if (formData['address'].trim() === "") {
+    return '所在街道忘记填了';
+  }
+  if (formData['council'].trim() === "") {
+    return '街道社区忘记填了';
+  }
+  if (!/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
+    return '身份证号码不正确';
+  }
+  if (thisData.idhead === undefined) {
+    return '身份证正面照片还没上传';
+  }
+  if (thisData.idback === undefined) {
+    return '身份证背面照片还没上传';
+  }
+
+  if (formData['email'] !== "" && !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
+    return '邮箱不正确';
+  }
+  return null;
+
+}
+
 Page({
 
   /**
@@ -59,13 +102,10 @@ Page({
 
   doRegister: function (e) {
     var formData = e.detail.value
-    if (!/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
-      showModel('错误', '身份证号码不正确')
-      return false;
-    }
-    if (formData['email'] !== "" && !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
-      showModel('错误', '邮箱不正确')
-      return false;
+    var validationResult = validateForm(formData, this.data);
+    if (validationResult !== null){
+      showModel('错误', validationResult)
+      return false
     }
     // showSuccess('yes')
     // return true;

@@ -3,10 +3,10 @@ const CONF = {
     rootPathname: '',
 
     // 微信小程序 App ID
-    appId: 'wx3d3ec927e188c534',
+    appId: 'wxba78164407cb6d6e',
 
     // 微信小程序 App Secret
-    appSecret: '1ce3c2023a4667c1546c29575863c047',
+    appSecret: '0beccf0da4f06ced3c29be81c71c958a',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,
@@ -21,7 +21,7 @@ const CONF = {
         port: 3306,
         user: 'root',
         db: 'cAuth',
-        pass: 'wx3d3ec927e188c534',
+        pass: 'wxba78164407cb6d6e',
         char: 'utf8mb4'
     },
 
@@ -32,7 +32,7 @@ const CONF = {
          */
         region: 'ap-guangzhou',
         // Bucket 名称
-        fileBucket: 'chinaitman',
+        fileBucket: 'wximg',
         // 文件夹
         uploadFolder: ''
     },

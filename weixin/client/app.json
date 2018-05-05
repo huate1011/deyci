@@ -1,12 +1,12 @@
 {
     "pages": [
-        "pages/index/index",
+        "pages/login/login",
         "pages/chat/chat"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#333",
-        "navigationBarTitleText": "腾讯云小程序解决方案",
+        "navigationBarTitleText": "七彩Wafer211",
         "navigationBarTextStyle": "white"
     }
 }

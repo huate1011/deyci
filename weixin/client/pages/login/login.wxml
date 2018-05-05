@@ -3,14 +3,14 @@
 <view wx:if="{{!logged}}"> 
   <text>欢迎光临</text>
 </view>
-<view wx:else>
+<view class="root" wx:else>
   <form bindsubmit='doRegister'>
-
     <!--姓名 -->
-    <view>
+    <view class="line">
         <input type='text' name='name' placeholder="请输入您的姓名" value='{{userInfo.nickName}}' />
     </view>
-   <radio-group name="gender">
+    <view class="line">
+        <radio-group name="gender">
           <label>男:
             <radio value="Male" checked="{{userInfo.gender}}" />
           </label>
@@ -18,56 +18,55 @@
             <radio value="Female" checked="{{!userInfo.gender}}" />
           </label>
         </radio-group>
+      </view>
+      <view class="line">
         <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
-          <view>
-            <label>出生日期: {{dob}}</label>
-          </view>
-        </picker>
-
-      <view>
-        <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
-          <view>
-            <label>户籍地：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
-          </view>
+          <label>出生日期: {{dob}}</label>
         </picker>
       </view>
-      <view>
+
+      <view class="line">
+        <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
+        < label>户籍地：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+        </picker>
+      </view>
+      <view class="line">
         <label>籍贯</label>
         <input type='text' name='origin' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>民族</label>
         <input type='text' name='nation' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>毕业院校</label>
         <input type='text' name='education' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>专业</label>
         <input type='text' name='subject' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>文化程度</label>
         <input type='text' name='degree' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>工作单位</label>
         <input type='text' name='workplace' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>职务</label>
         <input type='text' name='profession' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>紧急联系人</label>
         <input type='text' name='emergencyname' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>紧急联系人电话</label>
         <input type='number' name='emergencyphone' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>政治面貌</label>
         <radio-group name="politics">
           <label>党员:
@@ -81,120 +80,176 @@
           </label>
         </radio-group>
       </view>
-      <view>
+      <view class="line">
         <label>手机号码</label>
         <input type='number' name='phone' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>邮箱地址</label>
         <input type='text' name='email' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>所在街道</label>
         <input type='text' name='address' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>街道社区</label>
         <input type='text' name='council' value='' />
       </view>
-      <view>
+      <view class="line">
         <label>身份证号</label>
         <input type='idcard' name='personalid' value='' maxlength='18'/>
       </view>
-      <view>
+      <view class="line">
         <label>特长</label>
         <checkbox-group name='skills'>
+          <view class='selections'>
           <label>文艺表演
             <checkbox value="stage performance" />
           </label>
+          </view>
+          <view class='selections'>
           <label>摄影
             <checkbox value="photography" />
           </label>
+          </view>
+          <view class='selections'>
           <label>篮球
             <checkbox value="basketball" />
           </label>
+          </view>
+          <view class='selections'>
           <label>足球
             <checkbox value="football" />
           </label>
+          </view>
+          <view class='selections'>
           <label>主持讲演
             <checkbox value="public speaking" />
           </label>
+          </view>
+          <view class='selections'>
           <label>书法
             <checkbox value="write words" />
           </label>
+          </view>
+          <view class='selections'>
           <label>跑步
             <checkbox value="running" />
           </label>
+          </view>
+          <view class='selections'>
           <label>游泳
             <checkbox value="swimming" />
           </label>
+          </view>
+          <view class='selections'>
           <label>心里咨询
             <checkbox value="psychrology" />
           </label>
+          </view>
+          <view class='selections'>
           <label>外语
             <checkbox value="foreign language" />
           </label>
-
+          </view>
+          <view class='selections'>
           <label>羽毛球
             <checkbox value="badmington" />
           </label>
+          </view>
+          <view class='selections'>
           <label>网络、软件开发
             <checkbox value="programming" />
           </label>
+          </view>
+          <view class='selections'>
           <label>乒乓球
             <checkbox value="ping pong" />
-
           </label>
-  </checkbox-group>
-        <label>其他
+          </view>
+        </checkbox-group>
+        <view class='selections'>
+        <label>其他:
           <input type='text' name='otherskills' placeholder="可填写其他特长爱好" value='' />
         </label>
+        </view>
       </view>
-      <view>
+      <view class="line">
         <label>您什么时间可以进行志愿服务（可多选）</label>
 
         <checkbox-group name="availability">
-          <label>
-            <checkbox value="Mon" />星期一</label>
-          <label>
-            <checkbox value="Tue" />星期二</label>
-          <label>
-            <checkbox value="Wed" />星期三</label>
-          <label>
-            <checkbox value="Thu" />星期四</label>
-          <label>
-            <checkbox value="Fir" />星期五</label>
-          <label>
-            <checkbox value="Sat" />星期六</label>
-          <label>
-            <checkbox value="Sun" />星期日</label>
+          <view class='selections'>
+          <label>星期一
+            <checkbox value="Mon" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期二
+            <checkbox value="Tue" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期三
+            <checkbox value="Wed" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期四
+            <checkbox value="Thu" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期五
+            <checkbox value="Fir" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期六
+            <checkbox value="Sat" />
+          </label>
+          </view>
+          <view class='selections'>
+          <label>星期日
+            <checkbox value="Sun" />
+          </label>
+          </view>
         </checkbox-group>
+        <view class='selections'>
         <label>其他
           <input type='text' name='otheravailability' placeholder="可填写其他特定日期" value='' />
         </label>
+        </view>
       </view>
 
-      <view>
+      <view class="line">
+        <view>
         <label>简历:</label>
-
         <textarea style="height:200" placeholder="格式为：时间 工作单位 职务" auto-focus name='curriculum'></textarea>
+        </view>
       </view>
 
       <!-- 上传图片测试 -->
-      <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload" data-name="idhead">
-          <text>身份证正面照片 （或者户口簿户主页）</text>
-        </view>
-        <view class="uploader-container" wx:if="{{idhead}}">
-          <image class="uploader-image" src="{{idhead}}" mode="aspectFit"></image>
+      <view class="line">
+        <text>身份证正面照片 （或者户口簿户主页）</text>
+        <view class="line-control">
+          <view bindtap="doUpload" data-name="idhead" class="item">
+              <view class="item-inner">上传图片</view>
+          </view>
+          <view class="uploader-container" wx:if="{{idhead}}">
+            <image class="uploader-image" src="{{idhead}}" mode="aspectFit"></image>
+          </view>
         </view>
       </view>
-      <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload" data-name="idback">
-          <text>身份证反面照片 （或者户口簿个人页）</text>
-        </view>
-        <view class="uploader-container" wx:if="{{idback}}">
-          <image class="uploader-image" src="{{idback}}" mode="aspectFit"></image>
+      <view class="line">
+        <text>身份证反面照片 （或者户口簿个人页）</text>
+        <view class="line-control">
+          <view bindtap="doUpload" data-name="idback" class="item">
+              <view class="item-inner">上传图片</view>
+          </view>
+          <view class="uploader-container" wx:if="{{idback}}">
+            <image class="uploader-image" src="{{idback}}" mode="aspectFit"></image>
+          </view>
         </view>
       </view>
       <view>

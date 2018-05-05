@@ -56,6 +56,7 @@ Page({
     //showSuccess('yes')
     //return true;
     util.showBusy('请求中...')
+    debugger;
     var that = this
     formData['idhead'] = this.data.idhead
     formData['idback'] = this.data.idback

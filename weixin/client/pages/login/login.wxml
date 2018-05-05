@@ -5,7 +5,7 @@
 </view>
 <view class="root" wx:elif="{{!agreed}}"> 
   <view class="line-control">
-    <label>Terms and conditions</label>
+    <label>同意并准守义工服务协议</label>
   </view>
   <view class="line">
     <button bindtap="agree" size='mini'>同意</button>

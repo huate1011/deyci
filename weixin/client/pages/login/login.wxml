@@ -99,7 +99,7 @@
       </view>
       <view>
         <label>身份证号</label>
-        <input type='idcard' name='personalid' value='' />
+        <input type='idcard' name='personalid' value='' maxlength='18'/>
       </view>
       <view>
         <label>特长</label>

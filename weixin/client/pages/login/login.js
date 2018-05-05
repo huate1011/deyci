@@ -44,9 +44,19 @@ Page({
   },
 
   doRegister: function (e) {
+    var formData = e.detail.value
+    if (!/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
+      showModel('错误', '身份证号码不正确')
+      return false;
+    }
+    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
+      showModel('错误', '邮箱不正确')
+      return false;
+    }
+    //showSuccess('yes')
+    //return true;
     util.showBusy('请求中...')
     var that = this
-    var formData = e.detail.value
     formData['idhead'] = this.data.idhead
     formData['idback'] = this.data.idback
     formData['dob'] = this.data.dob
@@ -67,9 +77,7 @@ Page({
         })
       },
       fail(error) {
-        showModel('注册失败', error)
-        util.showModel('请求失败', error);
-        
+        showModel('注册失败', error)        
         console.log('request fail', error);
       },
       complete(res) {

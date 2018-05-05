@@ -19,12 +19,13 @@ module.exports = async ctx => {
   
   try{
     const res = await mysql(memberTable).insert(member)
+    ctx.body = "success"
   } catch (err) {
     msg = 'Error: ' + JSON.stringify(err)
     console.log(msg)
     ctx.body = msg
   }
-  ctx.body = "success"
+  
   
   // search
   // const data = await mysql(memberTable).where({ 'phone': member['phone'] }).first()

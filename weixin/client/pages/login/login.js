@@ -36,11 +36,26 @@ Page({
   data: {
     userInfo: {},
     logged: false,
+    agreed: false,
     takeSession: false,
     requestResult: '',
     dob: '1982-01-01',
     pob: ['广东省', '深圳市', '南山区'],
     customItem: '其他'
+  },
+
+  agree: function (e) {
+    var that = this
+    debugger;
+    that.setData({
+      agreed: true
+    })
+  },
+
+  decline: function (e) {
+    wx.navigateBack({
+      delta: -1
+    })
   },
 
   doRegister: function (e) {

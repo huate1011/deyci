@@ -1,7 +1,16 @@
 <!--pages/login/login.wxml-->
 
 <view wx:if="{{!logged}}"> 
-  <text>欢迎光临</text>
+  <text>欢迎注册公益联合</text>
+</view>
+<view class="root" wx:elif="{{!agreed}}"> 
+  <view class="line-control">
+    <label>Terms and conditions</label>
+  </view>
+  <view class="line">
+    <button bindtap="agree" size='mini'>同意</button>
+    <button bindtap="decline" size='mini' style='margin-left:100rpx'>拒绝</button>
+  </view>
 </view>
 <view class="root" wx:else>
   <form bindsubmit='doRegister'>

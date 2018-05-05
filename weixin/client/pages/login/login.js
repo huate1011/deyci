@@ -137,12 +137,7 @@ Page({
       fail(error) {
         showModel('注册失败', error)        
         console.log('request fail', error);
-      },
-      complete(res) {
-        showModel('注册结束', res)
-        console.log('request complete', res); 
       }
-      
     }
     if (this.data.takeSession) {  // 使用 qcloud.request 带登录态登录
       qcloud.request(options)

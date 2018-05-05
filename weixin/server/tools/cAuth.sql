@@ -58,6 +58,7 @@ CREATE TABLE `MemberInfo` (
   `address` varchar(500) COLLATE utf8mb4_unicode_ci,
   `council` varchar(100) COLLATE utf8mb4_unicode_ci,
   `personalid` varchar(100) COLLATE utf8mb4_unicode_ci UNIQUE,
+  `personality` varchar(200) COLLATE utf8mb4_unicode_ci,
   `skills` varchar(100) COLLATE utf8mb4_unicode_ci,
   `otherskills` varchar(200) COLLATE utf8mb4_unicode_ci,
   `availability` varchar(100) COLLATE utf8mb4_unicode_ci,
@@ -65,6 +66,7 @@ CREATE TABLE `MemberInfo` (
   `curriculum` varchar(2048) COLLATE utf8mb4_unicode_ci,
   `idhead` varchar(500) COLLATE utf8mb4_unicode_ci,
   `idback` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `others` varchar(2048) COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息';
 

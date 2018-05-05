@@ -213,8 +213,40 @@
         </view>
       </view>
       <view class="line">
+        <label>性格特征：</label>
+        <view>   
+          <radio-group name="personalityone">
+            <label>理智型:
+              <radio value="intelligent"/>
+            </label>
+            <label>情绪型:
+              <radio value="emotional" />
+            </label>
+          </radio-group>
+        </view>
+        <view>   
+          <radio-group name="personalitytwo">
+            <label>内向型:
+              <radio value="shy"/>
+            </label>
+            <label>外向型:
+              <radio value="open" />
+            </label>
+          </radio-group>
+        </view>
+        <view>   
+          <radio-group name="personalitythree">
+            <label>独立型:
+              <radio value="independent"/>
+            </label>
+            <label>顺从型:
+              <radio value="dependent" />
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="line">
         <label>您什么时间可以进行志愿服务（可多选）</label>
-
         <checkbox-group name="availability">
           <view class='selections'>
           <label>星期一

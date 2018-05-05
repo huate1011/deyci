@@ -75,6 +75,10 @@ Page({
     formData['idback'] = this.data.idback
     formData['dob'] = this.data.dob
     formData['pob'] = this.data.pob
+    formData['personality'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
+    delete formData['personalityone']
+    delete formData['personalitytwo']
+    delete formData['personalitythree']
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var options = {
       url: config.service.registerUrl,

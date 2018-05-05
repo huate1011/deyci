@@ -5,6 +5,14 @@
   left: 0;
   right: 0;
 }
+
+.tnc {
+  background: #efeff4;
+  position: absolute;
+  top:400rpx;
+  left: 200rpx;
+}
+
 .root {
     background: #efeff4;
     position: absolute;

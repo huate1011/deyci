@@ -2,10 +2,10 @@
 <view class="banner">
   <image style="width: 750rpx; height: 300rpx;" src="https://chinaitman-1256487243.cos.ap-guangzhou.myqcloud.com/1525428510177-BJU7W2tpG.png" mode="scaleToFill"></image>
 </view>
-<view wx:if="{{!logged}}"> 
+<view  wx:if="{{!logged}}"> 
   <text>欢迎注册公益联合</text>
 </view>
-<view class="root" wx:elif="{{!agreed}}"> 
+<view class="tnc" wx:elif="{{!agreed}}"> 
   <view class="line-control">
     <label>同意并准守义工服务协议</label>
   </view>

@@ -20,7 +20,7 @@
         "pagePath": "pages/login/login",
         "iconPath": "i/calendar.png",
         "selectedIconPath": "i/calendar_active.png",
-        "text": "注册上课"
+        "text": "课前报名"
       },{
         "pagePath": "pages/chat/chat",
         "iconPath": "i/team.png",

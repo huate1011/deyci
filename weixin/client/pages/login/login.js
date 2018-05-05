@@ -46,7 +46,6 @@ Page({
 
   agree: function (e) {
     var that = this
-    debugger;
     that.setData({
       agreed: true
     })

@@ -1,211 +1,206 @@
 <!--pages/login/login.wxml-->
+
 <view wx:if="{{!logged}}"> 
-  <text>欢迎登录，德新创公益</text>
+  <text>欢迎光临</text>
 </view>
 <view wx:else>
   <form bindsubmit='doRegister'>
+
+    <!--姓名 -->
     <view>
-      <text>Name:</text>
-      <input type='text' name='name' value='{{userInfo.nickName}}'/>
+        <input type='text' name='name' placeholder="请输入您的姓名" value='{{userInfo.nickName}}' />
     </view>
-    <view>
-      <text>Gender:</text>
-      <radio-group name="gender">
-        <label>Male:
-          <radio value="Male" checked="{{userInfo.gender}}"/>
-        </label>
-        <label>Female:
-          <radio value="Female" checked="{{!userInfo.gender}}"/>
-        </label>
-      </radio-group>
-    </view>
-    <view>
-      <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
+   <radio-group name="gender">
+          <label>男:
+            <radio value="Male" checked="{{userInfo.gender}}" />
+          </label>
+          <label>女:
+            <radio value="Female" checked="{{!userInfo.gender}}" />
+          </label>
+        </radio-group>
+        <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
+          <view>
+            <label>出生日期: {{dob}}</label>
+          </view>
+        </picker>
+
       <view>
-        <label>Date Of Birth: {{dob}}</label>
+        <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
+          <view>
+            <label>户籍地：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+          </view>
+        </picker>
       </view>
-      </picker>
-    </view>
-    <view>
-      <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
       <view>
-        <label>Place Of Birth：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+        <label>籍贯</label>
+        <input type='text' name='origin' value='' />
       </view>
-      </picker>
-    </view>
-    <view>
-      <label>Origin</label>
-      <input type='text' name='origin' value=''/>
-    </view>
-    <view>
-      <label>Nation</label>
-      <input type='text' name='nation' value=''/>
-    </view>
-    <view>
-      <label>Graduate College/University</label>
-      <input type='text' name='education' value=''/>
-    </view>
-    <view>
-      <label>Graduate Subject</label>
-      <input type='text' name='subject' value=''/>
-    </view>
-    <view>
-      <label>Highest Level of Education</label>
-      <input type='text' name='degree' value=''/>
-    </view>
-    <view>
-      <label>Workplace</label>
-      <input type='text' name='workplace' value=''/>
-    </view>
-    <view>
-      <label>Profession</label>
-      <input type='text' name='profession' value=''/>
-    </view>
-    <view>
-      <label>Emergency Contact Name</label>
-      <input type='text' name='emergencyname' value=''/>
-    </view>
-    <view>
-      <label>Emergency Phone</label>
-      <input type='number' name='emergencyphone' value=''/>
-    </view>
-    <view>
-      <label>Political Background</label>
-      <radio-group name="politics">
-        <label>Dang:
-          <radio value="dang"/>
-        </label>
-        <label>Tuan:
-          <radio value="tuan"/>
-        </label>
-        <label>Public
-          <radio value='public'/>
-        </label>
-      </radio-group>
-    </view>
-    <view>
-      <label>Phone</label>
-      <input type='number' name='phone' value=''/>
-    </view>
-    <view>
-      <label>Email</label>
-      <input type='text' name='email' value=''/>
-    </view>
-    <view>
-      <label>Address</label>
-      <input type='text' name='address' value=''/>
-    </view>
-    <view>
-      <label>County Council</label>
-      <input type='text' name='council' value=''/>
-    </view>    
-    <view>
-      <label>Personal ID</label>
-      <input type='idcard' name='personalid' value=''/>
-    </view>
-    <view>
-      <label>Skills</label>
-      <checkbox-group name='skills'>
-        <label>stage performance:
-          <checkbox value="stage performance"/>
-        </label>
-        <label>photography
-          <checkbox value="photography"/>
-        </label>
-        <label>basketball
-          <checkbox value="basketball"/>
-        </label>
-        <label>football
-          <checkbox value="football"/>
-        </label>
-        <label>badmington
-          <checkbox value="badmington"/>
-        </label>
-        <label>ping pong
-          <checkbox value="ping pong"/>
-        </label>
-        <label>Write words
-          <checkbox value="write words"/>
-        </label>
-        <label>running
-          <checkbox value="running"/>
-        </label>
-        <label>swimming
-          <checkbox value="swimming"/>
-        </label>
-        <label>public speaking
-          <checkbox value="public speaking"/>
-        </label>
-        <label>programming
-          <checkbox value="programming"/>
-        </label>
-        <label>psychrology
-          <checkbox value="psychrology"/>
-        </label>
-        <label>beauty design
-          <checkbox value="beauty design"/>
-        </label>
-        <label>foreign language
-          <checkbox value="foreign language"/>
-        </label>
-      </checkbox-group>
-      <label>others
-          <input type='text' name='otherskills' value=''/>
-        </label>
-    </view>
-    <view>
-      <label>Availability</label> 
-        <checkbox-group name='availability'>
-          <label>Mon
-            <checkbox value="Monday"/>
+      <view>
+        <label>民族</label>
+        <input type='text' name='nation' value='' />
+      </view>
+      <view>
+        <label>毕业院校</label>
+        <input type='text' name='education' value='' />
+      </view>
+      <view>
+        <label>专业</label>
+        <input type='text' name='subject' value='' />
+      </view>
+      <view>
+        <label>文化程度</label>
+        <input type='text' name='degree' value='' />
+      </view>
+      <view>
+        <label>工作单位</label>
+        <input type='text' name='workplace' value='' />
+      </view>
+      <view>
+        <label>职务</label>
+        <input type='text' name='profession' value='' />
+      </view>
+      <view>
+        <label>紧急联系人</label>
+        <input type='text' name='emergencyname' value='' />
+      </view>
+      <view>
+        <label>紧急联系人电话</label>
+        <input type='number' name='emergencyphone' value='' />
+      </view>
+      <view>
+        <label>政治面貌</label>
+        <radio-group name="politics">
+          <label>党员:
+            <radio value="dang" />
           </label>
-          <label>Tue
-            <checkbox value="Tue"/>
+          <label>团员:
+            <radio value="tuan" />
           </label>
-          <label>Wed
-            <checkbox value="Wednesday"/>
+          <label>群众：
+            <radio value='public' />
           </label>
-          <label>Thu
-            <checkbox value="Thursday"/>
+        </radio-group>
+      </view>
+      <view>
+        <label>手机号码</label>
+        <input type='number' name='phone' value='' />
+      </view>
+      <view>
+        <label>邮箱地址</label>
+        <input type='text' name='email' value='' />
+      </view>
+      <view>
+        <label>所在街道</label>
+        <input type='text' name='address' value='' />
+      </view>
+      <view>
+        <label>街道社区</label>
+        <input type='text' name='council' value='' />
+      </view>
+      <view>
+        <label>身份证号</label>
+        <input type='idcard' name='personalid' value='' />
+      </view>
+      <view>
+        <label>特长</label>
+        <checkbox-group name='skills'>
+          <label>文艺表演
+            <checkbox value="stage performance" />
           </label>
-          <label>Fri
-            <checkbox value="Friday"/>
+          <label>摄影
+            <checkbox value="photography" />
           </label>
-          <label>Sat
-            <checkbox value="Saturday"/>
+          <label>篮球
+            <checkbox value="basketball" />
           </label>
-          <label>Sun
-            <checkbox value="Sunday"/>
+          <label>足球
+            <checkbox value="football" />
           </label>
+          <label>主持讲演
+            <checkbox value="public speaking" />
+          </label>
+          <label>书法
+            <checkbox value="write words" />
+          </label>
+          <label>跑步
+            <checkbox value="running" />
+          </label>
+          <label>游泳
+            <checkbox value="swimming" />
+          </label>
+          <label>心里咨询
+            <checkbox value="psychrology" />
+          </label>
+          <label>外语
+            <checkbox value="foreign language" />
+          </label>
+
+          <label>羽毛球
+            <checkbox value="badmington" />
+          </label>
+          <label>网络、软件开发
+            <checkbox value="programming" />
+          </label>
+          <label>乒乓球
+            <checkbox value="ping pong" />
+
+          </label>
+  </checkbox-group>
+        <label>其他
+          <input type='text' name='otherskills' placeholder="可填写其他特长爱好" value='' />
+        </label>
+      </view>
+      <view>
+        <label>您什么时间可以进行志愿服务（可多选）</label>
+
+        <checkbox-group name="availability">
+          <label>
+            <checkbox value="Mon" />星期一</label>
+          <label>
+            <checkbox value="Tue" />星期二</label>
+          <label>
+            <checkbox value="Wed" />星期三</label>
+          <label>
+            <checkbox value="Thu" />星期四</label>
+          <label>
+            <checkbox value="Fir" />星期五</label>
+          <label>
+            <checkbox value="Sat" />星期六</label>
+          <label>
+            <checkbox value="Sun" />星期日</label>
         </checkbox-group>
-        <label>others
-          <input type='text' name='otheravailability' value=''/>
-        </label>           
-    </view>
-    
-    <view>
-      <label>Curriculum:</label>
-      
-      <textarea style="height:300" placeholder="时间 工作单位 职务" auto-focus name='curriculum'></textarea>
-    </view>
-    
-    <!-- 上传图片测试 -->
-    <view class="uploader">
+        <label>其他
+          <input type='text' name='otheravailability' placeholder="可填写其他特定日期" value='' />
+        </label>
+      </view>
+
+      <view>
+        <label>简历:</label>
+
+        <textarea style="height:200" placeholder="格式为：时间 工作单位 职务" auto-focus name='curriculum'></textarea>
+      </view>
+
+      <!-- 上传图片测试 -->
+      <view class="uploader">
         <view class="uploader-text" bindtap="doUpload">
-            <text>身份证正面照片 （或者户口簿户主页）</text>
+          <text>身份证正面照片 （或者户口簿户主页）</text>
         </view>
         <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image
-                class="uploader-image"
-                src="{{imgUrl}}"
-                mode="aspectFit"
-            ></image>            
+          <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit"></image>
         </view>
-    </view>
+      </view>
+      <view class="uploader">
+        <view class="uploader-text" bindtap="doUpload">
+          <text>身份证反面照片 （或者户口簿个人页）</text>
+        </view>
+        <view class="uploader-container" wx:if="{{imgUrl}}">
+          <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit"></image>
+        </view>
+      </view>
+      <view>
+        <button formType="submit">Submit</button>
+      </view>
 
-    <view>
-      <button formType="submit">Submit</button>
-    </view>
   </form>
 </view>
 

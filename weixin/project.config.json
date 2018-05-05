@@ -25,16 +25,16 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "login",
 					"pathName": "pages/login/login",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "chat",
 					"pathName": "pages/chat/chat",
 					"query": ""

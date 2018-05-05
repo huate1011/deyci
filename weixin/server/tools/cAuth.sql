@@ -54,7 +54,7 @@ CREATE TABLE `MemberInfo` (
   `emergencyname` varchar(100) COLLATE utf8mb4_unicode_ci,
   `emergencyphone` varchar(100) COLLATE utf8mb4_unicode_ci,
   `politics` varchar(100) COLLATE utf8mb4_unicode_ci,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci UNIQUE,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci,
   `address` varchar(500) COLLATE utf8mb4_unicode_ci,
   `council` varchar(100) COLLATE utf8mb4_unicode_ci,
   `personalid` varchar(100) COLLATE utf8mb4_unicode_ci UNIQUE,

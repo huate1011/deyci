@@ -49,14 +49,13 @@ Page({
       showModel('错误', '身份证号码不正确')
       return false;
     }
-    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
+    if (formData['email'] !== "" && !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
       showModel('错误', '邮箱不正确')
       return false;
     }
-    //showSuccess('yes')
-    //return true;
+    // showSuccess('yes')
+    // return true;
     util.showBusy('请求中...')
-    debugger;
     var that = this
     formData['idhead'] = this.data.idhead
     formData['idback'] = this.data.idback

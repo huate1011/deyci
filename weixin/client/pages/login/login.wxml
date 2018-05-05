@@ -21,53 +21,71 @@
       </view>
       <view class="line">
         <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
-          <label>出生日期*: {{dob}}</label>
+          <label>出生日期<text style="color:red; margin-left:0" >*</text>: {{dob}}</label>
         </picker>
       </view>
 
       <view class="line">
         <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
-        < label>户籍地*：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+        <label>户籍地<text style="color:red; margin-left:0" >*</text>：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
         </picker>
       </view>
       <view class="line">
-        <label>籍贯*</label>
-        <input type='text' name='origin' value='' />
+        <label>籍贯<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='text' name='origin' value='' class="item"/>
+        </view>
       </view>
       <view class="line">
         <label>民族</label>
-        <input type='text' name='nation' value='' />
+        <view class="line-control">
+        <input type='text' name='nation' value='' class="item"/>
+        </view>
       </view>
       <view class="line">
         <label>毕业院校</label>
-        <input type='text' name='education' value='' />
+        <view class="line-control">
+        <input type='text' class="item" name='education' value='' />
+        </view>
       </view>
       <view class="line">
         <label>专业</label>
-        <input type='text' name='subject' value='' />
+        <view class="line-control">
+        <input type='text' name='subject' value='' class="item" />
+        </view>
       </view>
       <view class="line">
         <label>文化程度</label>
-        <input type='text' name='degree' value='' />
+        <view class="line-control">
+        <input type='text' name='degree' value='' class="item"/>
+        </view>
       </view>
       <view class="line">
-        <label>工作单位*</label>
-        <input type='text' name='workplace' value='' />
+        <label>工作单位<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='text' name='workplace' value='' class="item"/>
+        </view>
       </view>
       <view class="line">
         <label>职务</label>
-        <input type='text' name='profession' value='' />
+        <view class="line-control">
+        <input type='text' name='profession' value='' class="item"/>
+        </view>
       </view>
       <view class="line">
-        <label>紧急联系人*</label>
-        <input type='text' name='emergencyname' value='' />
+        <label>紧急联系人<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='text' name='emergencyname' class="item" value='' />
+        </view>
       </view>
       <view class="line">
-        <label>紧急联系人电话*</label>
-        <input type='number' name='emergencyphone' value='' />
+        <label>紧急联系人电话<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='number' name='emergencyphone' class="item" value='' />
+        </view>
       </view>
       <view class="line">
-        <label>政治面貌*</label>
+        <label>政治面貌<text style="color:red; margin-left:0" >*</text></label>
         <radio-group name="politics">
           <label>党员:
             <radio value="dang" />
@@ -81,24 +99,34 @@
         </radio-group>
       </view>
       <view class="line">
-        <label>手机号码*</label>
-        <input type='number' name='phone' value='' />
+        <label>手机号码<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='number' name='phone' class="item" value='' />
+        </view>
       </view>
       <view class="line">
         <label>邮箱地址</label>
-        <input type='text' name='email' value='' />
+        <view class="line-control">
+        <input type='text' name='email' class="item" value='' />
+        </view>
       </view>
       <view class="line">
-        <label>所在街道*</label>
-        <input type='text' name='address' value='' />
+        <label>所在街道<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='text' class="item" name='address' value='' />
+        </view>
       </view>
       <view class="line">
-        <label>街道社区*</label>
-        <input type='text' name='council' value='' />
+        <label>街道社区<text style="color:red; margin-left:0" >*</text></label>
+        <view class="line-control">
+        <input type='text' class="item" name='council' value='' />
+        </view>
       </view>
-      <view class="line">
-        <label>身份证号*</label>
-        <input type='idcard' name='personalid' value='' maxlength='18'/>
+      <view class="line">        
+          <label>身份证号<text style="color:red; margin-left:0" >*</text></label>   
+          <view class="line-control">   
+            <input type='idcard' class="item" name='personalid' value='' maxlength='18'/>
+          </view>
       </view>
       <view class="line">
         <label>特长</label>
@@ -169,9 +197,9 @@
           </label>
           </view>
         </checkbox-group>
-        <view class='selections'>
+        <view class='line-control'>
         <label>其他:
-          <input type='text' name='otherskills' placeholder="可填写其他特长爱好" value='' />
+          <input type='text' class="item" name='otherskills' placeholder="可填写其他特长爱好" value='' />
         </label>
         </view>
       </view>
@@ -215,23 +243,23 @@
           </label>
           </view>
         </checkbox-group>
-        <view class='selections'>
+        <view class='line-control'>
         <label>其他
-          <input type='text' name='otheravailability' placeholder="可填写其他特定日期" value='' />
+          <input type='text' class="item" name='otheravailability' placeholder="可填写其他特定日期" value='' />
         </label>
         </view>
       </view>
 
       <view class="line">
-        <view>
         <label>简历:</label>
-        <textarea style="height:200" placeholder="格式为：时间 工作单位 职务" auto-focus name='curriculum'></textarea>
+        <view class="line-control">
+        <textarea class="item" style="height:200" placeholder="格式为：时间 工作单位 职务" auto-focus name='curriculum'></textarea>
         </view>
       </view>
 
       <!-- 上传图片测试 -->
       <view class="line">
-        <text>身份证正面照片* (或者户口簿户主页）</text>
+        <label>身份证正面照片<text style="color:red; margin-left:0" >*</text> (或者户口簿户主页）</label>
         <view class="line-control">
           <view bindtap="doUpload" data-name="idhead" class="item">
               <view class="item-inner">上传图片</view>
@@ -242,7 +270,7 @@
         </view>
       </view>
       <view class="line">
-        <text>身份证反面照片* (或者户口簿个人页）</text>
+        <label>身份证反面照片<text style="color:red; margin-left:0" >*</text> (或者户口簿个人页）</label>
         <view class="line-control">
           <view bindtap="doUpload" data-name="idback" class="item">
               <view class="item-inner">上传图片</view>

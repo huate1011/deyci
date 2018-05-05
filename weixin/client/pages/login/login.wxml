@@ -326,7 +326,7 @@
         </view>
       </view>
       <view>
-        <button formType="submit">Submit</button>
+        <button formType="submit">提交表单</button>
       </view>
 
   </form>

@@ -1,5 +1,7 @@
 <!--pages/login/login.wxml-->
-
+<view class="banner">
+  <image style="width: 750rpx; height: 300rpx;" src="https://chinaitman-1256487243.cos.ap-guangzhou.myqcloud.com/1525428510177-BJU7W2tpG.png" mode="widthFix"></image>
+</view>
 <view wx:if="{{!logged}}"> 
   <text>欢迎注册公益联合</text>
 </view>
@@ -18,7 +20,7 @@
     <view class="line">
     <view>您的姓名：
     </view>
-        <input type='text' name='name' value='{{userInfo.nickName}}' />
+        <input type='text' name='name' value='{{userInfo.nickName}}' focus='true'/>
     </view>
     <view class="line">
         <radio-group name="gender">

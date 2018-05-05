@@ -3,6 +3,7 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
 
+
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
   title: text,
@@ -37,8 +38,8 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    dob: '2000-09-01',
-    pob: ['广东省', '广州市', '海珠区'],
+    dob: '1982-01-01',
+    pob: ['广东省', '深圳市', '南山区'],
     customItem: '其他'
   },
 

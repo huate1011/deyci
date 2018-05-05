@@ -6,8 +6,8 @@
 	"setting": {
 		"newFeature": true
 	},
-	"appid": "wxba78164407cb6d6e",
-	"projectname": "wafer11",
+	"appid": "wx3d3ec927e188c534",
+	"projectname": "deyci",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,8 +25,15 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				}
+			]
 		}
 	}
 }

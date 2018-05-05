@@ -1,13 +1,12 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/chat/chat",
-        "pages/login/login"
+        "pages/login/login",
+        "pages/chat/chat"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#333",
-        "navigationBarTitleText": "志愿者报名",
+        "navigationBarTitleText": "七彩Wafer211",
         "navigationBarTextStyle": "white"
     }
 }

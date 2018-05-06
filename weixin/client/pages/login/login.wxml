@@ -20,7 +20,7 @@
     <view class="line">
     <view>您的姓名：
     </view>
-        <input type='text' name='name' value='{{userInfo.nickName}}' focus='true'/>
+        <input type='text' name='name' value='{{userInfo.nickName}}'/>
     </view>
     <view class="line">
         <radio-group name="gender">
@@ -298,7 +298,7 @@
       <view class="line">
         <label>简历:</label>
         <view class="line-control">
-        <textarea class="item" style="height:200" placeholder="格式为：时间 工作单位 职务" auto-focus name='curriculum'></textarea>
+        <textarea class="item" style="height:200" placeholder="格式为：时间 工作单位 职务" name='curriculum'></textarea>
         </view>
       </view>
 

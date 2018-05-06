@@ -82,8 +82,8 @@ Page({
     agreed: false,
     takeSession: false,
     requestResult: '',
-    dob: '1982-01-01',
-    pob: ['广东省', '深圳市', '南山区'],
+    dob: '__年__月__日',
+    pob: ['', '', ''],
     customItem: '其他'
   },
 
@@ -158,7 +158,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: function (res) {
         var filePath = res.tempFilePaths[0]
-
+        showBusy('上传图片中...')
         wx.uploadFile({
           url: config.service.uploadUrl,
           filePath: filePath,
@@ -174,12 +174,14 @@ Page({
           },
 
           fail: function (e) {
+            showModel('上传图片失败', e)
             console.error(e)
           }
         })
 
       },
       fail: function (e) {
+        showModel('图片选择失败', e)
         console.error(e)
       }
     })

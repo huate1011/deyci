@@ -1,51 +1,53 @@
-.banner {
-  position: absolute;
-  height: 300rpx;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.tnc {
-  background: #efeff4;
-  position: absolute;
-  top:400rpx;
-  left: 200rpx;
+page {
+background: #F6F6F6;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+font-family: "微软雅黑";
 }
 
 .root {
-    background: #efeff4;
-    position: absolute;
-    top:300rpx;
-    left: 0;
-    right: 0;
-}
-.line {
-    padding-top: 30rpx;
-}
-.line text {
-    color: #6D6D72;
-    font-size: 28rpx;
-    margin-left: 40rpx;
-}
-.line-control {
-    border-bottom: #d9d9d9 1px solid;
-    border-top: #d9d9d9 1px solid;
-    background-color: #fff;
-    margin-top: 10rpx;
-}
-.line-control .item {
-    box-sizing: border-box;
-    text-align: left;
-    color: #007AFF;
-    font-size: 32rpx;
-    padding-left: 40rpx;
-    position: relative;
+background: #efeff4;
+position: absolute;
+top:300rpx;
+left: 0rpx;
+right: 0;
 }
 
-.line-control .item-inner {
-    border-bottom: #d9d9d9 1px solid;
-    height: 90rpx;
-    line-height: 90rpx;
-    font-size: 40rpx;
+.banner {
+position: absolute;
+height: 310rpx;
+top: 0rpx;
+left: 2rpx;
+right: 2rpx;
+}
+
+.tnc {
+background: #efeff4;
+position: absolute;
+top:550rpx;
+left: 180rpx;
+}
+
+.line {
+padding-top: 17rpx;
+}
+
+.line text {
+color: #6D6D72;
+font-size: 28rpx;
+margin-left: 40rpx;
+}
+
+.line-control {
+border-bottom: #d9d9d9 5px solid;
+border-top: #d9d9d9 5px solid;
+background-color: #fff;
+margin-top: 10rpx;
+}
+
+.item-inner{
+color: #6D6D72;
+font-size: 33rpx;
+margin-left: 40rpx;
 }

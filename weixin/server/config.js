@@ -32,7 +32,7 @@ const CONF = {
          */
         region: 'ap-guangzhou',
         // Bucket 名称
-        fileBucket: 'chinaitman',
+        fileBucket: 'wximg',
         // 文件夹
         uploadFolder: ''
     },

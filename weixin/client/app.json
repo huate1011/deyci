@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/login/login",  
-    "pages/chat/chat"
+    "pages/login/login",
+    "pages/chat/chat",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#333",
-    "navigationBarTitleText": "新义工电子报名",
+    "navigationBarTitleText": "公益联合",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -21,11 +21,13 @@
         "iconPath": "i/calendar.png",
         "selectedIconPath": "i/calendar_active.png",
         "text": "课前报名"
-      },{
+      },
+      {
         "pagePath": "pages/chat/chat",
         "iconPath": "i/team.png",
         "selectedIconPath": "i/team_active.png",
         "text": "聊天室"
       }
     ]
-  }}
+  }
+}

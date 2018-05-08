@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://98qyslge.qcloud.la'
+var host = 'https://98qyslge.qcloud.la';
 
 var config = {
 
@@ -11,7 +11,7 @@ var config = {
     service: {
         host,
 
-        // 测试的信道服务地址
+        // 测试的信道服务地址 （David add on）
         registerUrl: `${host}/weapp/register`,
 
         // 登录地址，用于建立会话

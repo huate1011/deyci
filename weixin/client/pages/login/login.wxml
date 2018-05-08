@@ -1,7 +1,10 @@
 <!--pages/login/login.wxml-->
-<view class="banner">
-  <image style="width: 752rpx; height: 356rpx;" src="../../i/9.jpeg" mode="aspectFit"></image>
+<view class="container">
+    <button type="primary" bindtap="uploadToCos"> 一键上传 </button>
 </view>
+<!-- <view class="banner">
+  <image style="width: 752rpx; height: 356rpx;" src="../../i/9.jpeg" mode="aspectFit"></image>
+</view> -->
 <view wx:if="{{!logged}}">
   <text>欢迎注册公益联合</text>
 </view>

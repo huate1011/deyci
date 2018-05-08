@@ -52,7 +52,6 @@ var upload = (signUrl, filePath, fileName) => {
     url: signUrl,
     success: function (cosRes) {
       // 头部带上签名，上传文件至COS
-      debugger;
       wx.uploadFile({
         url: "https://" + "ap-guangzhou" + ".file.myqcloud.com/files/v2/" + "1256326463" + "/" + "chinaitman" + "/ID" + '/' + fileName,
         filePath: filePath,

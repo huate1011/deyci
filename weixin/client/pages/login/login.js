@@ -87,24 +87,6 @@ Page({
     customItem: '其他'
   },
 
-  //上传按钮事件处理函数
-  uploadToCos: function () {
-    // 选择上传的图片
-    wx.chooseImage({
-      success: function (res) {
-        // 获取文件路径
-        var filePath = res.tempFilePaths[0];
-
-        // 获取文件名
-        var fileName = "test"
-        
-
-        // 文件上传cos，参考上面的核心代码
-        util.upload(config.service.signUrl, filePath, fileName)
-      }
-    })
-  },
-
   agree: function (e) {
     var that = this
     that.setData({
@@ -120,11 +102,11 @@ Page({
 
   doRegister: function (e) {
     var formData = e.detail.value
-    // var validationResult = validateForm(formData, this.data);
-    // if (validationResult !== null){
-    //   showModel('错误', validationResult)
-    //   return false
-    // }
+    var validationResult = validateForm(formData, this.data);
+    if (validationResult !== null){
+      showModel('错误', validationResult)
+      return false
+    }
     // showSuccess('yes')
     // return true;
     util.showBusy('请求中...')
@@ -145,15 +127,14 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      success: function(result) {
-        if (result.statusCode > 210) {
-          showModel('注册失败', result.data.error) 
-        } else {
-          showSuccess('注册成功')
-        }        
-        console.log('request success', result)        
+      success(result) {        
+        showSuccess('注册成功')
+        console.log('request success', result)
+        that.setData({
+          requestResult: JSON.stringify(result.data)
+        })
       },
-      fail: function(error) {
+      fail(error) {
         showModel('注册失败', error)        
         console.log('request fail', error);
       }

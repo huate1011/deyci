@@ -19,24 +19,11 @@ module.exports = async ctx => {
   
   try{
     const res = await mysql(memberTable).insert(member)
-    ctx.response.status = 200
-    ctx.response.body = "注册成功"
+    ctx.body = "success"
   } catch (err) {
     msg = 'Error: ' + JSON.stringify(err)
     console.log(msg)
-    ctx.status = 400
-    ctx.type = 'application/json'
-    ctx.body = ''
-    if (err['code'] == 'ER_DUP_ENTRY') {
-      if (err['sqlMessage'].indexOf('phone') > -1) {
-        ctx.body = {error:"电话号码已被使用"}
-      } else if (err['sqlMessage'].indexOf('personalid') > -1) {
-        ctx.body = {error: "身份证号已被使用"}
-      }
-    }
-    if (ctx.body == '') {
-      ctx.body = {error: err['sqlMessage']}
-    }  
+    ctx.body = msg
   }
   
   

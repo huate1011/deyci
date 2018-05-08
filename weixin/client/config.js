@@ -14,9 +14,6 @@ var config = {
         // 测试的信道服务地址
         registerUrl: `${host}/weapp/register`,
 
-        // 签名
-        signUrl: `${host}/weapp/demo`,
-
         // 登录地址，用于建立会话
         loginUrl: `${host}/weapp/login`,
 

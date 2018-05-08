@@ -49,7 +49,7 @@ Page({
      * 页面渲染完成后，启动聊天室
      * */
     onReady() {
-        wx.setNavigationBarTitle({ title: '南山新义工聊天室' });
+        wx.setNavigationBarTitle({ title: '新义工聊天室' });
 
         if (!this.pageReady) {
             this.pageReady = true;

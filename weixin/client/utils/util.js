@@ -39,40 +39,4 @@ var showModel = (title, content) => {
     })
 }
 
-
-
-/**
- * 上传方法
- * filePath: 上传的文件路径
- * fileName： 上传到cos后的文件名
- */
-var upload = (signUrl, filePath, fileName) => {  
-  // 鉴权获取签名
-  wx.request({
-    url: signUrl,
-    success: function (cosRes) {
-      // 头部带上签名，上传文件至COS
-      wx.uploadFile({
-        url: "https://" + "ap-guangzhou" + ".file.myqcloud.com/files/v2/" + "1256326463" + "/" + "chinaitman" + "/ID" + '/' + fileName,
-        filePath: filePath,
-        header: { 'Authorization': cosRes.data.data.msg, 'Host': "ap-guangzhou.file.myqcloud.com"},
-        name: 'filecontent',
-        formData: { op: 'upload' },
-        success: function (uploadRes) { //do something 
-          console.log(uploadRes)
-        },
-        complete: function (res) {
-          console.log("upload:" + res)
-        }
-      })
-    }, 
-    fail: function(e) {
-      console.log(e)
-    },
-    complete: function(res) {
-      console.log(res)
-    }
-  })
-}
-
-module.exports = { formatTime, showBusy, showSuccess, showModel, upload }
+module.exports = { formatTime, showBusy, showSuccess, showModel }

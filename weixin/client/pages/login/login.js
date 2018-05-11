@@ -187,6 +187,13 @@ Page({
       }
     })
   },
+  clearPic: function (e) {//删除图片
+    var that = this
+    var e_name = e.currentTarget["dataset"].name
+    var data = {}
+    data[e_name] = ""
+    that.setData(data)
+  },
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({

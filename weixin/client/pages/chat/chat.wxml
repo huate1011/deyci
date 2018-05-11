@@ -15,7 +15,7 @@
     </scroll-view>
     <view class="input-panel">
         <button class="pic-icon"></button>
-        <input type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
+        <input type="text" value="{{inputContent}}" bindinput="changeInputContent"  class="send-input"></input>
         <button bindtap="sendMessage" class="send-btn">发送</button>
     </view>
 </view>

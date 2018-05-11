@@ -332,27 +332,43 @@
       </view>
 
       <!-- 上传图片测试 -->
+      
       <view class="line">
         <label>身份证正面照片
-          <text style="color:red; margin-left:0">*</text> (或者户口簿户主页）</label>
-        <view class="line-control">
-          <view bindtap="doUpload" data-name="idhead" class="item">
-            <view class="item-inner">点击上传图片</view>
+          <text style="color:red; margin-left:0">*</text> (或者户口簿户主页）
+        </label>
+        <view class='line-control'>          
+          <view class="add_pic" bindtap="doUpload" data-name="idhead" wx-if="{{!idhead}}">
+            <image class="pic_background" src="../../i/picadd.png"></image>
+            <view>点击上传图片</view>
           </view>
-          <view class="uploader-container" wx:if="{{idhead}}">
-            <image class="uploader-image" src="{{idhead}}" mode="aspectFit"></image>
+          <view wx:if="{{idhead}}" class="image_box">
+            <view class='picPre'>              
+              <image src="{{idhead}}" mode="aspectFit"></image>
+              <view bindtap="clearPic" data-name="idhead">
+                <image style="height:30rpx" src="../../i/cross.png"></image>
+              </view>
+            </view>
           </view>
         </view>
       </view>
       <view class="line">
         <label>身份证反面照片
-          <text style="color:red; margin-left:0">*</text> (或者户口簿个人页）</label>
-        <view class="line-control">
-          <view bindtap="doUpload" data-name="idback" class="item">
-            <view class="item-inner">点击上传图片</view>
+          <text style="color:red; margin-left:0">*</text> (或者户口簿户个人页）
+        </label>
+        <view class='line-control'>
+        
+          <view class="add_pic" bindtap="doUpload" data-name="idback" wx-if="{{!idback}}">
+            <image class="pic_background" src="../../i/picadd.png"></image>
+            <view>点击上传图片</view>
           </view>
-          <view class="uploader-container" wx:if="{{idback}}">
-            <image class="uploader-image" src="{{idback}}" mode="aspectFit"></image>
+          <view wx:if="{{idback}}" class="image_box">
+            <view class="picPre">
+              <image src="{{idback}}" mode="aspectFit"></image>
+              <view bindtap="clearPic" data-name="idback">
+                <image style="height:30rpx" src="../../i/cross.png"></image>
+              </view>
+            </view>
           </view>
         </view>
       </view>

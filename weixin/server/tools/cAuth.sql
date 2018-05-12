@@ -67,11 +67,15 @@ CREATE TABLE `MemberInfo` (
   `idhead` varchar(500) COLLATE utf8mb4_unicode_ci,
   `idback` varchar(500) COLLATE utf8mb4_unicode_ci,
   `others` varchar(2048) COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`ID`)
+  `open_id` varchar(100) COLLATE utf8mb4_unicode_ci,  
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (`open_id`) REFERENCES `cSessionInfo`(`open_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息';
 
 CREATE INDEX idx_name on `MemberInfo` (`name`);
 CREATE INDEX idx_phone on `MemberInfo` (`phone`);
 CREATE INDEX idx_personalid on `MemberInfo` (`personalid`);
+CREATE INDEX idx_idhead on `MemberInfo` (`idhead`);
+CREATE INDEX idx_idback on `MemberInfo` (`idback`);
 
 SET FOREIGN_KEY_CHECKS = 1;

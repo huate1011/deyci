@@ -14,6 +14,8 @@ var config = {
         // 测试的信道服务地址
         registerUrl: `${host}/weapp/register`,
 
+        sqlqueryUrl: `${host}/weapp/sqlquery`,
+
         // 签名
         signUrl: `${host}/weapp/demo`,
 

@@ -111,8 +111,10 @@ Page({
     // return true;
     util.showBusy('请求中...')
     var that = this
+    var wxResult = this.data.wxResult
     formData['idhead'] = this.data.idhead
     formData['idback'] = this.data.idback
+    formData['open_id'] = this.data.wxResult.open_id
     formData['dob'] = this.data.dob
     formData['pob'] = this.data.pob
     formData['personality'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
@@ -131,7 +133,9 @@ Page({
         if (result.statusCode > 210) {
           showModel('注册失败', result.data.error) 
         } else {
-          showSuccess('注册成功')
+          wx.redirectTo({
+            url: '/pages/chat/chat?' + util.encodeWXResult(wxResult.userInfo, wxResult.authentication_code, wxResult.encryptedData, wxResult.iv, wxResult.open_id)
+          })
         }        
         console.log('request success', result)        
       },
@@ -212,48 +216,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 用户登录示例 
-      this.setData({logged: true})         
-      if (this.data.logged) return
-
-      util.showBusy('正在登录')
+    console.log(options)
+    if (options.userInfo) {
       var that = this
-
-      // 调用登录接口
-      qcloud.login({
-        success(result) {
-          if (result) {
-            util.showSuccess('登录成功')
-            that.setData({
-              userInfo: result,
-              logged: true
-            })
-          } else {
-            // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-            qcloud.request({
-              url: config.service.requestUrl,
-              login: true,
-              success(result) {
-                util.showSuccess('登录成功')
-                that.setData({
-                  userInfo: result.data.data,
-                  logged: true
-                })
-              },
-
-              fail(error) {
-                util.showModel('请求失败', error)
-                console.log('request fail', error)
-              }
-            })
-          }
-        },
-
-        fail(error) {
-          util.showModel('登录失败', error)
-          console.log('登录失败', error)
-        }
-      })    
+      that.setData({
+        userInfo:JSON.parse(options.userInfo), 
+        wxResult: util.decodeWXResult(options),
+        logged:true
+        })
+    }
   },
 
   /**

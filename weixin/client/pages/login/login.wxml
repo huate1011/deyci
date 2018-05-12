@@ -1,5 +1,5 @@
 <view class="banner">
-  <image style="width: 752rpx; height: 356rpx;" src="../../i/9.jpeg" mode="aspectFit"></image>
+  <image style="width: 752rpx; height: 356rpx;" src="../../images/9.jpeg" mode="aspectFit"></image>
 </view>
 <view wx:if="{{!logged}}">
   <text>欢迎注册公益联合</text>
@@ -339,14 +339,14 @@
         </label>
         <view class='line-control'>          
           <view class="add_pic" bindtap="doUpload" data-name="idhead" wx-if="{{!idhead}}">
-            <image class="pic_background" src="../../i/picadd.png"></image>
+            <image class="pic_background" src="../../images/picadd.png"></image>
             <view>点击上传图片</view>
           </view>
           <view wx:if="{{idhead}}" class="image_box">
             <view class='picPre'>              
               <image src="{{idhead}}" mode="aspectFit"></image>
               <view bindtap="clearPic" data-name="idhead">
-                <image style="height:30rpx" src="../../i/cross.png"></image>
+                <image style="height:30rpx" src="../../images/cross.png"></image>
               </view>
             </view>
           </view>
@@ -359,14 +359,14 @@
         <view class='line-control'>
         
           <view class="add_pic" bindtap="doUpload" data-name="idback" wx-if="{{!idback}}">
-            <image class="pic_background" src="../../i/picadd.png"></image>
+            <image class="pic_background" src="../../images/picadd.png"></image>
             <view>点击上传图片</view>
           </view>
           <view wx:if="{{idback}}" class="image_box">
             <view class="picPre">
               <image src="{{idback}}" mode="aspectFit"></image>
               <view bindtap="clearPic" data-name="idback">
-                <image style="height:30rpx" src="../../i/cross.png"></image>
+                <image style="height:30rpx" src="../../images/cross.png"></image>
               </view>
             </view>
           </view>

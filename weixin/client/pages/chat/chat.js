@@ -9,6 +9,8 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index');
 // 引入配置
 var config = require('../../config');
 
+var util = require('../../utils/util.js')
+
 /**
  * 生成一条聊天室的消息的唯一 ID
  */
@@ -43,6 +45,17 @@ Page({
         messages: [],
         inputContent: '大家好啊',
         lastMessageId: 'none',
+    },
+
+    /**
+   * 生命周期函数--监听页面加载
+   */
+    onLoad: function (options) {
+      console.log(options)
+      if (options.userInfo) {
+        var that = this
+        that.setData({ wxResult: util.decodeWXResult(options)})
+      }
     },
 
     /**
@@ -87,14 +100,15 @@ Page({
         this.pushMessage(createSystemMessage('正在登录...'));
 
         // 如果登录过，会记录当前用户在 this.me 上
-        if (!this.me) {
+        if (!this.data.wxResult) {
             qcloud.request({
                 url: config.service.requestUrl,
                 login: true,
+                wxresult: this.data.wxResult,
                 success: (response) => {
                     this.me = response.data.data;
                     this.connect();
-                }
+                },
             });
         } else {
             this.connect();
@@ -130,7 +144,7 @@ Page({
         // 有人说话，创建一条消息
         tunnel.on('speak', speak => {
             const { word, who } = speak;
-            this.pushMessage(createUserMessage(word, who, who.openId === this.me.openId));
+            this.pushMessage(createUserMessage(word, who, who.openId === this.data.wxResult.open_id));
         });
 
         // 信道关闭后，显示退出群聊

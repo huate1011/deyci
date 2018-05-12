@@ -21,7 +21,7 @@ var LoginError = (function () {
 
 /**
  * 微信登录，获取 code 和 encryptData
- */
+ * Deprecated
 var getWxLoginResult = function getLoginCode(callback) {
     wx.login({
         success: function (loginResult) {
@@ -50,6 +50,7 @@ var getWxLoginResult = function getLoginCode(callback) {
         },
     });
 };
+ */
 
 var noop = function noop() {};
 var defaultOptions = {
@@ -69,7 +70,7 @@ var defaultOptions = {
  * @param {Function} options.success(userInfo) 登录成功后的回调函数，参数 userInfo 微信用户信息
  * @param {Function} options.fail(error) 登录失败后的回调函数，参数 error 错误信息
  */
-var login = function login(options) {
+var login = function login(options, wxLoginResult) {
     options = utils.extend({}, defaultOptions, options);
 
     if (!defaultOptions.loginUrl) {
@@ -77,11 +78,7 @@ var login = function login(options) {
         return;
     }
 
-    var doLogin = () => getWxLoginResult(function (wxLoginError, wxLoginResult) {
-        if (wxLoginError) {
-            options.fail(wxLoginError);
-            return;
-        }
+    var doLogin = () => {
         
         var userInfo = wxLoginResult.userInfo;
 
@@ -129,7 +126,7 @@ var login = function login(options) {
                 options.fail(error);
             },
         });
-    });
+    };
 
     doLogin();
 };

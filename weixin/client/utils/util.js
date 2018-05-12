@@ -39,4 +39,19 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+var encodeWXResult = (userInfo, ac, ed, iv, oi) => {
+  return 'userInfo=' + JSON.stringify(userInfo) + '&code=' + ac + '&encryptedData=' + ed + '&iv=' + iv + '&open_id=' + oi
+}
+
+var decodeWXResult = (options) => {
+  var wxResult = {
+    userInfo: JSON.parse(options.userInfo),
+    code: options.code,
+    encryptedData: options.encryptedData,
+    iv: options.iv,
+    open_id: options.open_id
+  }
+  return wxResult;
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, encodeWXResult, decodeWXResult}

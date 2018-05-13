@@ -107,8 +107,7 @@ Page({
       showModel('错误', validationResult)
       return false
     }
-    // showSuccess('yes')
-    // return true;
+
     util.showBusy('请求中...')
     var that = this
     var open_id = this.data.open_id
@@ -218,16 +217,15 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    // 调用登录接口
-    util.showBusy('等待微信授权')
+    var that = this
+    // 调用登录接口    
     qcloud.request({
       url: config.service.requestUrl,
       login: true,
       success(result) {
         that.setData({
           open_id: result.data.data.openId,          
-        })
-        util.showSuccess('成功授权')        
+        })               
       },
 
       fail(error) {

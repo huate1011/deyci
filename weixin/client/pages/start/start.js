@@ -9,7 +9,6 @@ Page({
   data: {
     authentication_code: "",
     logged: false,    
-    userInfo: {},
     remind: '加载中',
     angle: 0,
     year: 2018,
@@ -26,6 +25,7 @@ Page({
     } catch (e) {
       util.showModel('储存信息失败', e)
     }
+    
     // If there is already a valid open id, then the user has been registered
     // and will go to chat directly
     try {
@@ -34,6 +34,7 @@ Page({
         wx.redirectTo({
           url: '/pages/chat/chat'          
         })
+        return
       }
     } catch (e) {
       util.showModel('查找openid失败', e)
@@ -54,11 +55,10 @@ Page({
   onShow: function (options) {
     // 用户登录示例 
     if (this.data.logged || this.data.authentication_code) return    
-    util.showBusy('正在登录')
     var that = this    
     wx.login({
       success: function (loginResult) {
-        util.showSuccess('成功登录')
+        console.log(loginResult.code)
         that.setData({ authentication_code: loginResult.code})
       },
       fail: function (loginError) {

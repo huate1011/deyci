@@ -97,14 +97,27 @@ Page({
 
         // 如果登录过，会记录当前用户在 this.me 上
         if (!this.me) {
-            qcloud.request({
+          var that = this
+          wx.login({
+            success: function (loginResult) {
+              console.log(loginResult.code)
+              wx.setStorageSync("code", loginResult.code)              
+              qcloud.request({
                 url: config.service.requestUrl,
                 login: true,
                 success: (response) => {
-                    this.me = response.data.data;
-                    this.connect();
+                  that.setData({
+                    me: response.data.data                    
+                  })                  
+                  that.connect();
                 },
-            });
+              });
+            },
+            fail: function (loginError) {
+              that.pushMessage(createSystemMessage('微信登录失败，请检查网络状态'));      
+            },
+          });
+            
         } else {
             this.connect();
         }
@@ -139,7 +152,7 @@ Page({
         // 有人说话，创建一条消息
         tunnel.on('speak', speak => {
             const { word, who } = speak;
-            this.pushMessage(createUserMessage(word, who, who.openId === this.me.openId));
+            this.pushMessage(createUserMessage(word, who, who.openId === this.data.me.openId));
         });
 
         // 信道关闭后，显示退出群聊

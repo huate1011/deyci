@@ -21,26 +21,34 @@ var LoginError = (function () {
 
 /**
  * 微信登录，获取 code 和 encryptData
- * Deprecated
+ **/
 var getWxLoginResult = function getLoginCode(callback) {
     wx.login({
         success: function (loginResult) {
-            wx.getUserInfo({
-                success: function (userResult) {
-                    callback(null, {
-                        code: loginResult.code,
-                        encryptedData: userResult.encryptedData,
-                        iv: userResult.iv,
-                        userInfo: userResult.userInfo,
-                    });
-                },
+          var error = null
+          var userInfo = wx.getStorageSync('userInfo');
+          if (!userInfo) {            
+            callback(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'), null);
+            return
+          }
 
-                fail: function (userError) {
-                    var error = new LoginError(constants.ERR_WX_GET_USER_INFO, '获取微信用户信息失败，请检查网络状态');
-                    error.detail = userError;
-                    callback(error, null);
-                },
-            });
+          var encryptedData = wx.getStorageSync('encryptedData');
+          if (!encryptedData) {            
+            callback(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'), null);
+            return
+          }
+          var iv = wx.getStorageSync('iv');
+          if (!iv) {
+            callback(new LoginError(constants.ERR_INVALID_PARAMS, 'iv'), null);
+            return;
+          }
+
+          callback(null, {
+            code: loginResult.code,
+            encryptedData: encryptedData,
+            iv: iv,
+            userInfo: userInfo,
+          });                                
         },
 
         fail: function (loginError) {
@@ -50,7 +58,7 @@ var getWxLoginResult = function getLoginCode(callback) {
         },
     });
 };
- */
+
 
 var noop = function noop() {};
 var defaultOptions = {
@@ -78,27 +86,27 @@ var login = function login(options) {
         return;
     }
 
-    var doLogin = () => {
-        
+    var doLogin = () => {      
         var userInfo = wx.getStorageSync('userInfo');
         if (!userInfo) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'));
-          return;
+          return
         }
-        // 构造请求头，包含 code、encryptedData 和 iv
-        var code = wx.getStorageSync('code');
-        if (!code) {
-          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少code信息'));
-          return;
-        }
+
         var encryptedData = wx.getStorageSync('encryptedData');
         if (!encryptedData) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'));
-          return;
+          return
         }
         var iv = wx.getStorageSync('iv');
         if (!iv) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少iv信息'));
+          return;
+        }
+
+        var code = wx.getStorageSync('code');
+        if (!code) {
+          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少code信息'));
           return;
         }
         var header = {};

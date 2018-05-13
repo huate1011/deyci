@@ -73,7 +73,7 @@ function request(options) {
     // 实际进行请求的方法
     function doRequest() {
         var authHeader = buildAuthHeader(Session.get());
-
+        try{
         wx.request(utils.extend({}, options, {
             header: utils.extend({}, originHeader, authHeader),
 
@@ -100,9 +100,16 @@ function request(options) {
                 }
             },
 
-            fail: callFail,
-            complete: noop
+            fail: function(e) {
+              console.log(e)
+            },
+            complete: function (e) {
+              console.log(e)
+            }
         }));
+        }catch(e) {
+          console.log(e)
+        }
     };
 
 };

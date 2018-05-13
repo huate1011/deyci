@@ -16,60 +16,32 @@ Page({
     userInfo: {}
   },
   
-  goToIndex:function(e){ 
-    // wx.redirectTo({
-    //   url: '/pages/chat/chat?' + util.encodeWXResult(e.detail.userInfo, this.data.authentication_code, e.detail.encryptedData, e.detail.iv, "asdfasf")
-    // })
-    // return   
+  goToIndex:function(e){   
     var that = this
-    var wxResult = {
-      userInfo: e.detail.userInfo,
-      code: this.data.authentication_code,
-      encryptedData: e.detail.encryptedData,
-      iv: e.detail.iv
+    try {
+      wx.setStorageSync('userInfo', e.detail.userInfo)
+      wx.setStorageSync('code', this.data.authentication_code)
+      wx.setStorageSync('encryptedData', e.detail.encryptedData)
+      wx.setStorageSync('iv', e.detail.iv)
+    } catch (e) {
+      util.showModel('储存信息失败', e)
     }
-    // 调用登录接口
-    util.showBusy('等待微信授权')
-    qcloud.request({
-      url: config.service.requestUrl,
-      login: true,
-      wxresult: wxResult,
-      success(result) {
-        that.setData({
-          userInfo: e.detail.userInfo,
-          logged: true
+    // If there is already a valid open id, then the user has been registered
+    // and will go to chat directly
+    try {
+      var value = wx.getStorageSync('open_id')
+      if (value) {
+        wx.redirectTo({
+          url: '/pages/chat/chat'          
         })
-        var open_id = result.data.data.openId
-        wx.request({
-          url: config.service.sqlqueryUrl,
-          data: {open_id: open_id},
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            console.log(res.data)
-            var result = res.data.result
-            if (result == 'Registered') {
-              wx.redirectTo({
-                url: '/pages/chat/chat?' + util.encodeWXResult(wxResult.userInfo, wxResult.code, wxResult.encryptedData, wxResult.iv, open_id)
-              })
-            } else {
-              wx.redirectTo({
-                url: '/pages/login/login?' + util.encodeWXResult(wxResult.userInfo, wxResult.code, wxResult.encryptedData, wxResult.iv, open_id)
-              })
-            }            
-          },
-          fail: function (res) {
-            console.log(res.data)
-          }
-        });        
-      },
-
-      fail(error) {
-        util.showModel('请求失败', error)
-        console.log('request fail', error)
       }
-    }) 
+    } catch (e) {
+      util.showModel('查找openid失败', e)
+    }
+    // Otherwise, this user needs to be registered
+    wx.redirectTo({
+      url: '/pages/login/login'
+    })    
   },
 
 
@@ -86,6 +58,7 @@ Page({
     var that = this    
     wx.login({
       success: function (loginResult) {
+        util.showSuccess('成功登录')
         that.setData({ authentication_code: loginResult.code})
       },
       fail: function (loginError) {

@@ -111,10 +111,10 @@ Page({
     // return true;
     util.showBusy('请求中...')
     var that = this
-    var wxResult = this.data.wxResult
+    var open_id = this.data.open_id
     formData['idhead'] = this.data.idhead
     formData['idback'] = this.data.idback
-    formData['open_id'] = this.data.wxResult.open_id
+    formData['open_id'] = open_id    
     formData['dob'] = this.data.dob
     formData['pob'] = this.data.pob
     formData['personality'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
@@ -133,8 +133,9 @@ Page({
         if (result.statusCode > 210) {
           showModel('注册失败', result.data.error) 
         } else {
+          wx.setStorageSync('open_id', open_id)
           wx.redirectTo({
-            url: '/pages/chat/chat?' + util.encodeWXResult(wxResult.userInfo, wxResult.authentication_code, wxResult.encryptedData, wxResult.iv, wxResult.open_id)
+            url: '/pages/chat/chat'
           })
         }        
         console.log('request success', result)        
@@ -217,14 +218,29 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    if (options.userInfo) {
-      var that = this
-      that.setData({
-        userInfo:JSON.parse(options.userInfo), 
-        wxResult: util.decodeWXResult(options),
-        logged:true
+    // 调用登录接口
+    util.showBusy('等待微信授权')
+    qcloud.request({
+      url: config.service.requestUrl,
+      login: true,
+      success(result) {
+        that.setData({
+          open_id: result.data.data.openId,          
         })
-    }
+        util.showSuccess('成功授权')        
+      },
+
+      fail(error) {
+        util.showModel('请求失败', error)
+        console.log('request fail', error)
+      }
+    }) 
+    // Set rendering data for this page
+    var that = this
+    that.setData({
+      userInfo: wx.getStorageSync('userInfo'),
+      logged: true
+    })
   },
 
   /**

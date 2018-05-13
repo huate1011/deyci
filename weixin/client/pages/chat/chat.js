@@ -51,11 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
     onLoad: function (options) {
-      console.log(options)
-      if (options.userInfo) {
-        var that = this
-        that.setData({ wxResult: util.decodeWXResult(options)})
-      }
+      console.log(options)      
     },
 
     /**
@@ -100,11 +96,10 @@ Page({
         this.pushMessage(createSystemMessage('正在登录...'));
 
         // 如果登录过，会记录当前用户在 this.me 上
-        if (!this.data.wxResult) {
+        if (!this.me) {
             qcloud.request({
                 url: config.service.requestUrl,
                 login: true,
-                wxresult: this.data.wxResult,
                 success: (response) => {
                     this.me = response.data.data;
                     this.connect();
@@ -144,7 +139,7 @@ Page({
         // 有人说话，创建一条消息
         tunnel.on('speak', speak => {
             const { word, who } = speak;
-            this.pushMessage(createUserMessage(word, who, who.openId === this.data.wxResult.open_id));
+            this.pushMessage(createUserMessage(word, who, who.openId === this.me.openId));
         });
 
         // 信道关闭后，显示退出群聊

@@ -70,7 +70,7 @@ var defaultOptions = {
  * @param {Function} options.success(userInfo) 登录成功后的回调函数，参数 userInfo 微信用户信息
  * @param {Function} options.fail(error) 登录失败后的回调函数，参数 error 错误信息
  */
-var login = function login(options, wxLoginResult) {
+var login = function login(options) {
     options = utils.extend({}, defaultOptions, options);
 
     if (!defaultOptions.loginUrl) {
@@ -80,12 +80,27 @@ var login = function login(options, wxLoginResult) {
 
     var doLogin = () => {
         
-        var userInfo = wxLoginResult.userInfo;
-
+        var userInfo = wx.getStorageSync('userInfo');
+        if (!userInfo) {
+          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'));
+          return;
+        }
         // 构造请求头，包含 code、encryptedData 和 iv
-        var code = wxLoginResult.code;
-        var encryptedData = wxLoginResult.encryptedData;
-        var iv = wxLoginResult.iv;
+        var code = wx.getStorageSync('code');
+        if (!code) {
+          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少code信息'));
+          return;
+        }
+        var encryptedData = wx.getStorageSync('encryptedData');
+        if (!encryptedData) {
+          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'));
+          return;
+        }
+        var iv = wx.getStorageSync('iv');
+        if (!iv) {
+          options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少iv信息'));
+          return;
+        }
         var header = {};
 
         header[constants.WX_HEADER_CODE] = code;

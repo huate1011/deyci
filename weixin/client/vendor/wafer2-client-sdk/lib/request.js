@@ -43,8 +43,6 @@ function request(options) {
     var fail = options.fail || noop;
     var complete = options.complete || noop;
     var originHeader = options.header || {};
-    var wxResult = options.wxresult || {};
-    delete options.wxresult;
 
     // 成功回调
     var callSuccess = function () {
@@ -62,14 +60,14 @@ function request(options) {
     var hasRetried = false;
 
     if (requireLogin) {
-        doRequestWithLogin(wxResult);
+        doRequestWithLogin();
     } else {
         doRequest();
     }
 
     // 登录后再请求
-    function doRequestWithLogin(wxResult) {
-        loginLib.login({ success: doRequest, fail: callFail }, wxResult);
+    function doRequestWithLogin() {
+        loginLib.login({ success: doRequest, fail: callFail });
     }
 
     // 实际进行请求的方法

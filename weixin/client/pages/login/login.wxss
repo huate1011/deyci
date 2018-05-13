@@ -1,25 +1,26 @@
-page {
-background: #F6F6F6;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-font-family: "微软雅黑";
-}
-
 .root {
 background: #efeff4;
 position: absolute;
-top:300rpx;
+top:240rpx;
 left: 0rpx;
 right: 0;
+border-left: #efeff4 10px solid;
+border-right: #efeff4 10px solid;
 }
 
 .banner {
+background: #efeff4;
 position: absolute;
-height: 310rpx;
-top: 0rpx;
-left: 2rpx;
-right: 2rpx;
+height: 240rpx;
+justify-content: center;
+top: 0;
+left: 0;
+right: 0;
+}
+.banner image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
 }
 
 .tnc {
@@ -111,4 +112,14 @@ margin-left: 40rpx;
   width: 160rpx;
   height: 160rpx;
   position:absolute;
+}
+
+.selections label{
+  margin-left:20rpx;
+}
+.skills-category{
+  margin-left:40%;  
+}
+.skills-category label{
+  background: greenyellow;
 }

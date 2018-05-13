@@ -82,8 +82,8 @@ Page({
     agreed: false,
     takeSession: false,
     requestResult: '',
-    dob: '__年__月__日',
-    pob: ['', '', ''],
+    dob: '',
+    pob: '',
     customItem: '其他'
   },
 

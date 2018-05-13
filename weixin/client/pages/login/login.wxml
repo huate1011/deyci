@@ -1,5 +1,5 @@
 <view class="banner">
-  <image style="width: 752rpx; height: 356rpx;" src="../../images/9.jpeg" mode="aspectFit"></image>
+  <image src="../../images/9.jpeg" mode="widthFix"></image>
 </view>
 <view wx:if="{{!logged}}">
   <text>欢迎注册公益联合</text>
@@ -44,7 +44,11 @@
     <view class="line">
       <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
         <label>出生日期
-          <text style="color:red; margin-left:0">*</text>: {{dob}}</label>
+          <text style="color:red; margin-left:0">*</text>:
+        </label>
+        <label style="background:white">
+           {{dob? dob : '__年__月__日'}}
+          </label>
       </picker>
     </view>
     <view class="line">
@@ -87,7 +91,10 @@
     <view class="line">
       <picker mode="region" bindchange="bindRegionChange" value="{{pob}}" custom-item="{{customItem}}">
         <label>户籍地
-          <text style="color:red; margin-left:0">*</text>：{{pob[0]}} {{pob[1]}} {{pob[2]}}</label>
+          <text style="color:red; margin-left:0">*</text>：
+        </label>
+        <label style="background:white">{{pob? pob[0] + ' ' + pob[1] + ' ' + pob[2] : '__省__市__区' }}</label>
+        
       </picker>
     </view>
     <view class="line">
@@ -167,76 +174,107 @@
           </label>
         </radio-group>
       </view>
-
-
-
       <view class="line">
-        <label>特长</label>
+        <label>兴趣爱好:</label>
         <checkbox-group name='skills'>
-          <view class='selections'>
-            <label>文艺表演
-              <checkbox value="stage performance" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>摄影
-              <checkbox value="photography" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>篮球
-              <checkbox value="basketball" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>足球
-              <checkbox value="football" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>主持讲演
-              <checkbox value="public speaking" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>书法
-              <checkbox value="write words" />
-            </label>
-          </view>
-          <view class='selections'>
-            <label>跑步
-              <checkbox value="running" />
-            </label>
-          </view>
+          <view class='skills-category'><label>运动类</label></view>
           <view class='selections'>
             <label>游泳
               <checkbox value="swimming" />
             </label>
-          </view>
-          <view class='selections'>
-            <label>心里咨询
-              <checkbox value="psychrology" />
+            <label>骑行
+              <checkbox value="cycling" />
             </label>
-          </view>
-          <view class='selections'>
-            <label>外语
-              <checkbox value="foreign language" />
+            <label>跑步
+              <checkbox value="running" />
             </label>
-          </view>
-          <view class='selections'>
+            <label>徒步
+              <checkbox value="hiking" />
+            </label>
+            <label>篮球
+              <checkbox value="basketball" />
+            </label>
+            <label>足球
+              <checkbox value="football" />
+            </label>
+            <label>网球
+              <checkbox value="tennis" />
+            </label>
             <label>羽毛球
               <checkbox value="badmington" />
-            </label>
+            </label>            
           </view>
-          <view class='selections'>
-            <label>网络、软件开发
-              <checkbox value="programming" />
+
+          <view class='skills-category'><label>专长类</label></view>
+          <view class='selections'>            
+            <label>摄影
+              <checkbox value="photography" />
             </label>
+            <label>书法
+              <checkbox value="artwording" />
+            </label>
+            <label>软件
+              <checkbox value="software" />
+            </label>
+            <label>网络
+              <checkbox value="network" />
+            </label>            
+            <label>美容, 化妆
+              <checkbox value="baber" />
+            </label>
+            <label>主持, 讲演
+              <checkbox value="publicspeaking" />
+            </label>
+            <label>外语
+              <checkbox value="multilingual" />
+            </label>            
+            <label>乐器
+              <checkbox value="instrument" />
+            </label>
+            <label>舞蹈
+              <checkbox value="dancing" />
+            </label>
+            <label>音乐
+              <checkbox value="music" />
+            </label>
+            <label>唱歌
+              <checkbox value="singing" />
+            </label>
+            <label>文艺表演
+              <checkbox value="show" />
+            </label>
+            <label>心里咨询
+              <checkbox value="psychrology" />
+            </label>            
           </view>
+          
+          <view class='skills-category'><label>生活类</label></view>
           <view class='selections'>
-            <label>乒乓球
-              <checkbox value="ping pong" />
+            <label>美食
+              <checkbox value="food" />
             </label>
+            <label>烹饪
+              <checkbox value="cooking" />
+            </label>
+            <label>插花
+              <checkbox value="flowering" />
+            </label>
+            <label>手工
+              <checkbox value="diy" />
+            </label>           
+          </view>
+
+          <view class='skills-category'><label>爱好类</label></view>
+          <view class='selections'>
+            <label>阅读
+              <checkbox value="reading" />
+            </label>
+            <label>写作
+              <checkbox value="writing" />
+            </label>
+            <label>辩论
+              <checkbox value="discussing" />
+            </label>            
           </view>
         </checkbox-group>
         <view class='line-control'>
@@ -247,7 +285,7 @@
       </view>
       <view class="line">
         <label>性格特征：</label>
-        <view>
+        <view class="selections">
           <radio-group name="personalityone">
             <label>理智型:
               <radio value="intelligent" />
@@ -257,7 +295,7 @@
             </label>
           </radio-group>
         </view>
-        <view>
+        <view class='selections'>
           <radio-group name="personalitytwo">
             <label>内向型:
               <radio value="shy" />
@@ -267,7 +305,7 @@
             </label>
           </radio-group>
         </view>
-        <view>
+        <view class="selections">
           <radio-group name="personalitythree">
             <label>独立型:
               <radio value="independent" />
@@ -285,32 +323,24 @@
             <label>星期一
               <checkbox value="Mon" />
             </label>
-          </view>
-          <view class='selections'>
             <label>星期二
               <checkbox value="Tue" />
             </label>
-          </view>
-          <view class='selections'>
             <label>星期三
               <checkbox value="Wed" />
             </label>
-          </view>
+          </view>         
           <view class='selections'>
             <label>星期四
               <checkbox value="Thu" />
             </label>
-          </view>
-          <view class='selections'>
             <label>星期五
               <checkbox value="Fir" />
             </label>
-          </view>
-          <view class='selections'>
             <label>星期六
               <checkbox value="Sat" />
             </label>
-          </view>
+          </view>          
           <view class='selections'>
             <label>星期日
               <checkbox value="Sun" />

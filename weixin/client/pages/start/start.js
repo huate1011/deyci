@@ -30,19 +30,39 @@ Page({
     // and will go to chat directly
     try {
       var value = wx.getStorageSync('open_id')
-      if (value) {
+      if (value) {        
+        wx.request({
+          url: config.service.sqlqueryUrl,
+          data: { open_id: value },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data)
+            var result = res.data.result
+            if (result == 'Registered') {
+              wx.redirectTo({
+                url: '/pages/chat/chat'
+              })
+              return
+            } else {
+              wx.removeStorageSync('open_id')
+              // Otherwise, this user needs to be registered
+              wx.redirectTo({
+                url: '/pages/login/login'
+              })
+            }
+          }
+        })        
+      } else {
+        // Otherwise, this user needs to be registered
         wx.redirectTo({
-          url: '/pages/chat/chat'          
+          url: '/pages/login/login'
         })
-        return
       }
     } catch (e) {
       util.showModel('查找openid失败', e)
-    }
-    // Otherwise, this user needs to be registered
-    wx.redirectTo({
-      url: '/pages/login/login'
-    })    
+    }        
   },
 
 
@@ -57,8 +77,7 @@ Page({
     if (this.data.logged || this.data.authentication_code) return    
     var that = this    
     wx.login({
-      success: function (loginResult) {
-        console.log(loginResult.code)
+      success: function (loginResult) {        
         that.setData({ authentication_code: loginResult.code})
       },
       fail: function (loginError) {

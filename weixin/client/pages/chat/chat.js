@@ -100,17 +100,24 @@ Page({
           var that = this
           wx.login({
             success: function (loginResult) {
-              console.log(loginResult.code)
+              console.log("chat room request code: " + loginResult.code)
               wx.setStorageSync("code", loginResult.code)              
               qcloud.request({
                 url: config.service.requestUrl,
                 login: true,
                 success: (response) => {
+                  console.log("success: chat room qcloud request: " + loginResult.code)
                   that.setData({
                     me: response.data.data                    
                   })                  
-                  that.connect();
                 },
+                fail: (response) => {
+                  console.log("fail: chat room qcloud request: " + response)
+                },
+                complete:(response) => {
+                  console.log("complete: chat room qcloud request: " + response.data)
+                  that.connect();
+                }
               });
             },
             fail: function (loginError) {
@@ -128,7 +135,10 @@ Page({
      */
     connect() {
         // 避免重复创建信道
-        if (this.tunnel && this.tunnel.isActive()) return;
+        if (this.tunnel && this.tunnel.isActive()) {
+          console.log("Tunnel still active")
+          return;
+        }
 
         this.amendMessage(createSystemMessage('正在加入群聊...'));
 

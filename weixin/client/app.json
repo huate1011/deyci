@@ -6,8 +6,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#333",
+    "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "新义工电子报名",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "dark"
   }  
   }

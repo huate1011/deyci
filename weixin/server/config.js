@@ -17,7 +17,7 @@ const CONF = {
      * 开发环境下，MySQL 的初始密码为您的微信小程序 appid
      */
     mysql: {
-        host: 'localhost',
+        host: '172.16.0.4',
         port: 3306,
         user: 'root',
         db: 'cAuth',
@@ -38,7 +38,18 @@ const CONF = {
     },
 
     // 微信登录态有效期
-    wxLoginExpires: 7200
+    wxLoginExpires: 7200,
+    // 其他配置 ...
+    serverHost: 'xcx.deyci.cn',
+    tunnelServerUrl: 'http://tunnel.ws.qcloud.la',
+    tunnelSignatureKey: '27fb7d1c161b7ca52d73cce0f1d833f9f5b5ec89',
+    // 腾讯云相关配置可以查看云 API 秘钥控制台：https://console.cloud.tencent.com/capi
+    qcloudAppId: '498318',
+    qcloudSecretId: 'AKIDVuAoMmqbmmbEfulwgDYigS2Ys0z5ukHc',
+    qcloudSecretKey: 'IPK7mFWbWFm7SfgV8YnpfIjz75rRqhPv',
+    wxMessageToken: 'weixinmsgtoken',
+    networkTimeout: 30000
 }
 
 module.exports = process.env.NODE_ENV === 'local' ? Object.assign({}, CONF, require('./config.local')) : CONF;
+

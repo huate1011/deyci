@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 --  Table structure for `cSessionInfo`
 -- ----------------------------
-DROP TABLE IF EXISTS `cSessionInfo`;
+-- DROP TABLE IF EXISTS `cSessionInfo`;
 CREATE TABLE `cSessionInfo` (
   `open_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `uuid` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `cSessionInfo` (
   KEY `skey` (`skey`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='会话管理用户信息';
 
-DROP TABLE IF EXISTS `MemberInfo`;
+-- DROP TABLE IF EXISTS `MemberInfo`;
 CREATE TABLE `MemberInfo` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -45,7 +45,7 @@ var validateForm = (formData, thisData) => {
   if (formData['politics'].trim() === "") {
     return '政治面貌忘记填了';
   }
-  if (formData['phone'].trim() === "") {
+  if (new Date().getFullYear() - new Date(thisData.dob).getFullYear() > 18 && formData['phone'].trim() === "") {
     return '手机号码忘记填了';
   }
   if (formData['address'].trim() === "") {

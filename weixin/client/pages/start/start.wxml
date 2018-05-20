@@ -4,7 +4,7 @@
     <image class="remind-img" src="/images/start/loading.gif"></image>
   </view>
   <block wx:else>
-    <image class="title" src="/images/9.jpeg"></image>
+
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
         <view class='logo'>
@@ -14,11 +14,10 @@
         <image class="wave wave-bg" src="/images/start/wave.png" mode="aspectFill"></image>
       </view>
       <view class="bd">
-         <image class="smalltitle" src="/images/start/confirm-word1.png"></image>
         <view class="confirm-btn">
-          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">立即体验</button>
+          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">义工注册</button>
         </view>
-        <text class="copyright">© {{year}} Deyci 倾情出品</text>
+        <text class="copyright">© {{year}} Deyci.cn<canvas></canvas> 倾情出品</text>
       </view>
     </view>
   </block>

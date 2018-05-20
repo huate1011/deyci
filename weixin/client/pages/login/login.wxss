@@ -25,9 +25,9 @@ right: 0;
 
 .tnc {
 background: #efeff4;
-position: absolute;
-top:550rpx;
-left: 180rpx;
+position: relative;
+top:280rpx;
+left:0rpx;
 }
 
 .line {
@@ -122,4 +122,9 @@ margin-left: 40rpx;
 }
 .skills-category label{
   background: greenyellow;
+}
+
+text {
+  cursor: default;
+  line-height: 1.68em;
 }

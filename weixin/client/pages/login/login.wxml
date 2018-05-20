@@ -1,16 +1,27 @@
+
 <view class="banner">
-  <image src="../../images/9.jpeg" mode="widthFix"></image>
+  <image style="width: 200rpx; height: 245rpx;" src="../../images/start/9.png" mode="aspectFit"></image>
 </view>
 <view wx:if="{{!logged}}">
   <text>欢迎注册公益联合</text>
 </view>
 <view class="tnc" wx:elif="{{!agreed}}">
   <view class="line-control">
-    <label>同意并准守义工服务协议</label>
+    <label>
+    <view>
+    <text space="ensp"> 1. 同意并准守义工服务协议填写以下个人信息</text>
+</view>
+<view>
+    <text space="ensp"> 2. 完成注册的新义工需参加月度新义工培训，结束后可扫码签退，进行组别选择，领取临时义工卡，并获取培训时长</text>
+</view>
+<view>
+    <text space="ensp"> 3. 所有新义工培训时长在换取义工红本时统一由工作人员协助录入系统</text>
+</view>
+    </label>
   </view>
   <view class="line">
-    <button bindtap="agree" type='primary' size='mini'>同意</button>
-    <button bindtap="decline" size='mini' type='primary' style='margin-left:100rpx'>拒绝</button>
+    <button bindtap="agree" type='primary' size='mini' style='margin-left:160rpx'>同意</button>
+    <button bindtap="decline" size='mini' type='primary' style='margin-left:160rpx'>拒绝</button>
   </view>
 </view>
 <view class="root" wx:else>
@@ -62,7 +73,9 @@
       </picker>
     </view>
     <view class="line">
-      <label>民族</label>
+      <label>民族
+              <text style="color:red; margin-left:0">*</text>
+              </label>
       <view class="line-control">
         <input type='text' name='nation' value='' class="item" />
       </view>
@@ -220,19 +233,19 @@
             <label>摄影
               <checkbox value="photography" />
             </label>
-            <label>书法
+            <label>护理
               <checkbox value="artwording" />
             </label>
             <label>软件
               <checkbox value="software" />
             </label>
-            <label>网络
+            <label>传播
               <checkbox value="network" />
             </label>            
-            <label>美容, 化妆
+            <label>美妆
               <checkbox value="baber" />
             </label>
-            <label>主持, 讲演
+            <label>主持
               <checkbox value="publicspeaking" />
             </label>
             <label>外语
@@ -250,10 +263,10 @@
             <label>唱歌
               <checkbox value="singing" />
             </label>
-            <label>文艺表演
+            <label>表演
               <checkbox value="show" />
             </label>
-            <label>心里咨询
+            <label>心理咨询
               <checkbox value="psychrology" />
             </label>            
           </view>

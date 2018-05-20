@@ -41,7 +41,7 @@ CREATE TABLE `MemberInfo` (
   `gender` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL UNIQUE,
+  `phone` varchar(100) COLLATE utf8mb4_unicode_ci,
   `dob` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pob` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,			
   `origin` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,

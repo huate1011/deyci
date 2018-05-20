@@ -54,7 +54,7 @@ var validateForm = (formData, thisData) => {
   if (formData['council'].trim() === "") {
     return '街道社区忘记填了';
   }
-  if (!/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
+  if (formData['personalidtype'] === "chineseid" && !/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
     return '身份证号码不正确';
   }
   if (thisData.idhead === undefined) {
@@ -117,10 +117,14 @@ Page({
     formData['dob'] = this.data.dob
     formData['pob'] = this.data.pob
     formData['personality'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
+    if (formData['personalidtype'] === "otherid") {
+      formData['personalid'] = 'Other' + formData['personalid']
+    }
     delete formData['personalityone']
     delete formData['personalitytwo']
     delete formData['personalitythree']
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    delete formData['personalidtype']
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)    
     var options = {
       url: config.service.registerUrl,
       data: formData,

@@ -33,14 +33,24 @@
         </label>
       </radio-group>
     </view>
-          <view class="line">
-        <label>身份证号
-          <text style="color:red; margin-left:0">*</text>
-        </label>
-        <view class="line-control">
-          <input type='idcard' class="item" name='personalid' value='' maxlength='18' />
-        </view>
+    <view class="line">
+      <view>
+        <radio-group name="personalidtype">
+          <label>身份证号:
+            <text style="color:red; margin-left:0">*</text>            
+          </label>
+          <radio value="chineseid" checked/>
+          <label style='margin-left:50rpx'>护照或其他ID号:
+            <text style="color:red; margin-left:0">*</text>
+          </label>                       
+          <radio value="otherid" />
+        </radio-group>       
       </view>
+        
+      <view class="line-control">
+        <input type='idcard' class="item" name='personalid' value='' maxlength='18' />
+      </view>
+    </view>
     <view class="line">
       <picker mode="date" value="{{dob}}" start="1918-01-01" end="2008-01-01" bindchange="bindDateChange">
         <label>出生日期

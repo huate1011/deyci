@@ -174,12 +174,12 @@ Page({
           name: 'file',
 
           success: function (res) {
-            showSuccess('上传图片成功')
             res = JSON.parse(res.data)
             console.log(res)
             var data = {}
             data[e_name] = res.data.imgUrl
             that.setData(data)
+            showSuccess('上传图片成功')
           },
 
           fail: function (e) {
@@ -229,7 +229,7 @@ Page({
       success(result) {
         that.setData({
           open_id: result.data.data.openId,          
-        })               
+        })                  
       },
 
       fail(error) {

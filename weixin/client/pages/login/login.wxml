@@ -28,8 +28,9 @@
   <form bindsubmit='doRegister'>
     <!--姓名 -->
     <view class="line">
-      <view>您的姓名：
-      </view>
+      <label>您的真实姓名:
+        <text style="color:red; margin-left:0">*</text>            
+      </label>
       <view class="line-control">
       <input type='text' name='name' value='{{userInfo.nickName}}' />
       </view>

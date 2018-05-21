@@ -101,7 +101,7 @@ Page({
           wx.login({
             success: function (loginResult) {
               console.log("chat room request code: " + loginResult.code)
-              wx.setStorageSync("code", loginResult.code)              
+              wx.setStorageSync("deyci:code", loginResult.code)              
               qcloud.request({
                 url: config.service.requestUrl,
                 login: true,
@@ -113,6 +113,9 @@ Page({
                 },
                 fail: (response) => {
                   console.log("fail: chat room qcloud request: " + response)
+                  that.setData({
+                    me: {'openId': wx.getStorageSync('deyci:open_id')}
+                  })
                 },
                 complete:(response) => {
                   console.log("complete: chat room qcloud request: " + response.data)

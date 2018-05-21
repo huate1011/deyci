@@ -136,7 +136,7 @@ Page({
         if (result.statusCode > 210) {
           showModel('注册失败', result.data.error) 
         } else {
-          wx.setStorageSync('open_id', open_id)
+          wx.setStorageSync('deyci:open_id', open_id)
           wx.redirectTo({
             url: '/pages/chat/chat'
           })
@@ -174,12 +174,16 @@ Page({
           name: 'file',
 
           success: function (res) {
-            res = JSON.parse(res.data)
-            console.log(res)
-            var data = {}
-            data[e_name] = res.data.imgUrl
-            that.setData(data)
-            showSuccess('上传图片成功')
+            try{
+              res = JSON.parse(res.data)
+              console.log(res)
+              var data = {}
+              data[e_name] = res.data.imgUrl
+              that.setData(data)
+              showSuccess('上传图片成功')
+            } catch (err){
+              showModel('上传图片失败', err)
+            }
           },
 
           fail: function (e) {
@@ -220,13 +224,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     var that = this
     // 调用登录接口    
     qcloud.request({
       url: config.service.requestUrl,
       login: true,
       success(result) {
+        console.log("reg:" + result.data.data)
         that.setData({
           open_id: result.data.data.openId,          
         })                  
@@ -240,7 +244,7 @@ Page({
     // Set rendering data for this page
     var that = this
     that.setData({
-      userInfo: wx.getStorageSync('userInfo'),
+      userInfo: wx.getStorageSync('deyci:userInfo'),
       logged: true
     })
   },

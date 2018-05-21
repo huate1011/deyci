@@ -26,18 +26,18 @@ var getWxLoginResult = function getLoginCode(callback) {
     wx.login({
         success: function (loginResult) {
           var error = null
-          var userInfo = wx.getStorageSync('userInfo');
+          var userInfo = wx.getStorageSync('deyci:userInfo');
           if (!userInfo) {            
             callback(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'), null);
             return
           }
 
-          var encryptedData = wx.getStorageSync('encryptedData');
+          var encryptedData = wx.getStorageSync('deyci:encryptedData');
           if (!encryptedData) {            
             callback(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'), null);
             return
           }
-          var iv = wx.getStorageSync('iv');
+          var iv = wx.getStorageSync('deyci:iv');
           if (!iv) {
             callback(new LoginError(constants.ERR_INVALID_PARAMS, 'iv'), null);
             return;
@@ -87,24 +87,24 @@ var login = function login(options) {
     }
 
     var doLogin = () => {      
-        var userInfo = wx.getStorageSync('userInfo');
+        var userInfo = wx.getStorageSync('deyci:userInfo');
         if (!userInfo) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'));
           return
         }
 
-        var encryptedData = wx.getStorageSync('encryptedData');
+        var encryptedData = wx.getStorageSync('deyci:encryptedData');
         if (!encryptedData) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'));
           return
         }
-        var iv = wx.getStorageSync('iv');
+        var iv = wx.getStorageSync('deyci:iv');
         if (!iv) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少iv信息'));
           return;
         }
 
-        var code = wx.getStorageSync('code');
+        var code = wx.getStorageSync('deyci:code');
         if (!code) {
           options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少code信息'));
           return;

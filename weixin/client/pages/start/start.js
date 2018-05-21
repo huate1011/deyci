@@ -18,10 +18,10 @@ Page({
   goToIndex:function(e){   
     var that = this
     try {
-      wx.setStorageSync('userInfo', e.detail.userInfo)
-      wx.setStorageSync('code', this.data.authentication_code)
-      wx.setStorageSync('encryptedData', e.detail.encryptedData)
-      wx.setStorageSync('iv', e.detail.iv)
+      wx.setStorageSync('deyci:userInfo', e.detail.userInfo)
+      wx.setStorageSync('deyci:code', this.data.authentication_code)
+      wx.setStorageSync('deyci:encryptedData', e.detail.encryptedData)
+      wx.setStorageSync('deyci:iv', e.detail.iv)
     } catch (e) {
       util.showModel('储存信息失败', e)
     }
@@ -29,7 +29,7 @@ Page({
     // If there is already a valid open id, then the user has been registered
     // and will go to chat directly
     try {
-      var value = wx.getStorageSync('open_id')
+      var value = wx.getStorageSync('deyci:open_id')
       if (value) {        
         wx.request({
           url: config.service.sqlqueryUrl,
@@ -46,7 +46,7 @@ Page({
               })
               return
             } else {
-              wx.removeStorageSync('open_id')
+              wx.removeStorageSync('deyci:open_id')
               // Otherwise, this user needs to be registered
               wx.redirectTo({
                 url: '/pages/login/login'

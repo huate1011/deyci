@@ -165,7 +165,11 @@ Page({
         // 有人说话，创建一条消息
         tunnel.on('speak', speak => {
             const { word, who } = speak;
-            this.pushMessage(createUserMessage(word, who, who.openId === this.data.me.openId));
+            var isMe = false;
+            if (who !== undefined && this.data.me !== undefined && who.openId === this.data.me.openId) {
+              isMe = true
+            }
+            this.pushMessage(createUserMessage(word, who, isMe));
         });
 
         // 信道关闭后，显示退出群聊

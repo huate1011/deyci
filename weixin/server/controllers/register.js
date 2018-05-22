@@ -1,5 +1,25 @@
 const { mysql } = require('../qcloud')
 
+async function getVolunteerID(tableName, gender) {
+  var midnight = new Date()
+  midnight.setHours(0);
+  midnight.setMinutes(0);
+  midnight.setSeconds(0)
+  var existingid = null
+  try {
+    const data = await mysql(tableName).max('volunteerid').where('last_visit_time', '>', midnight).first();
+    existingid = data['max(`volunteerid`)']
+  } catch (err) {
+    console.log(msg)    
+  }
+  if (existingid === null) {
+    return midnight.getFullYear() * 100000000 + (midnight.getMonth() + 1) * 1000000 +
+    midnight.getDate() * 10000 + 10 + gender;
+  } else {
+    return existingid - existingid % 10 + 10 + gender;
+  }
+}
+
 module.exports = async ctx => {
 //   // 检查签名，确认是微信发出的请求
 //   const { signature, timestamp, nonce } = ctx.query
@@ -10,17 +30,19 @@ module.exports = async ctx => {
 //    * 解析微信发送过来的请求体
 //    * 可查看微信文档：https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/receive.html#接收消息和事件
 //    */
-  const member = ctx.request.body;
-  member['create_time'] = new Date()
-  member['last_visit_time'] = new Date()
-
-  // console.log('exeu sql:' + JSON.stringify(member))
   var memberTable = "MemberInfo"
+  const member = ctx.request.body;
+  // Try to set the volunteer id
+  var now = new Date();  
   
+  member['create_time'] = now;
+  member['last_visit_time'] = now  
+  member['volunteerid'] = await getVolunteerID(memberTable, member['gender'] === 'Female'? 2 : 1)
+  // console.log('exeu sql:' + JSON.stringify(member))
   try{
     const res = await mysql(memberTable).insert(member)
     ctx.response.status = 200
-    ctx.response.body = "注册成功"
+    ctx.response.body = "注册成功" + member['volunteerid']
   } catch (err) {
     msg = 'Error: ' + JSON.stringify(err)
     console.log(msg)

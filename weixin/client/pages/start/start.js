@@ -42,7 +42,7 @@ Page({
             var result = res.data.result
             if (result == 'Registered') {
               wx.redirectTo({
-                url: '/pages/chat/chat'
+                url: '/pages/login/login'
               })
               return
             } else {

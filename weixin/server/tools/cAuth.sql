@@ -81,4 +81,5 @@ CREATE INDEX idx_idback on `MemberInfo` (`idback`);
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- Alter table
-ALTER TABLE `MemberInfo` ADD COLUMN volunteerid varchar(100) COLLATE utf8mb4_unicode_ci;
+ALTER TABLE `MemberInfo` ADD COLUMN `volunteerid` BIGINT UNIQUE;
+CREATE INDEX idx_volunteer on `MemberInfo` (`volunteerid`);

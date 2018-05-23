@@ -1,49 +1,87 @@
-<view class="root">
-  <view>
-    <label>Find someone</label>
-    <label>greetings</label>
+<view class="banner">
+  <view class="title">
+    <text >寻找同类的你一起搞事情</text>
   </view>
+  <view class='intro'>
+    <text>您好：
+在这个工作与家庭两点一线的生活中，想要找到志趣相同的人谈天说地并不是一件容易的事情。而我们希望为在软件园工作生活的30000多名小伙伴，找到一起搞事情的同类.
+    <text style='font-size:25rpx;margin-left:50%'>深圳湾创业广场党群服务中心</text>
+    </text>   
+  </view>
+</view>
+<view class="root">  
   <form bindsubmit='doRegister'>    
     <view class="line">
-      <view class="line-control">
-        <label>Your most recent:
-          <input type='text' name='name' value=''/>
-        </label>
+      <label>您最近参与过的一次活动:</label>
+      <view class="line-control">        
+          <input type='text' name='lastactivity' value=''/>        
       </view>      
     </view>
     <view class="line">
-      <label>Role</label>
-      <radio-group name="role">
-        <label>策划者:
+      <label>您更愿意在活动中承担的角色:</label>
+      <radio-group name="role">      
+        <view>
           <radio value="1"/>
-        </label>
-        <label>组织者:
+          <label>策划者</label>
+        </view>
+        <view>
           <radio value="2"/>
-        </label>
-        <label>传播者:
+          <label>组织者</label>
+        </view>
+        <view>
           <radio value="3"/>
-        </label>
-        <label>参与者:
+          <label>传播者</label>
+        </view>
+        <view>
           <radio value="4"/>
-        </label>
+          <label>参与者</label>
+        </view>        
       </radio-group>
     </view>
     <view class="line">
       <label>您喜欢的活动领域:</label>
       <checkbox-group name='activities'>          
-        <view class='selections'>
-          <label>学习培训类
-            <checkbox value="1" />
-          </label>
-          <label>社会活动类
-            <checkbox value="2" />
-          </label>
-          <label>兴趣爱好类
-            <checkbox value="3" />
-          </label>
-          <label>亲子家庭类
-            <checkbox value="4" />
-          </label>                    
+        <view>
+          <checkbox value="1" />
+          <label>学习培训类</label>
+        </view>
+        <view>
+          <checkbox value="2" />
+          <label>社会活动类</label>
+        </view>
+        <view>
+          <checkbox value="3" />
+          <label>兴趣爱好类</label>
+        </view>
+        <view>
+          <checkbox value="4" />
+          <label>亲子家庭类</label>                    
+        </view>
+      </checkbox-group>
+    </view>
+
+    <view class="line">
+      <label>组织那里活动您会感兴趣参加:</label>
+      <checkbox-group name='activities'>          
+        <view>
+          <checkbox value="1" />
+          <label>运动类</label>
+        </view>
+        <view>
+          <checkbox value="2" />
+          <label>文艺类（如音乐，摄影摄像，手工等)</label>
+        </view>
+        <view>
+          <checkbox value="3" />
+          <label>学习培训类</label>
+        </view>
+        <view>
+          <checkbox value="4" />
+          <label>娱乐（如桌游，ktv)</label>                    
+        </view>
+        <view>
+          <checkbox value="5" />
+          <label>公益活动</label>                    
         </view>
       </checkbox-group>
     </view>

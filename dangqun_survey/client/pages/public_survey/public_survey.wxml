@@ -1,0 +1,54 @@
+<view class="root">
+  <view>
+    <label>Find someone</label>
+    <label>greetings</label>
+  </view>
+  <form bindsubmit='doRegister'>    
+    <view class="line">
+      <view class="line-control">
+        <label>Your most recent:
+          <input type='text' name='name' value=''/>
+        </label>
+      </view>      
+    </view>
+    <view class="line">
+      <label>Role</label>
+      <radio-group name="role">
+        <label>策划者:
+          <radio value="1"/>
+        </label>
+        <label>组织者:
+          <radio value="2"/>
+        </label>
+        <label>传播者:
+          <radio value="3"/>
+        </label>
+        <label>参与者:
+          <radio value="4"/>
+        </label>
+      </radio-group>
+    </view>
+    <view class="line">
+      <label>您喜欢的活动领域:</label>
+      <checkbox-group name='activities'>          
+        <view class='selections'>
+          <label>学习培训类
+            <checkbox value="1" />
+          </label>
+          <label>社会活动类
+            <checkbox value="2" />
+          </label>
+          <label>兴趣爱好类
+            <checkbox value="3" />
+          </label>
+          <label>亲子家庭类
+            <checkbox value="4" />
+          </label>                    
+        </view>
+      </checkbox-group>
+    </view>
+    <view>
+      <button formType="submit" type='primary'>提交问卷</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/public_survey/public_survey",
+    "pages/industry_survey/industry_survey"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTitleText": "党群服务中心企业调研",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/public_survey/public_survey",
+      "iconPath": "images/tabbar/calendar.png",
+      "selectedIconPath": "images/tabbar/calendar_active.png",
+      "text": "群众调查问卷"
+ 
+    },    
+    {
+      "pagePath": "pages/industry_survey/industry_survey",
+      "iconPath": "images/tabbar/team.png",
+      "selectedIconPath": "images/tabbar/team_active.png",
+      "text": "企业调查问卷"      
+    }
+    ]
+  }
+}

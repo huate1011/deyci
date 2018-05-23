@@ -1,0 +1,130 @@
+.root {
+background: #efeff4;
+position: absolute;
+top:240rpx;
+left: 0rpx;
+right: 0;
+border-left: #efeff4 10px solid;
+border-right: #efeff4 10px solid;
+}
+
+.banner {
+background: #efeff4;
+position: absolute;
+height: 240rpx;
+justify-content: center;
+top: 0;
+left: 0;
+right: 0;
+}
+.banner image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.tnc {
+background: #efeff4;
+position: relative;
+top:280rpx;
+left:0rpx;
+}
+
+.line {
+padding-top: 17rpx;
+}
+
+.line text {
+color: #6D6D72;
+font-size: 28rpx;
+margin-left: 40rpx;
+}
+
+.line-control {
+border-bottom: #d9d9d9 5px solid;
+border-top: #d9d9d9 5px solid;
+background-color: #fff;
+margin-top: 10rpx;
+}
+
+.item-inner{
+color: #6D6D72;
+font-size: 33rpx;
+margin-left: 40rpx;
+}
+
+.picPre {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.picPre image {
+  width: 100%;
+  height: 180rpx;
+}
+
+.picPre view {
+  position: absolute;
+  right: 0px;
+  top: -20rpx;
+  width: 15px;
+  height: 15px;
+}
+
+.image_box {
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  padding: 10px 0 10rpx;
+}
+
+.add_pic {
+  padding: 0 40rpx;
+  background: #fff;
+}
+
+.add_pic view {
+  display: inline-block;
+  margin-top: 20rpx;
+  width: 430rpx;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  padding-left: 80rpx;
+  color: #b2b2b2;
+}
+.add_pic .code {
+  display: inline-block;
+  margin-top: 20rpx;
+  width: 430rpx;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  padding-left: 130rpx;
+  color: #b2b2b2;
+}
+
+.pic_background{
+  margin-top: 30rpx;
+  width: 160rpx;
+  height: 160rpx;
+  position:absolute;
+}
+
+.selections label{
+  margin-left:20rpx;
+}
+.skills-category{
+  margin-left:40%;  
+}
+.skills-category label{
+  background: greenyellow;
+}
+
+text {
+  cursor: default;
+  line-height: 1.68em;
+}

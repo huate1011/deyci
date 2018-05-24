@@ -7,7 +7,33 @@
 		"newFeature": true
 	},
 	"appid": "wxff42a2142aefae7b",
-	"projectname": "%E4%BC%81%E4%B8%9A%E8%B0%83%E7%A0%94",
+	"projectname": "M%E4%BC%81%E4%B8%9A%E8%B0%83%E7%A0%94",
 	"libVersion": "2.0.2",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "pb",
+					"pathName": "pages/public_survey/public_survey"
+				}
+			]
+		}
+	}
 }

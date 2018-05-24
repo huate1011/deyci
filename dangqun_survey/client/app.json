@@ -16,14 +16,14 @@
       "pagePath": "pages/public_survey/public_survey",
       "iconPath": "images/tabbar/calendar.png",
       "selectedIconPath": "images/tabbar/calendar_active.png",
-      "text": "群众调查问卷"
+      "text": "员工调查问卷"
  
     },    
     {
       "pagePath": "pages/industry_survey/industry_survey",
       "iconPath": "images/tabbar/team.png",
       "selectedIconPath": "images/tabbar/team_active.png",
-      "text": "企业调查问卷"      
+      "text": "企业调研问卷"      
     }
     ]
   }

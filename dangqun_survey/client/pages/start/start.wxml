@@ -17,7 +17,7 @@
         <view class="confirm-btn">
           <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">欢迎参加社会调查</button>          
         </view>     
-        <text class="copyright">© {{year}} Deyci.cn<canvas></canvas> 倾情出品</text>
+        <text class="copyright">© {{year}} Deyci.com<canvas></canvas> 倾情出品</text>
       </view>
     </view>
   </block>

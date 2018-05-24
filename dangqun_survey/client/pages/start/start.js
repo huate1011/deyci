@@ -23,7 +23,15 @@ Page({
     util.showBusy('正在登录');
 
     var that = this;
-    var userInfo = e.detail.userInfo;
+    var userInfo = e.detail.userInfo;    
+    try {
+      wx.setStorageSync('deyci:userInfo', e.detail.userInfo)
+      wx.setStorageSync('deyci:code', this.data.authentication_code)
+      wx.setStorageSync('deyci:encryptedData', e.detail.encryptedData)
+      wx.setStorageSync('deyci:iv', e.detail.iv)
+    } catch (e) {
+      util.showModel('储存信息失败', e)
+    }
 
     // 查看是否授权
     wx.getSetting({

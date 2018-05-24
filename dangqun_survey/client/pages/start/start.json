@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": " ",
-  "enablePullDownRefresh": false,
-  "disableScroll": true
+  "window": {
+    "navigationBarTitleText": " ",
+    "enablePullDownRefresh": false,
+    "disableScroll": true
+  }
 }

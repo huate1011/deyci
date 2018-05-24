@@ -77,17 +77,30 @@ var login = function login(options) {
         return;
     }
 
-    var doLogin = () => getWxLoginResult(function (wxLoginError, wxLoginResult) {
-        if (wxLoginError) {
-            options.fail(wxLoginError);
-            return;
-        }
+    var doLogin = () => {
+      var userInfo = wx.getStorageSync('deyci:userInfo');
+      if (!userInfo) {
+        options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少用户信息'));
+        return
+      }
 
-        // 构造请求头，包含 code、encryptedData 和 iv
-        var code = wxLoginResult.code;
-        var encryptedData = wxLoginResult.encryptedData;
-        var iv = wxLoginResult.iv;
-        var header = {};
+      var encryptedData = wx.getStorageSync('deyci:encryptedData');
+      if (!encryptedData) {
+        options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少encryption信息'));
+        return
+      }
+      var iv = wx.getStorageSync('deyci:iv');
+      if (!iv) {
+        options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少iv信息'));
+        return;
+      }
+
+      var code = wx.getStorageSync('deyci:code');
+      if (!code) {
+        options.fail(new LoginError(constants.ERR_INVALID_PARAMS, '缺少code信息'));
+        return;
+      }
+      var header = {};
 
         header[constants.WX_HEADER_CODE] = code;
         header[constants.WX_HEADER_ENCRYPTED_DATA] = encryptedData;
@@ -128,7 +141,7 @@ var login = function login(options) {
                 options.fail(error);
             },
         });
-    });
+    };
 
     var session = Session.get();
  

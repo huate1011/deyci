@@ -34,4 +34,43 @@ CREATE TABLE `cSessionInfo` (
   KEY `skey` (`skey`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='会话管理用户信息';
 
+DROP TABLE IF EXISTS `Surveys`;
+CREATE TABLE `Surveys` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `surveytype` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `open_id` varchar(2048) COLLATE utf8mb4_unicode_ci,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastevent` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `favouriterole` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `favouriteactivities` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `interestedevents` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `interestedtraining` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `personalinterests` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `eventsize` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `eventfrequency` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `idealfrequency` varchar(100) COLLATE utf8mb4_unicode_ci,  
+  `eventtime` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `holidays` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `favouritepoints` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `eventgains` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `canfindevents` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `howtofindevents` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `knowdang` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `attendeddang` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `knowsociety` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `howtoknowsociety` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `trainingskills` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `knowqingnian` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `favouriteqingnianservice` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `joinsociety` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `workarea` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `workstatus` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `profession` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `age` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `gender` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `politics` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `comments` varchar(2048) COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`ID`)  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='调查问卷';
+
 SET FOREIGN_KEY_CHECKS = 1;

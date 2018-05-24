@@ -28,14 +28,9 @@
   <form bindsubmit='doRegister'>
     <!--姓名 -->
     <view class="line">
-<<<<<<< Updated upstream
-      <label>您的真实姓名:
+      <label>您的姓名(需与身份证姓名一致）：
         <text style="color:red; margin-left:0">*</text>            
       </label>
-=======
-      <view>您的姓名(需与身份证姓名一致）：
-      </view>
->>>>>>> Stashed changes
       <view class="line-control">
       <input type='text' name='name' value='{{userInfo.nickName}}' />
       </view>

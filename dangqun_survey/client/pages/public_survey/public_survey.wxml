@@ -9,17 +9,18 @@
     </text>
   </view>
 </view>
-<view class="root">
-  <form bindsubmit='doRegister'>
+
+<view class="root">  
+  <form bindsubmit='submitSurvey'>    
     <view class="line">
       <label>您最近参与过的一次活动:</label>
-      <view class="line-control">
-        <input type='text' name='lastactivity' value='' />
-      </view>
+      <view class="line-control">        
+          <input type='text' name='lastevent' value=''/>        
+      </view>      
     </view>
     <view class="line">
-      <label>您更愿意在活动中承担的角色？</label>
-      <radio-group name="role">
+      <label>您更愿意在活动中承担的角色:</label>
+      <radio-group name="favouriterole">      
         <view>
           <radio value="1" />
           <label>策划者</label>
@@ -39,8 +40,8 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>您喜欢的活动领域？</label>
-      <checkbox-group name='activities'>
+      <label>您喜欢的活动领域:</label>
+      <checkbox-group name='favouriteactivities'>          
         <view>
           <checkbox value="1" />
           <label>学习培训类</label>
@@ -60,8 +61,8 @@
       </checkbox-group>
     </view>
     <view class="line">
-      <label>组织那类活动您会感兴趣参加:</label>
-      <checkbox-group name='activities'>
+      <label>组织那里活动您会感兴趣参加:</label>
+      <checkbox-group name='interestedevents'>          
         <view>
           <checkbox value="1" />
           <label>运动类</label>
@@ -86,7 +87,7 @@
     </view>
     <view class="line">
       <label>组织哪类培训您会感兴趣参加:</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='interestedtraining'>
         <view>
           <checkbox value="1" />
           <label>技能培训（办公软件、公开演讲等）</label>
@@ -124,7 +125,7 @@
 
     <view class="line">
       <label>您有什么兴趣爱好？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='personalinterests'>
         <view>
           <checkbox value="1" />
           <label>电影</label>
@@ -153,7 +154,7 @@
     </view>
     <view class="line">
       <label>更愿意参加哪种规模的活动？:</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='eventsize'>
         <view>
           <checkbox value="1" />
           <label>20人以内</label>
@@ -174,7 +175,7 @@
     </view>
     <view class="line">
       <label>你平时多久参加一次集体活动？:</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='eventfrequency'>
         <view>
           <checkbox value="1" />
           <label>每周一次</label>
@@ -193,7 +194,7 @@
 
     <view class="line">
       <label>你愿意参与的活动频次？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='idealfrequency'>
         <view>
           <checkbox value="1" />
           <label>每周一次</label>
@@ -211,7 +212,7 @@
 
     <view class="line">
       <label>你乐意参与的活动时间？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='eventtime'>
         <view>
           <checkbox value="1" />
           <label>我有空，随时来</label>
@@ -237,7 +238,7 @@
 
     <view class="line">
       <label>你的休闲时光在？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='holidays'>
         <view>
           <checkbox value="1" />
           <label>双休</label>
@@ -258,7 +259,7 @@
     </view>
     <view class="line">
       <label>是否可以通过自己的渠道找到活动？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='canfindevents'>
         <view>
           <checkbox value="1" />
           <label>可以</label>
@@ -276,7 +277,7 @@
 
     <view class="line">
       <label>平时都通过什么渠道找活动？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='howtofindevents'>
         <view>
           <checkbox value="1" />
           <label>app搜索</label>
@@ -301,7 +302,7 @@
     </view>
     <view class="line">
       <label>一个好的活动，您更看重以下哪点？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='favouritepoints'>
         <view>
           <checkbox value="1" />
           <label>内容质量</label>
@@ -322,7 +323,7 @@
     </view>
     <view class="line">
       <label>你更期待在活动中收获？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='eventgains'>
         <view>
           <checkbox value="1" />
           <label>学到技能、知识</label>
@@ -339,7 +340,7 @@
     </view>
     <view class="line">
       <label>您是否了解创业广场党群服务中心？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='knowdang'>
         <view>
           <checkbox value="1" />
           <label>不知道</label>
@@ -357,7 +358,7 @@
 
     <view class="line">
       <label>您是否参加过创业广场党群服务中心的活动？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='attendeddang'>
         <view>
           <checkbox value="1" />
           <label>参加过</label>
@@ -371,7 +372,7 @@
 
     <view class="line">
       <label>您知道工会是做什么的吗？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='knowsociety'>
         <view>
           <checkbox value="1" />
           <label>发福利，组织活动等</label>
@@ -388,7 +389,7 @@
     </view>
     <view class="line">
       <label>您是通过什么渠道了解工会的？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='howtoknowsociety'>
         <view>
           <checkbox value="1" />
           <label>企业工会宣传</label>
@@ -426,7 +427,7 @@
 
     <view class="line">
       <label>您是通过什么方式加入工会的？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='joinsociety'>
         <view>
           <checkbox value="1" />
           <label>企业规定，入职时自动加入</label>
@@ -451,7 +452,7 @@
     </view>
     <view class="line">
       <label>您希望工会提供哪些有益于您职业技能培训？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='trainingskills'>
         <view>
           <checkbox value="1" />
           <label>投资理财</label>
@@ -484,7 +485,7 @@
     </view>
     <view class="line">
       <label>您是否知道园区里的青年之家？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='knowqingnian'>
         <view>
           <checkbox value="1" />
           <label>不知道</label>
@@ -501,7 +502,7 @@
     </view>
     <view class="line">
       <label>您更喜欢青年之家的哪个服务？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='favouriteqingnianservice'>
         <view>
           <checkbox value="1" />
           <label>青·组织：智慧团建·推优入党·青年之声</label>
@@ -535,20 +536,20 @@
     <view class="line">
       <label>未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:</label>
       <view class="line-control">
-        <input type='text' name='lastactivity' value='' />
+        <input type='text' name='comments' value='' />
       </view>
     </view>
 
     <view class="line">
       <label>您在工作中的专业领域？:</label>
       <view class="line-control">
-        <input type='text' name='lastactivity' value='' />
+        <input type='text' name='workarea' value='' />
       </view>
     </view>
 
     <view class="line">
       <label>您的职业</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='profession'>
         <view>
           <checkbox value="1" />
           <label>上班族</label>
@@ -565,7 +566,7 @@
     </view>
     <view class="line">
       <label>您的职务</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='occupation'>
         <view>
           <checkbox value="1" />
           <label>员工</label>
@@ -582,7 +583,7 @@
     </view>
     <view class="line">
       <label>您的年龄属于以下哪个范围？</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='age'>
         <view>
           <checkbox value="1" />
           <label>28岁以下</label>
@@ -605,7 +606,7 @@
 
     <view class="line">
       <label>请问您的性别是:</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='gender'>
         <view>
           <checkbox value="1" />
           <label>男</label>
@@ -618,7 +619,7 @@
     </view>
     <view class="line">
       <label>政治面貌：</label>
-      <checkbox-group name='activities'>
+      <checkbox-group name='politics'>
         <view>
           <checkbox value="1" />
           <label>群众</label>

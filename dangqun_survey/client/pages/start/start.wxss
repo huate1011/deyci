@@ -1,6 +1,27 @@
 /**start.wxss**/
+
+.banner {
+background: 20% #09bb07 Press;
+position: absolute;
+height: 400rpx;
+justify-content: center;
+top: 0;
+left: 0;
+right: 0;
+}
+
+.intro {
+  background: #e64340;
+  color: #fff;
+  margin-bottom: 10rpx;
+  font-size: 27rpx;
+  font-style: 微软雅黑;
+  text-align:center;
+}
+
+
 .container {
-background: #118fff;
+background: #e64340;
 align-items: stretch;
 padding: 0;
 height: 100%;

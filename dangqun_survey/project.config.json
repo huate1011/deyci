@@ -4,6 +4,10 @@
 	"miniprogramRoot": "./client",
 	"qcloudRoot": "./server",
 	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
 		"newFeature": true
 	},
 	"appid": "wxff42a2142aefae7b",
@@ -26,12 +30,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
 					"name": "pb",
-					"pathName": "pages/public_survey/public_survey"
+					"pathName": "pages/public_survey/public_survey",
+					"query": ""
 				}
 			]
 		}

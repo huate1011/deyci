@@ -1,42 +1,33 @@
 
 .line-control {
   display: flex;
-  border-bottom: #d9d9d9 5px solid;
-  border-top: #d9d9d9 5px solid;
+  border-bottom: #888888 5px solid;
+  border-top: #888888 5px solid;
   background-color: #fff;
-  margin-top: 10rpx; 
+  margin-top: 40rpx; 
 }
-.line {margin:10rpx; margin-bottom: 50rpx; padding-top:17rpx}
+.line {margin:10rpx; margin-bottom: 50rpx;}
+
 .line radio-group view {
-  border-bottom: #d9d9d9 1px solid;
-  border-top: #d9d9d9 1px solid;
+  border-bottom: #888888 2px solid;
+  border-top: #888888 2px solid;
   background-color: #fff;
 }
 
 .line checkbox-group view {
-  border-bottom: #d9d9d9 1px solid;
-  border-top: #d9d9d9 1px solid;
+  border-bottom: #888888 2px solid;
+  border-top: #888888 2px solid;
   background-color: #fff;
 }
 
-.banner {
-background: 20% #e64340 Press;
-position: absolute;
-height: 400rpx;
-justify-content: center;
-top: 0;
-left: 0;
-right: 0;
-}
-
 .root {
-background: #efeff4;
+background: #e64340;
 position: absolute;
-top:400rpx;
+top:0rpx;
 left:3rpx;
 right: 0;
-border-left: #efeff4 10px solid;
-border-right: #efeff4 10px solid;
+border-left: #888888 10px solid;
+border-right: #888888 10px solid;
 }
 
 .title{
@@ -45,13 +36,7 @@ border-right: #efeff4 10px solid;
   text-align:center;
 }
 
-.intro{
-  background: lightgoldenrodyellow;    
-  margin-bottom: 10rpx;
-  font-size: 11pt;
-  border-bottom: #d9d9d9 5px solid;
-}
-text {
+.text {
   cursor: default;
   line-height: 1.68em;
 }

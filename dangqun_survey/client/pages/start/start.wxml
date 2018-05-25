@@ -1,4 +1,18 @@
 <!--start.wxml-->
+
+<view class="banner">
+  <view class='intro'>
+    <text space="emsp">
+热闹的园区，单调的两点一线，3万+的小伙伴
+可能有过的插肩而过，但却未必相识
+现在
+想你所想，如您所愿
+诚邀您
+一起定制八小时外的生活方式
+    </text>
+  </view>
+</view>
+
 <view class="container">
   <view class="remind-box" wx:if="{{remind}}">
     <image class="remind-img" src="/images/start/loading.gif"></image>
@@ -15,9 +29,10 @@
       </view>
       <view class="bd">
         <view class="confirm-btn">
-          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">欢迎参加社会调查</button>          
+          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">
+          <view><text>深圳湾创业广场</text></view>党群服务中心调查问卷</button>          
         </view>     
-        <text class="copyright">© {{year}} Deyci.com<canvas></canvas> 倾情出品</text>
+        <text class="copyright">© {{year}} deyci.cn<canvas></canvas>技术支持</text>
       </view>
     </view>
   </block>

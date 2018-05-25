@@ -1,15 +1,3 @@
-<view class="banner">
-  <view class="title">
-    <text>寻找同类的你一起搞事情</text>
-  </view>
-  <view class='intro'>
-    <text>您好：
-在这个工作与家庭两点一线的生活中，想要找到志趣相同的人谈天说地并不是一件容易的事情。而我们希望为在软件园工作生活的30000多名小伙伴，找到一起搞事情的同类.
-    <text style='font-size:25rpx;margin-left:50%'>深圳湾创业广场党群服务中心</text>
-    </text>
-  </view>
-</view>
-
 <view class="root">  
   <form bindsubmit='submitSurvey'>    
     <view class="line">

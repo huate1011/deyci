@@ -1,1 +1,42 @@
-/* pages/industry_survey/industry_survey.wxss */
+
+.line-control {
+  display: flex;
+  border-bottom: #353535 5px solid;
+  border-top: #353535 5px solid;
+  background-color: #fff;
+  margin-top: 40rpx; 
+}
+.line {margin:10rpx; margin-bottom: 50rpx;}
+
+.line radio-group view {
+  border-bottom: #353535 2px solid;
+  border-top: #353535 2px solid;
+  background-color: #fff;
+}
+
+.line checkbox-group view {
+  border-bottom: #353535 2px solid;
+  border-top: #353535 2px solid;
+  background-color: #fff;
+}
+
+.root {
+background: #e64340;
+position: absolute;
+top:0rpx;
+left:3rpx;
+right: 0;
+border-left: #353535 10px solid;
+border-right: #353535 10px solid;
+}
+
+.title{
+  background: #e64340;      
+  font-size: 43rpx;
+  text-align:center;
+}
+
+.text {
+  cursor: default;
+  line-height: 1.68em;
+}

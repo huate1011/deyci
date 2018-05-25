@@ -11,7 +11,15 @@ Page({
    */
   data: {
     open_id: null,
-    surveyType: 'personal_survey'
+    surveyType: 'IndustrySurveys',
+    hasdangorganisations: false
+  },
+
+  checkDang: function(e) {    
+    var that = this
+    this.setData({
+      hasdangorganisations: e.detail.value.length == 0 ? false : true
+    })    
   },
 
   submitSurvey: function (e) {
@@ -27,8 +35,7 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      success: function (result) {
-        debugger
+      success: function (result) {        
         if (result.statusCode > 210) {
           util.showModel('提交失败', result.data.error)
         } else {
@@ -78,7 +85,6 @@ Page({
         },
       });
     }
-
   },
 
   /**

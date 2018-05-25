@@ -11,9 +11,10 @@ module.exports = async ctx => {
   //    * 可查看微信文档：https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/receive.html#接收消息和事件
   //    */  
   const survey = ctx.request.body;
-  var surveyTable = 'Surveys'  
+  var surveyTable = survey['surveytype'] 
   var now = new Date();
   survey['create_time'] = now;
+  delete survey['surveytype']
   try {
     const res = await mysql(surveyTable).insert(survey)
     ctx.response.status = 200
@@ -22,9 +23,7 @@ module.exports = async ctx => {
     msg = 'Error: ' + JSON.stringify(err)
     console.log(msg)
     ctx.status = 400
-    ctx.type = 'application/json'
-    if (ctx.body == '') {
-      ctx.body = { error: err['sqlMessage'] }
-    }
+    ctx.type = 'application/json'  
+    ctx.body = { error: err['sqlMessage'] }    
   }
 }

@@ -516,7 +516,7 @@
     <view class="line">
       <label>未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:</label>
       <view class="line-control">
-        <input type='text' name='comments' value='' />
+        <textarea name='comments' value='' />
       </view>
     </view>
     <view class="line">

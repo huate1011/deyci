@@ -11,7 +11,7 @@ Page({
    */
   data: {
     open_id: null,
-    surveyType: 'personal_survey'  
+    surveyType: 'PersonalSurveys' 
   },
 
   submitSurvey: function (e) {
@@ -27,8 +27,7 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       method: 'POST',
-      success: function (result) {
-        debugger
+      success: function (result) {        
         if (result.statusCode > 210) {
           util.showModel('提交失败', result.data.error)
         } else {

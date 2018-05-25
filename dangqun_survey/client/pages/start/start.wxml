@@ -32,7 +32,7 @@
           <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">
           <view><text>深圳湾创业广场</text></view>党群服务中心调查问卷</button>          
         </view>     
-        <text class="copyright">© {{year}} deyci.cn<canvas></canvas>技术支持</text>
+        <text class="copyright">© {{year}} deyci.com<canvas></canvas>技术支持</text>
       </view>
     </view>
   </block>

@@ -11,11 +11,11 @@
       <radio-group name="favouriterole">      
         <view>
           <radio value="1" />
-          <label>策划者</label>
+          <label>参与者</label>
         </view>
         <view>
           <radio value="2" />
-          <label>组织者</label>
+          <label>策划者</label>
         </view>
         <view>
           <radio value="3" />
@@ -23,7 +23,7 @@
         </view>
         <view>
           <radio value="4" />
-          <label>参与者</label>
+          <label>组织者</label>
         </view>
       </radio-group>
     </view>
@@ -36,7 +36,7 @@
         </view>
         <view>
           <checkbox value="2" />
-          <label>社会活动类</label>
+          <label>社交活动类</label>
         </view>
         <view>
           <checkbox value="3" />
@@ -49,27 +49,27 @@
       </checkbox-group>
     </view>
     <view class="line">
-      <label>组织那里活动您会感兴趣参加:</label>
+      <label>组织哪类活动您会感兴趣参加:</label>
       <checkbox-group name='interestedevents'>          
         <view>
           <checkbox value="1" />
-          <label>运动类</label>
+          <label>运动</label>
         </view>
         <view>
           <checkbox value="2" />
-          <label>文艺类（如音乐，摄影摄像，手工等)</label>
+          <label>文艺（如音乐，摄影摄像，手工等)</label>
         </view>
         <view>
           <checkbox value="3" />
-          <label>学习培训类</label>
+          <label>娱乐休闲（如桌游，ktv)</label>
         </view>
         <view>
           <checkbox value="4" />
-          <label>娱乐（如桌游，ktv)</label>
+          <label>公益活动</label>
         </view>
         <view>
           <checkbox value="5" />
-          <label>公益活动</label>
+          <label>学习培训</label>
         </view>
       </checkbox-group>
     </view>
@@ -78,35 +78,31 @@
       <checkbox-group name='interestedtraining'>
         <view>
           <checkbox value="1" />
-          <label>技能培训（办公软件、公开演讲等）</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>个人职业发展（项目管理、团队管理）</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>创业课程（注册成立、运营管理）</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>素质培养（服装搭配、美容美妆）</label>
-        </view>
-        <view>
-          <checkbox value="5" />
-          <label>法律法规</label>
-        </view>
-        <view>
-          <checkbox value="6" />
           <label>工会知识</label>
         </view>
         <view>
-          <checkbox value="7" />
-          <label>成人教育</label>
+          <checkbox value="2" />
+          <label>法律法规</label>
         </view>
         <view>
-          <checkbox value="8" />
-          <label>其他</label>
+          <checkbox value="3" />
+          <label>在职教育</label>
+        </view>
+        <view>
+          <checkbox value="4" />
+          <label>技能培训（办公软件、公开演讲等）</label>
+        </view>
+        <view>
+          <checkbox value="5" />
+          <label>职业发展（项目管理、团队管理等）</label>
+        </view>
+        <view>
+          <checkbox value="6" />
+          <label>创业课程（注册成立、运营管理等）</label>
+        </view>
+        <view>
+          <checkbox value="7" />
+          <label>素质提升（服装搭配、美容美妆）</label>
         </view>
       </checkbox-group>
     </view>
@@ -158,11 +154,10 @@
           <radio value="4" />
           <label>100人以上</label>
         </view>
-
       </radio-group>
     </view>
     <view class="line">
-      <label>你平时多久参加一次集体活动？</label>
+      <label>您平时多久参加一次集体活动？</label>
       <radio-group name="eventfrequency">      
         <view>
           <radio value="1" />
@@ -179,7 +174,7 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>你愿意参与的活动频次？</label>
+      <label>您愿意参与的活动频次？</label>
       <radio-group name="idealfrequency">      
         <view>
           <radio value="1" />
@@ -196,11 +191,11 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>你乐意参与的活动时间？</label>
+      <label>您愿意参与的活动时间？</label>
       <radio-group name="eventtime">      
         <view>
           <radio value="1" />
-          <label>我有空，随时来</label>
+          <label>周末晚上</label>
         </view>
         <view>
           <radio value="2" />
@@ -214,14 +209,10 @@
           <radio value="4" />
           <label>周末下午</label>
         </view>
-                <view>
-          <radio value="5" />
-          <label>周末晚上</label>
-        </view>
       </radio-group>
     </view>
     <view class="line">
-      <label>你的休闲时光在？</label>
+      <label>您的休闲时光？</label>
       <radio-group name='holidays'>
         <view>
           <radio value="1" />
@@ -242,74 +233,70 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>是否可以通过自己的渠道找到活动？</label>
+      <label>您是否会主动寻找活动？</label>
       <radio-group name='canfindevents'>
         <view>
           <radio value="1" />
-          <label>可以</label>
+          <label>会</label>
         </view>
         <view>
           <radio value="2" />
-          <label>比较困难</label>
-        </view>
-        <view>
-          <radio value="3" />
-          <label>找不到</label>
+          <label>不会</label>
         </view>
       </radio-group>
     </view>
     <view class="line">
-      <label>平时都通过什么渠道找活动？</label>
-      <radio-group name='howtofindevents'>
+      <label>通过什么渠道寻找活动？</label>
+      <checkbox-group name='howtofindevents'>
         <view>
-          <radio value="1" />
+          <checkbox value="1" />
           <label>app搜索</label>
         </view>
         <view>
-          <radio value="2" />
+          <checkbox value="2" />
           <label>公司组织</label>
         </view>
         <view>
-          <radio value="3" />
+          <checkbox value="3" />
           <label>社区组织</label>
         </view>
         <view>
-          <radio value="4" />
+          <checkbox value="4" />
           <label>微信推文</label>
         </view>
         <view>
-          <radio value="5" />
+          <checkbox value="5" />
           <label>朋友推荐</label>
-        </view>
-      </radio-group>
-    </view>
-    <view class="line">
-      <label>一个好的活动，您更看重以下哪点？</label>
-      <checkbox-group name='favouritepoints'>
-        <view>
-          <checkbox value="1" />
-          <label>内容质量</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>时间的合理安排</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>活动组织的有序</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>社会资源</label>
         </view>
       </checkbox-group>
     </view>
     <view class="line">
-      <label>你更期待在活动中收获？</label>
+      <label>一个好的活动，您更看中哪一点？</label>
+      <checkbox-group name='favouritepoints'>
+        <view>
+          <checkbox value="1" />
+          <label>优质的内容</label>
+        </view>
+        <view>
+          <checkbox value="2" />
+          <label>合理的时间安排</label>
+        </view>
+        <view>
+          <checkbox value="3" />
+          <label>有序的活动组织</label>
+        </view>
+        <view>
+          <checkbox value="4" />
+          <label>丰富的社交资源</label>
+        </view>
+      </checkbox-group>
+    </view>
+    <view class="line">
+      <label>您更期待在活动中收获？</label>
       <checkbox-group name='eventgains'>
         <view>
           <checkbox value="1" />
-          <label>学到技能、知识</label>
+          <label>学到技能、收获知识</label>
         </view>
         <view>
           <checkbox value="2" />
@@ -347,7 +334,7 @@
         </view>
         <view>
           <radio value="2" />
-          <label>没有</label>
+          <label>还没有</label>
         </view>
       </radio-group>
     </view>
@@ -401,7 +388,7 @@
         </view>
         <view>
           <checkbox value="8" />
-          <label>其他</label>
+          <label>本次调研</label>
         </view>
       </checkbox-group>
     </view>
@@ -426,12 +413,12 @@
         </view>
         <view>
           <radio value="5" />
-          <label>其他</label>
+          <label>还没有</label>
         </view>
       </radio-group>
     </view>
     <view class="line">
-      <label>您希望工会提供哪些有益于您职业技能培训？</label>
+      <label>您希望工会提供哪些职业技能培训？</label>
       <checkbox-group name='trainingskills'>
         <view>
           <checkbox value="1" />
@@ -459,26 +446,9 @@
         </view>
         <view>
           <checkbox value="7" />
-          <label>其他</label>
+          <label>企业管理</label>
         </view>
       </checkbox-group>
-    </view>
-    <view class="line">
-      <label>您是否知道园区里的青年之家？</label>
-      <radio-group name='knowqingnian'>
-        <view>
-          <checkbox value="1" />
-          <label>不知道</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>略微了解</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>详细了解</label>
-        </view>
-      </radio-group>
     </view>
     <view class="line">
       <label>您更喜欢青年之家的哪个服务？</label>
@@ -513,6 +483,23 @@
         </view>
       </checkbox-group>
     </view>
+         <view class="line">
+      <label>您是否知道园区里的青年之家？</label>
+      <radio-group name='knowqingnian'>
+        <view>
+          <radio value="1" />
+          <label>刚刚知道</label>
+        </view>
+        <view>
+          <radio value="2" />
+          <label>愿意参加青年之家的活动</label>
+        </view>
+        <view>
+          <radio value="3" />
+          <label>不感兴趣</label>
+        </view>
+      </radio-group>
+    </view>
     <view class="line">
       <label>未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:</label>
       <view class="line-control">
@@ -520,7 +507,7 @@
       </view>
     </view>
     <view class="line">
-      <label>您在工作中的专业领域？:</label>
+      <label>您在工作中的专业领域是？</label>
       <view class="line-control">
         <input type='text' name='workarea' value='' />
       </view>
@@ -559,20 +546,6 @@
         </view>
       </radio-group>
     </view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <view class="line">
       <label>您的年龄属于以下哪个范围？</label>
       <radio-group name="age">      
@@ -588,19 +561,12 @@
           <radio value="3" />
           <label>31-35岁</label>
         </view>
-                <view>
+          <view>
           <radio value="3" />
           <label>35岁以上</label>
         </view>
-
-
       </radio-group>
     </view>
-
-
-
-
-
     <view>
         <view class="line">
       <label>请问您的性别是:</label>

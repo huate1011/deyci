@@ -85,7 +85,7 @@
       </radio-group>
     </view>
     <view class="line" hidden='{{!hasdangorganisations}}'>
-      <label>以上组织，平时组织活动的内容？</label>
+      <label>以上组织，平常会开展什么活动？</label>
       <radio-group name="activitytype">      
         <view>
           <radio value="1" />
@@ -102,7 +102,7 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>如果没有以上组织，贵公司是否有意见成立以下组织?</label>
+      <label>如果没有以上组织，贵公司是否有意向成立以下组织?</label>
       <checkbox-group name='prospectivedangorgs'>          
         <view>
           <checkbox value="1" />
@@ -131,20 +131,20 @@
       <radio-group name="knowrequirements">      
         <view>
           <radio value="1" />
-          <label>非常清楚</label>
+          <label>非常了解</label>
         </view>
         <view>
           <radio value="2" />
-          <label>不太清楚</label>
+          <label>我想了解</label>
         </view>
         <view>
           <radio value="3" />
-          <label>完全不清楚</label>
+          <label>我不了解</label>
         </view>
       </radio-group>
     </view>
     <view class="line">
-      <label>如果没有以上组织，贵公司平时会组织哪些活动?</label>
+      <label>贵公司平时会组织哪些活动?</label>
       <checkbox-group name='pastactivities'>          
         <view>
           <checkbox value="1" />
@@ -191,15 +191,15 @@
       </checkbox-group>    
     </view>
     <view class="line">
-      <label>您觉得在公司内部组织活动，有哪些困难（需要支持）?</label>
+      <label>您觉得公司组织活动会有哪些方面的困难</label>
       <checkbox-group name='difficulties'>          
         <view>
           <checkbox value="1" />
-          <label>活动经费支持</label>
+          <label>活动经费</label>
         </view>
         <view>
           <checkbox value="2" />
-          <label>公司高层参与</label>
+          <label>公司高层参与度</label>
         </view>
         <view>
           <checkbox value="3" />
@@ -207,7 +207,7 @@
         </view>
         <view>
           <checkbox value="4" />
-          <label>活动内容与形式缺乏新颖</label>
+          <label>活动内容与形式缺乏新颖性</label>
         </view>
         <view>
           <checkbox value="0" />
@@ -233,13 +233,13 @@
         </view>
         <view>
           <checkbox value="4" />
-          <label>支持成立党青工妇组织</label>
+          <label>支持成立党、青、工、妇组织</label>
         </view>        
       </checkbox-group>    
     </view>
     
     <view class="line">
-      <label>（开放式问题）您对党群服务中心的建议和期待:</label>
+      <label>（开放式问题）您对党群服务中心的期待和建议:</label>
       <view class="line-control">
         <textarea name='comments' value='' />
       </view>

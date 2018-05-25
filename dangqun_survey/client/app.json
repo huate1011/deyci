@@ -12,7 +12,6 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "backgroundColor": "#e4340",
     "list": [
       {
       "pagePath": "pages/public_survey/public_survey",

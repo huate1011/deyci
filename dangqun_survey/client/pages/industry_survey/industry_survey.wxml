@@ -2,8 +2,28 @@
   <form bindsubmit='submitSurvey'>    
     <view class="line">
       <label>您来自哪个公司:</label>
-      <view class="line-control">        
-          <input type='text' name='name' value=''/>        
+      <view class="line-control">
+          <input type='text' value='' bindinput='findCompanies'/>
+      </view>
+      <view hidden='{{matchingcompanies.length === 0}}'>
+        <radio-group name="name">
+          <view hidden='{{!matchingcompanies[0]}}'>
+            <radio value="{{matchingcompanies[0]}}" />
+            <label>{{matchingcompanies[0]}}</label>
+          </view>
+          <view hidden='{{!matchingcompanies[1]}}'>
+            <radio value="{{matchingcompanies[1]}}" />
+            <label>{{matchingcompanies[1]}}</label>
+          </view>
+          <view hidden='{{!matchingcompanies[2]}}'>
+            <radio value="{{matchingcompanies[2]}}" />
+            <label>{{matchingcompanies[2]}}</label>
+          </view>
+          <view hidden='{{!matchingcompanies[3]}}'>
+            <radio value="{{matchingcompanies[3]}}" />
+            <label>{{matchingcompanies[3]}}</label>
+          </view>
+        </radio-group>      
       </view>      
     </view>
     <view class="line">

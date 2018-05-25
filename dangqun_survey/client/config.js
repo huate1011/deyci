@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://881636878.deyci.cn';
+var host = 'https://jbnnbnam.qcloud.la';
 
 var config = {
 
@@ -12,6 +12,8 @@ var config = {
         host,
         // 问卷提交地址
         surveyUrl: `${host}/weapp/survey`,
+        // 查找公司名字
+        companyCheckUrl: `${host}/weapp/companies`,
 
         // 登录地址，用于建立会话
         loginUrl: `${host}/weapp/login`,

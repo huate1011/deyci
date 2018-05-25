@@ -12,7 +12,23 @@ Page({
   data: {
     open_id: null,
     surveyType: 'IndustrySurveys',
-    hasdangorganisations: false
+    hasdangorganisations: false,
+    companies: [],
+    matchingcompanies: []
+  },
+
+  findCompanies: function(e) {
+    var that = this
+    var results = []
+    for (var i = 0; i < this.data.companies.length; i++) {
+      if (this.data.companies[i].name.includes(e.detail.value)) {
+        results.push(this.data.companies[i].name)
+      }
+      if (results.length == 4) {
+        break;
+      }
+    }
+    that.setData({matchingcompanies: results})
   },
 
   checkDang: function(e) {    
@@ -91,7 +107,23 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this    
+    wx.request({
+      url: config.service.companyCheckUrl,
+      data: {},
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {        
+        console.log("companies: " + res.data.result)
+        var result = res.data.result
+        if (result === "") {
+          console.log("Can not find companies")          
+        } else {
+          that.setData({companies: result})
+        }
+      }
+    })
   },
 
   /**

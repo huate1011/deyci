@@ -1,5 +1,5 @@
 <view class="root">  
-  <form bindsubmit='submitSurvey'>    
+  <form bindsubmit='submitSurvey' report-submit="true">    
     <view class="line">
       <label>您最近参与过的一次活动:</label>
       <view class="line-control">        

@@ -1,3 +1,5 @@
+var config = require('../config')
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -55,4 +57,40 @@ var decodeWXResult = (options) => {
   return wxResult;
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, encodeWXResult, decodeWXResult}
+var sendMsg = (open_id, token, form_id, user) => {
+  var msgUrl = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + token;
+  var d = {
+    touser: open_id,
+    template_id: config.service.template_id,//这个是1、申请的模板消息id，  
+    page: '/pages/start/start',
+    form_id: form_id,
+    value: {
+      "keyword1": {
+        "value": user,
+        "color": "#4a4a4a"
+      },
+      "keyword2": {
+        "value": Date.now(),
+        "color": "#9b9b9b"
+      }
+    },
+    color: '#ccc',
+    emphasis_keyword: 'keyword1.DATA'
+  }
+  wx.request({
+    url: msgUrl,
+    data: d,
+    method: 'POST',
+    success: function (res) {
+      console.log("push msg");
+      console.log(res);
+    },
+    fail: function (err) {
+      // fail  
+      console.log("push err")
+      console.log(err);
+    }
+  });
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, encodeWXResult, decodeWXResult, sendMsg}

@@ -1,5 +1,5 @@
 <view class="root">  
-  <form bindsubmit='submitSurvey'>    
+  <form bindsubmit='submitSurvey' report-submit="true">    
     <view class="line">
       <label>您来自哪个公司:</label>
       <view class="line-control">

@@ -17,23 +17,21 @@
   <view class="remind-box" wx:if="{{remind}}">
     <image class="remind-img" src="/images/start/loading.gif"></image>
   </view>
-  <block wx:else>
-
-    <view class="content">
-      <view class="hd" style="transform:rotateZ({{angle}}deg);">
-        <view class='logo'>
-          <open-data type="userAvatarUrl"></open-data>
-        </view>
-        <image class="wave" src="/images/start/wave.png" mode="aspectFill"></image>
-        <image class="wave wave-bg" src="/images/start/wave.png" mode="aspectFill"></image>
+  <view class="content">
+    <view class="hd" style="transform:rotateZ({{angle}}deg);">
+      <view class='logo'>
+        <open-data type="userAvatarUrl"></open-data>
       </view>
-      <view class="bd">
-        <view class="confirm-btn">
-          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">
-          <view><text>深圳湾创业广场</text></view>党群服务中心调查问卷</button>          
-        </view>     
-        <text class="copyright">© {{year}} deyci.com<canvas></canvas>技术支持</text>
-      </view>
+      <image class="wave" src="/images/start/wave.png" mode="aspectFill"></image>
+      <image class="wave wave-bg" src="/images/start/wave.png" mode="aspectFill"></image>
     </view>
-  </block>
+    <view class="bd">                
+        <button type='primary' class=".confirm-btn" bindgetuserinfo="goToIndex" open-type="getUserInfo"> 
+          <text space="emsp">深圳湾创业广场\n党群服务中心调查问卷</text>
+        </button>       
+      <text class="copyright">
+      © {{year}} deyci.com 技术支持
+      </text>
+    </view>
+  </view>  
 </view>

@@ -13,10 +13,8 @@
         <image class="wave" src="/images/start/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/start/wave.png" mode="aspectFill"></image>
       </view>
-      <view class="bd">
-        <view class="confirm-btn">
-          <button type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo">义工注册</button>
-        </view>
+      <view class="bd">        
+          <button class="confirm-btn" type='primary' bindgetuserinfo="goToIndex" open-type="getUserInfo"><text>义工注册</text></button>        
         <text class="copyright">© {{year}} Deyci.cn<canvas></canvas> 倾情出品</text>
       </view>
     </view>

@@ -136,38 +136,32 @@ flex-direction: column;
 align-items: stretch;
 animation: bd-rise 2s cubic-bezier(0.23,1,0.32,1) .75s forwards;
 opacity: 0;
+margin: 40% 20%;
 }
 @keyframes bd-rise{
 from {opacity: 0; transform: translate3d(0,60rpx,0); }
 to {opacity: 1; transform: translate3d(0,0,0); }
 }
-form {
-flex: 1;
-display: flex;
-flex-direction: column;
-align-items: stretch;
-justify-content: center;
-}
 
 .confirm-btn {
-font-size: 13pt;
+font-size: 35rpx;
 line-height: 85rpx;
 height: 85rpx;
-background: #118fff;
 color: #fff;
 text-align: center;
 border-radius: 50px;
-margin: 200rpx 20% 60%;
+flex-basis: 200rpx;
 }
 
 .copyright {
+  background: #118fff;  
   font-size: 28rpx;
   position: absolute;
   bottom: 0;
   left: 0;
   right:0;
+  top:300rpx;
   color: #999;
-  padding: 30rpx;
   text-align: center;
 }
 

@@ -115,28 +115,19 @@ flex-direction: column;
 align-items: stretch;
 animation: bd-rise 2s cubic-bezier(0.23,1,0.32,1) .75s forwards;
 opacity: 0;
+margin: 50% 20%;
 }
 @keyframes bd-rise{
 from {opacity: 0; transform: translate3d(0,60rpx,0); }
 to {opacity: 1; transform: translate3d(0,0,0); }
 }
-form {
-flex: 1;
-display: flex;
-flex-direction: column;
-align-items: stretch;
-justify-content: center;
-}
 
 .confirm-btn {
-font-size: 13pt;
-line-height: 85rpx;
-height: 85rpx;
+font-size: 40rpx;
 background: #118fff;
 color: #fff;
 text-align: center;
-border-radius: 50px;
-margin: 40% 20%;
+flex-basis: 100rpx;
 }
 
 .copyright {
@@ -148,5 +139,6 @@ margin: 40% 20%;
   right: 0;
   padding: 30rpx;
   text-align: center;
+  top:250rpx;
 }
 

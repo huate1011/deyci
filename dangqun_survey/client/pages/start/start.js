@@ -12,7 +12,7 @@ Page({
     remind: '加载中',
     angle: 0,
     year: 2018,
-    userInfo: {}
+    userInfo: {}    
   },
 
   /**

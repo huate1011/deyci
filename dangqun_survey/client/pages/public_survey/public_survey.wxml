@@ -3,7 +3,7 @@
     <view class="line">
       <label>您最近参与过的一次活动:</label>
       <view class="line-control">        
-          <input type='text' name='lastevent' value=''/>        
+          <input type='text' name='lastevent' value=''/>    
       </view>      
     </view>
     <view class="line">

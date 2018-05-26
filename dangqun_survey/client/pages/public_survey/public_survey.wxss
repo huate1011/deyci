@@ -1,6 +1,5 @@
 
 .line-control {
-  display: flex;
   border-bottom: #888888 5px solid;
   border-top: #888888 5px solid;
   background-color: #fff;

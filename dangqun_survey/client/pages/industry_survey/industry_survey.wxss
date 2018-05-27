@@ -26,8 +26,8 @@ position: absolute;
 top:0rpx;
 left:3rpx;
 right: 0;
-border-left: #353535 10px solid;
-border-right: #353535 10px solid;
+border-left: #888888 10px solid;
+border-right: #888888 10px solid;
 }
 
 .title{

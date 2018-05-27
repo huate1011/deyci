@@ -25,18 +25,17 @@ var loadData = () => {
     });
   }
 
-  var l = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + config.service.appId + '&secret=' + config.service.appSecret;
   wx.request({
-    url: l,
+    url: config.service.accessTokenUrl,
     data: {},
     method: 'GET',
     // header: {}, // 设置请求的 header  
-    success: function (res) {                
+    success: function (res) {                 
       var access_token = {}
-      access_token.token = res.data.access_token
-      access_token.expiry = Date.now() + res.data.expires_in
+      access_token.token = res.data.result.access_token
+      access_token.expiry = Date.now() + res.data.result.expires_in
       wx.setStorageSync('deyci:accessToken', access_token)
-      console.log("Successfull get access token:" + res.data.access_token)
+      console.log("Successfull get access token:" + access_token.token)
     },
     fail: function (e) {        
       console.log("failed to get access token:" + e)

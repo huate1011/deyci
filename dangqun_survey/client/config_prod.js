@@ -5,17 +5,11 @@
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://jbnnbnam.qcloud.la';
 
-//这个是1、申请的模板消息id，
-var template_id = 'nrI4xJ4GLEa_dVg_nfsKNA0_OP1z6_7j5hnRtEbhY6s'
-
 var config = {
 
     // 下面的地址配合云端 Demo 工作
     service: {
         host,
-        template_id,
-        // 获取access token
-        accessTokenUrl: `${host}/weapp/accessToken`,
         // 问卷提交地址
         surveyUrl: `${host}/weapp/survey`,
         // 查找公司名字

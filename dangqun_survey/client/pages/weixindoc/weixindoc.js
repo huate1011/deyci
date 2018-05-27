@@ -1,32 +1,18 @@
-// pages/survey/survey.js
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var constants = require('../../vendor/wafer2-client-sdk/lib/constants')
-var config = require('../../config')
-var util = require('../../utils/util')
-var surveyUtil = require('../../utils/survey')
-
+// pages/weixindoc/weixindoc.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    open_id: null,
-    surveyType: 'PersonalSurveys' 
+  
   },
 
-  submitSurvey: function (e) {    
-    surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    surveyUtil.loadData()   
+  
   },
 
   /**
@@ -60,7 +46,8 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {    
+  onPullDownRefresh: function () {
+  
   },
 
   /**

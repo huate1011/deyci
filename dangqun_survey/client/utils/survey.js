@@ -71,13 +71,16 @@ var sendSurvey = (takeSession, e, surveyType) => {
             e.detail.formId,
             wx.getStorageSync('deyci:userInfo').nickName
           );
+          wx.redirectTo({
+            url: '/pages/weixindoc/weixindoc'
+          })
         }
       }
       console.log('request success', result)
     },
     fail: function (error) {
       util.showModel('提交失败', error)
-      console.log('request fail', error);
+      console.log('request fail', error);      
     }
   }
   if (takeSession) {  // 使用 qcloud.request 带登录态登录

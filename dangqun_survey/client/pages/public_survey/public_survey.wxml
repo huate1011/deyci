@@ -1,7 +1,3 @@
-<block wx:if="true">
-<web-view src="https://mp.weixin.qq.com/"></web-view>
-</block>
-<block wx:else>
 <view class="root">  
   <form bindsubmit='submitSurvey' report-submit="true">    
     <view class="line">
@@ -607,4 +603,3 @@
     </view>
   </form>
 </view>
-</block>

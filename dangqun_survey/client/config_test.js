@@ -5,11 +5,23 @@
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://jbnnbnam.qcloud.la';
 
+// 微信小程序 App ID
+var appId = 'wxff42a2142aefae7b';
+
+  // 微信小程序 App Secret
+var appSecret = '13d6cab12cb6aa2526588cbe40687881';
+
+//这个是1、申请的模板消息id，
+var template_id = 'nrI4xJ4GLEa_dVg_nfsKNA0_OP1z6_7j5hnRtEbhY6s'
+
 var config = {
 
     // 下面的地址配合云端 Demo 工作
     service: {
         host,
+        appId,
+        appSecret,
+        template_id,
         // 问卷提交地址
         surveyUrl: `${host}/weapp/survey`,
         // 查找公司名字

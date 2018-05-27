@@ -8,8 +8,7 @@ const koaRequest = require('koa-http-request')
 
 // 使用响应处理中间件
 app.use(response)
-app.use(koaRequest({
-  json: true, //automatically parsing of JSON response
+app.use(koaRequest({  
   timeout: 3000,    //3s timeout
   host: 'https://api.weixin.qq.com'
 }))

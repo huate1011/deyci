@@ -34,5 +34,5 @@ router.post('/message', controllers.message.post)
 // POST 用来处理微信转发过来的客服消息
 router.post('/survey', controllers.survey)
 router.get('/companies', controllers.companies)
-router.get('/accesstoken', controllers.accessToken)
+router.post('/accesstoken', controllers.accessToken)
 module.exports = router

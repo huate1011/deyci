@@ -23,24 +23,7 @@ var loadData = () => {
         console.log('微信登录失败，请检查网络状态' + loginError);
       },
     });
-  }
-
-  wx.request({
-    url: config.service.accessTokenUrl,
-    data: {},
-    method: 'GET',
-    // header: {}, // 设置请求的 header  
-    success: function (res) {                 
-      var access_token = {}
-      access_token.token = res.data.result.access_token
-      access_token.expiry = Date.now() + res.data.result.expires_in
-      wx.setStorageSync('deyci:accessToken', access_token)
-      console.log("Successfull get access token:" + access_token.token)
-    },
-    fail: function (e) {        
-      console.log("failed to get access token:" + e)
-    }
-  });  
+  }  
 }
 
 var sendSurvey = (takeSession, e, surveyType) => {  
@@ -64,10 +47,9 @@ var sendSurvey = (takeSession, e, surveyType) => {
         util.showModel('提交失败', result.data.error)
       } else {
         util.showSuccess('提交成功')        
-        if (wx.getStorageSync('deyci:accessToken') && wx.getStorageSync('deyci:open_id')) {
+        if (wx.getStorageSync('deyci:open_id')) {          
           util.sendMsg(
-            wx.getStorageSync('deyci:open_id'),
-            wx.getStorageSync('deyci:accessToken').token,
+            wx.getStorageSync('deyci:open_id'),            
             e.detail.formId,
             wx.getStorageSync('deyci:userInfo').nickName
           );

@@ -57,8 +57,8 @@ var decodeWXResult = (options) => {
   return wxResult;
 }
 
-var sendMsg = (open_id, token, form_id, user) => {
-  var msgUrl = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + token;
+var sendMsg = (open_id, form_id, user) => {
+  var msgUrl = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=token';
   var d = {
     touser: open_id,
     template_id: config.service.template_id,//这个是1、申请的模板消息id，  
@@ -78,7 +78,7 @@ var sendMsg = (open_id, token, form_id, user) => {
     emphasis_keyword: 'keyword1.DATA'
   }
   wx.request({
-    url: msgUrl,
+    url: config.service.accessTokenUrl,
     data: d,
     method: 'POST',
     success: function (res) {

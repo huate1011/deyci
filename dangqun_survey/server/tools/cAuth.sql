@@ -101,6 +101,10 @@ CREATE TABLE `IndustrySurveys` (
   `difficulties` varchar(500) COLLATE utf8mb4_unicode_ci,
   `otherdifficulties` varchar(500) COLLATE utf8mb4_unicode_ci,
   `knowservices` varchar(500) COLLATE utf8mb4_unicode_ci,
+  `contactname` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `contactphone` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `officeaddress` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `occupation` varchar(100) COLLATE utf8mb4_unicode_ci,
   `comments` varchar(2048) COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`ID`)  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='调查问卷';

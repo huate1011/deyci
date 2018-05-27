@@ -1,7 +1,5 @@
-{
-  "window": {
-    "navigationBarTitleText": " ",
+{      
     "enablePullDownRefresh": false,
-    "disableScroll": true
-  }
+    "disableScroll": true,    
+    "navigationBarTitleText": "党群服务中心企业调研"
 }

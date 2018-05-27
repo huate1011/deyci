@@ -38,8 +38,23 @@ Page({
     })    
   },  
 
-  submitSurvey: function (e) {    
-    surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
+  submitSurvey: function (e) {
+    var formData = e.detail.value
+    if (formData['averageage'].trim() === "") {
+      util.showModel("错误", '贵公司员工平均年龄约还没有填');      
+    } else if (formData['employeeno'].trim() === "") {
+      util.showModel("错误", '贵公司员工数量还没有填');      
+    } else if (formData['contactphone'].trim() === "") {
+      util.showModel("错误", '联系人电话还没有填');
+    } else if (formData['contactname'].trim() === "") {
+      util.showModel("错误", '联系人（职务及姓名）还没有填');
+    } else if (formData['officeaddress'].trim() === "") {
+      util.showModel("错误", '联系人办公地点还没有填');
+    } else if (formData['occupation'].trim() === "") {
+      util.showModel("错误", '所属行业还没有填');
+    } else {
+      surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
+    }
   },
 
   /**

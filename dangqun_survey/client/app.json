@@ -7,8 +7,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#e64340",
-    "navigationBarTitleText": "党群服务中心企业调研",
+    "navigationBarBackgroundColor": "#e64340",    
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

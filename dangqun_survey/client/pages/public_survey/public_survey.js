@@ -15,6 +15,10 @@ Page({
     surveyType: 'PersonalSurveys' 
   },
 
+  setValue: function(e) {
+    debugger
+  },
+
   submitSurvey: function (e) {    
     surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
   },

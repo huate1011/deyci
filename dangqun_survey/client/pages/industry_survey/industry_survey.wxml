@@ -27,19 +27,23 @@
       </view>      
     </view>
     <view class="line">
-      <label>贵公司员工数量:</label>
+      <label>贵公司员工数量:
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
       <view class="line-control">        
           <input type='number' name='employeeno' value=''/>        
       </view>      
     </view>
     <view class="line">
-      <label>贵公司员工平均年龄约:</label>
+      <label>贵公司员工平均年龄约:
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
       <view class="line-control">        
-          <input type='number' name='averageage' value='' maxlength='2'/>        
+          <input type='number' name='averageage' value='' maxlength='2'/>
       </view>      
     </view>
     <view class="line">
-      <label>贵公司成立了以下哪些组织？</label>
+      <label>贵公司成立了以下哪些组织？(多选)</label>
       <checkbox-group name='currentdangorgs' bindchange='checkDang'>  
         <view>
           <checkbox value="1" />
@@ -64,7 +68,7 @@
       </checkbox-group>    
     </view>
     <view class="line" hidden='{{!hasdangorganisations}}'>
-      <label>如有以上组织，平时组织活动频次:</label>
+      <label>如有以上组织，平时组织活动频次:(单选)</label>
       <radio-group name="activityfrequency">      
         <view>
           <radio value="1" />
@@ -85,7 +89,7 @@
       </radio-group>
     </view>
     <view class="line" hidden='{{!hasdangorganisations}}'>
-      <label>以上组织，平常会开展什么活动？</label>
+      <label>以上组织，平常会开展什么活动？(单选)</label>
       <radio-group name="activitytype">      
         <view>
           <radio value="1" />
@@ -102,7 +106,7 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>如果没有以上组织，贵公司是否有意向成立以下组织?</label>
+      <label>如果没有以上组织，贵公司是否有意向成立以下组织?(多选)</label>
       <checkbox-group name='prospectivedangorgs'>          
         <view>
           <checkbox value="1" />
@@ -127,7 +131,7 @@
       </checkbox-group>    
     </view>
     <view class="line">
-      <label>如果没有以上组织，贵公司是否了解成立以上组织的要求和流程:</label>
+      <label>如果没有以上组织，贵公司是否了解成立以上组织的要求和流程:(单选)</label>
       <radio-group name="knowrequirements">      
         <view>
           <radio value="1" />
@@ -144,7 +148,7 @@
       </radio-group>
     </view>
     <view class="line">
-      <label>贵公司平时会组织哪些活动?</label>
+      <label>贵公司平时会组织哪些活动?(多选)</label>
       <checkbox-group name='pastactivities'>          
         <view>
           <checkbox value="1" />
@@ -162,7 +166,7 @@
       </checkbox-group>    
     </view>
     <view class="line">
-      <label>成立以上组织，您觉得对贵公司有以下哪些帮助?</label>
+      <label>成立以上组织，您觉得对贵公司有以下哪些帮助?(多选)</label>
       <checkbox-group name='owncontributions'>          
         <view>
           <checkbox value="1" />
@@ -191,7 +195,7 @@
       </checkbox-group>    
     </view>
     <view class="line">
-      <label>您觉得公司组织活动会有哪些方面的困难</label>
+      <label>您觉得公司组织活动会有哪些方面的困难?(多选)</label>
       <checkbox-group name='difficulties'>          
         <view>
           <checkbox value="1" />
@@ -217,7 +221,7 @@
       </checkbox-group>    
     </view>
     <view class="line">
-      <label>您是否了解党群服务中心提供以下服务?</label>
+      <label>您是否了解党群服务中心提供以下服务?(多选)</label>
       <checkbox-group name='knowservices'>          
         <view>
           <checkbox value="1" />
@@ -236,6 +240,39 @@
           <label>支持成立党、青、工、妇组织</label>
         </view>        
       </checkbox-group>    
+    </view>
+
+    <view class="line">
+      <label>所属行业
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
+      <view class="line-control">
+        <input type='text' name='occupation' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
+      <label>联系人 (职务及姓名)
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
+      <view class="line-control">
+        <input type='text' name='contactname' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
+      <label>联系人电话
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
+      <view class="line-control">
+        <input type='number' name='contactphone' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
+      <label>联系人办公地址
+        <text style="color:yellow; margin-left:0">*</text>
+      </label>
+      <view class="line-control">
+        <input type='text' name='officeaddress' class="item" value='' />
+      </view>
     </view>
     
     <view class="line">

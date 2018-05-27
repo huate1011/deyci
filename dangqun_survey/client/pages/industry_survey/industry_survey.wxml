@@ -35,7 +35,7 @@
     <view class="line">
       <label>贵公司员工平均年龄约:</label>
       <view class="line-control">        
-          <input type='number' name='averageage' value=''/>        
+          <input type='number' name='averageage' value='' maxlength='2'/>        
       </view>      
     </view>
     <view class="line">

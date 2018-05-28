@@ -39,7 +39,17 @@ Page({
   },  
 
   submitSurvey: function (e) {
-    var formData = e.detail.value
+    var formData = e.detail.value  
+    if (formData['currentdangorgs'].length > 0) {
+      if (formData['activityfrequency'].length === 0) {
+        util.showModel("错误", '平时组织活动频次没有填');
+        return
+      } else if (formData['activitytype'].length === 0) {
+        util.showModel("错误", '平常会开展什么活动还没有填');
+        return
+      }
+    }
+
     if (formData['averageage'].trim() === "") {
       util.showModel("错误", '贵公司员工平均年龄约还没有填');      
     } else if (formData['employeeno'].trim() === "") {
@@ -52,23 +62,17 @@ Page({
       util.showModel("错误", '联系人职务还没有填');
     } else if (formData['occupation'].trim() === "") {
       util.showModel("错误", '所属行业还没有填');
-    } else if (formData['currentdangorgs'].trim() !== "") {
-      if (formData['activityfrequency'].trim() === "") {
-        util.showModel("错误", '平时组织活动频次没有填');
-      } else if (formData['activitytype'].trim() === "") {
-        util.showModel("错误", '平常会开展什么活动还没有填');
-      }     
-    } else if (formData['prospectivedangorgs'].trim() === "") {      
+    } else if (formData['prospectivedangorgs'].length === 0) {      
       util.showModel("错误", '贵公司是否有意向成立党组织,还没有填');      
     } else if (formData['knowrequirements'].trim() === "") {
       util.showModel("错误", '贵公司是否了解成立党组织的要求和流程, 还没有填');
-    } else if (formData['pastactivities'].trim() === "") {
+    } else if (formData['pastactivities'].length === 0) {
       util.showModel("错误", '贵公司平时会组织哪些活动还没有填');
-    } else if (formData['owncontributions'].trim() === "") {
+    } else if (formData['owncontributions'].length === 0) {
       util.showModel("错误", '您觉得对贵公司有哪些帮助, 还没有填');
-    } else if (formData['difficulties'].trim() === "") {
+    } else if (formData['difficulties'].length === 0) {
       util.showModel("错误", '您觉得公司组织活动会有哪些方面的困难, 还没有填');
-    } else if (formData['knowservices'].trim() === "") {
+    } else if (formData['knowservices'].length === 0) {
       util.showModel("错误", '您是否了解党群服务中心提供的服务, 还没有填');
     } else {
       if (formData['name'] == "others") {

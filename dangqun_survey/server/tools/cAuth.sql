@@ -66,7 +66,9 @@ CREATE TABLE `PersonalSurveys` (
   `workstatus` varchar(100) COLLATE utf8mb4_unicode_ci,
   `profession` varchar(100) COLLATE utf8mb4_unicode_ci,
   `occupation` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `companyname` varchar(100) COLLATE utf8mb4_unicode_ci,    
   `age` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `contactphone` varchar(100) COLLATE utf8mb4_unicode_ci,
   `gender` varchar(100) COLLATE utf8mb4_unicode_ci,
   `politics` varchar(100) COLLATE utf8mb4_unicode_ci,
   `comments` varchar(2048) COLLATE utf8mb4_unicode_ci,
@@ -103,7 +105,7 @@ CREATE TABLE `IndustrySurveys` (
   `knowservices` varchar(500) COLLATE utf8mb4_unicode_ci,
   `contactname` varchar(100) COLLATE utf8mb4_unicode_ci,
   `contactphone` varchar(100) COLLATE utf8mb4_unicode_ci,
-  `officeaddress` varchar(100) COLLATE utf8mb4_unicode_ci,
+  `jobrole` varchar(100) COLLATE utf8mb4_unicode_ci,
   `occupation` varchar(100) COLLATE utf8mb4_unicode_ci,
   `comments` varchar(2048) COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`ID`)  

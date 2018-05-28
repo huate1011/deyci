@@ -547,7 +547,13 @@
         </view>
       </radio-group>
     </view>
-        <view class="line">
+    <view class="line">
+      <label>贵公司的名字:</label>
+      <view class="line-control">        
+          <input type='text' name='companyname' value=''/>        
+      </view>      
+    </view>
+    <view class="line">
       <label>您的年龄属于以下哪个范围？(单选)</label>
       <radio-group name="age">      
         <view>
@@ -568,8 +574,13 @@
         </view>
       </radio-group>
     </view>
-    <view>
-        <view class="line">
+    <view class="line">
+      <label>您的电话</label>
+      <view class="line-control">
+        <input type='number' name='contactphone' class="item" value='' />
+      </view>
+    </view> 
+    <view class="line">
       <label>请问您的性别是: (单选)</label>
       <radio-group name="gender">      
         <view>
@@ -599,7 +610,6 @@
         </view>
       </radio-group>
     </view>
-    <button formType="submit" type='primary'>提交问卷</button>
-    </view>
+    <button formType="submit" type='primary'>提交问卷</button>    
   </form>
 </view>

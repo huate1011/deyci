@@ -47,11 +47,29 @@ Page({
     } else if (formData['contactphone'].trim() === "") {
       util.showModel("错误", '联系人电话还没有填');
     } else if (formData['contactname'].trim() === "") {
-      util.showModel("错误", '联系人（职务及姓名）还没有填');
-    } else if (formData['officeaddress'].trim() === "") {
-      util.showModel("错误", '联系人办公地点还没有填');
+      util.showModel("错误", '联系人姓名还没有填');
+    } else if (formData['jobrole'].trim() === "") {
+      util.showModel("错误", '联系人职务还没有填');
     } else if (formData['occupation'].trim() === "") {
       util.showModel("错误", '所属行业还没有填');
+    } else if (formData['currentdangorgs'].trim() !== "") {
+      if (formData['activityfrequency'].trim() === "") {
+        util.showModel("错误", '平时组织活动频次没有填');
+      } else if (formData['activitytype'].trim() === "") {
+        util.showModel("错误", '平常会开展什么活动还没有填');
+      }     
+    } else if (formData['prospectivedangorgs'].trim() === "") {      
+      util.showModel("错误", '贵公司是否有意向成立党组织,还没有填');      
+    } else if (formData['knowrequirements'].trim() === "") {
+      util.showModel("错误", '贵公司是否了解成立党组织的要求和流程, 还没有填');
+    } else if (formData['pastactivities'].trim() === "") {
+      util.showModel("错误", '贵公司平时会组织哪些活动还没有填');
+    } else if (formData['owncontributions'].trim() === "") {
+      util.showModel("错误", '您觉得对贵公司有哪些帮助, 还没有填');
+    } else if (formData['difficulties'].trim() === "") {
+      util.showModel("错误", '您觉得公司组织活动会有哪些方面的困难, 还没有填');
+    } else if (formData['knowservices'].trim() === "") {
+      util.showModel("错误", '您是否了解党群服务中心提供的服务, 还没有填');
     } else {
       if (formData['name'] == "others") {
         formData['name'] = formData['nameinput']

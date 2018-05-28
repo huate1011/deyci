@@ -1,6 +1,12 @@
 <view class="root">  
   <form bindsubmit='submitSurvey' report-submit="true">    
     <view class="line">
+      <label>所属行业</label>
+      <view class="line-control">
+        <input type='text' name='occupation' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
       <label>您来自哪个公司:</label>
       <view class="line-control">
           <input type='text' name='nameinput' value='' bindinput='findCompanies'/>
@@ -31,17 +37,32 @@
       </view>      
     </view>
     <view class="line">
-      <label>贵公司员工数量:
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
+      <label>联系人姓名</label>
+      <view class="line-control">
+        <input type='text' name='contactname' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
+      <label>联系人职务</label>
+      <view class="line-control">
+        <input type='text' name='jobrole' class="item" value='' />
+      </view>
+    </view>
+    <view class="line">
+      <label>联系人电话</label>
+      <view class="line-control">
+        <input type='number' name='contactphone' class="item" value='' />
+      </view>
+    </view> 
+    
+    <view class="line">
+      <label>贵公司员工数量:</label>
       <view class="line-control">        
           <input type='number' name='employeeno' value=''/>        
       </view>      
     </view>
     <view class="line">
-      <label>贵公司员工平均年龄约:
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
+      <label>贵公司员工平均年龄约:</label>
       <view class="line-control">        
           <input type='number' name='averageage' value='' maxlength='2'/>
       </view>      
@@ -245,40 +266,6 @@
         </view>        
       </checkbox-group>    
     </view>
-
-    <view class="line">
-      <label>所属行业
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
-      <view class="line-control">
-        <input type='text' name='occupation' class="item" value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>联系人 (职务及姓名)
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
-      <view class="line-control">
-        <input type='text' name='contactname' class="item" value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>联系人电话
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
-      <view class="line-control">
-        <input type='number' name='contactphone' class="item" value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>联系人办公地址
-        <text style="color:yellow; margin-left:0">*</text>
-      </label>
-      <view class="line-control">
-        <input type='text' name='officeaddress' class="item" value='' />
-      </view>
-    </view>
-    
     <view class="line">
       <label>（开放式问题）您对党群服务中心的期待和建议:</label>
       <view class="line-control">

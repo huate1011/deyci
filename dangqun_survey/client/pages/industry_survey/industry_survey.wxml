@@ -3,10 +3,14 @@
     <view class="line">
       <label>您来自哪个公司:</label>
       <view class="line-control">
-          <input type='text' value='' bindinput='findCompanies'/>
+          <input type='text' name='nameinput' value='' bindinput='findCompanies'/>
       </view>
-      <view hidden='{{matchingcompanies.length === 0}}'>
+      <view>
         <radio-group name="name">
+          <view hidden='{{matchingcompanies[0]}}'>
+            <radio value="others" checked='true'/>
+            <label>贵公司不在列表内</label>
+          </view>
           <view hidden='{{!matchingcompanies[0]}}'>
             <radio value="{{matchingcompanies[0]}}" />
             <label>{{matchingcompanies[0]}}</label>

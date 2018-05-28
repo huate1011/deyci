@@ -16,7 +16,7 @@ Page({
   },
 
   submitSurvey: function (e) {    
-    surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
+    surveyUtil.sendSurvey(this.data.takeSession, e.detail.value, e.detail.formId, this.data.surveyType)
   },
 
   /**

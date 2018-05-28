@@ -1,15 +1,25 @@
 const config = require('../config')
+const https = require('https')
 
 module.exports = async ctx => {  
   try {
     var response = await ctx.get('/cgi-bin/token?grant_type=client_credential&appid=wxff42a2142aefae7b' + '&secret=' + '13d6cab12cb6aa2526588cbe40687881', null, {
       'User-Agent': 'koa-http-request'
     });
-    console.log('https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + JSON.parse(response).access_token + " -d '" + JSON.stringify(ctx.request.body) + "'")
+  //   console.log('https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + JSON.parse(response).access_token + " -d '" + JSON.stringify(ctx.request.body) + "'")
+
+  //   var options = {
+  //     url: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + JSON.parse(response).access_token,
+  //     data: ctx.request.body,
+  //         method: 'POST'
+  //           }
+  //   const req = https.request(options, (res) => {
+  //     console.log(res)
+  //   });
     
-    response = await ctx.post('/cgi-bin/message/wxopen/template/send?access_token=' + JSON.parse(response).access_token, ctx.request.body, {
-      'User-Agent': 'koa-http-request'
-    });
+    // response = await ctx.post('/cgi-bin/message/wxopen/template/send?access_token=' + JSON.parse(response).access_token, ctx.request.body, {
+    //   'User-Agent': 'koa-http-request'
+    // });
     
     ctx.response.body = {result: JSON.parse(response)};
     ctx.response.status = 200    

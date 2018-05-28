@@ -53,7 +53,11 @@ Page({
     } else if (formData['occupation'].trim() === "") {
       util.showModel("错误", '所属行业还没有填');
     } else {
-      surveyUtil.sendSurvey(this.data.takeSession, e, this.data.surveyType)
+      if (formData['name'] == "others") {
+        formData['name'] = formData['nameinput']
+      }
+      delete formData['nameinput']
+      surveyUtil.sendSurvey(this.data.takeSession, formData, e.detail.formId,  this.data.surveyType)
     }
   },
 
@@ -79,9 +83,9 @@ Page({
       success: function (res) {        
         console.log("companies: " + res.data.result)
         var result = res.data.result
-        if (result === "") {
+        if (result === "" || result === undefined) {
           console.log("Can not find companies")          
-        } else {
+        } else {          
           that.setData({companies: result})
         }
       }

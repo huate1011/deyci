@@ -1,3 +1,4 @@
+var qcloud = require('../vendor/wafer2-client-sdk/index')
 var config = require('../config')
 var util = require('util')
 
@@ -26,8 +27,7 @@ var loadData = () => {
   }  
 }
 
-var sendSurvey = (takeSession, e, surveyType) => {  
-  var formData = e.detail.value  
+var sendSurvey = (takeSession, formData, formId, surveyType) => {  
   if (wx.getStorageSync('deyci:open_id') === null || wx.getStorageSync('deyci:open_id') === "") {
     formData['open_id'] = wx.getStorageSync('deyci:userInfo')
   } else {
@@ -50,7 +50,7 @@ var sendSurvey = (takeSession, e, surveyType) => {
         if (wx.getStorageSync('deyci:open_id')) {          
           util.sendMsg(
             wx.getStorageSync('deyci:open_id'),            
-            e.detail.formId,
+            formId,
             wx.getStorageSync('deyci:userInfo').nickName
           );
           wx.redirectTo({

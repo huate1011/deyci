@@ -34,7 +34,7 @@ Page({
   checkDang: function(e) {    
     var that = this
     this.setData({
-      hasdangorganisations: e.detail.value.length == 0 ? false : true
+      hasdangorganisations: e.detail.value === 6 ? false : true
     })    
   },  
 
@@ -74,6 +74,8 @@ Page({
       util.showModel("错误", '您觉得公司组织活动会有哪些方面的困难, 还没有填');
     } else if (formData['knowservices'].length === 0) {
       util.showModel("错误", '您是否了解党群服务中心提供的服务, 还没有填');
+    } else if (formData['comments'].length === 0) {
+      util.showModel("错误", '您对党群服务中心的期待和建议, 还没有填');
     } else {
       if (formData['name'] == "others") {
         formData['name'] = formData['nameinput']

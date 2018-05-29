@@ -64,18 +64,18 @@ var sendMsg = (open_id, form_id, user) => {
     template_id: config.service.template_id,//这个是1、申请的模板消息id，  
     page: '/pages/start/start',
     form_id: form_id,
-    value: {
+    data: {
       "keyword1": {
-        "value": user,
+        "value": new Date().toLocaleString(),
         "color": "#4a4a4a"
       },
       "keyword2": {
-        "value": Date.now(),
+        "value": user,
         "color": "#9b9b9b"
       }
     },
     color: '#ccc',
-    emphasis_keyword: 'keyword1.DATA'
+    emphasis_keyword: 'keyword2.DATA'
   }
   wx.request({
     url: config.service.accessTokenUrl,

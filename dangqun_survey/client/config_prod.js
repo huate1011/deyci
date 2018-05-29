@@ -11,6 +11,8 @@ var config = {
     service: {
         host,
         // 问卷提交地址
+        accessTokenUrl: `${host}/weapp/accessToken`,
+        // 问卷提交地址
         surveyUrl: `${host}/weapp/survey`,
         // 查找公司名字
         companyCheckUrl: `${host}/weapp/companies`,

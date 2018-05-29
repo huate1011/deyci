@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://jbnnbnam.qcloud.la';
+var host = 'https://881636878.deyci.cn';
 
 //这个是1、申请的模板消息id，
 var template_id = 'nrI4xJ4GLEa_dVg_nfsKNA0_OP1z6_7j5hnRtEbhY6s'

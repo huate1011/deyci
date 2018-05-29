@@ -34,7 +34,7 @@ Page({
   checkDang: function(e) {    
     var that = this
     this.setData({
-      hasdangorganisations: e.detail.value === 6 ? false : true
+      hasdangorganisations: e.detail.value.length === 0 ? false : true
     })    
   },  
 

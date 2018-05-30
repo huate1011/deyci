@@ -12,8 +12,11 @@ var loadData = () => {
           url: config.service.requestUrl,
           login: true,
           success: (response) => {
-            console.log("Found open id" + response.data.data.openId);
-            wx.setStorageSync('deyci:open_id', response.data.data.openId)
+            var open_id = response.data.data.openId
+            if (open_id instanceof string && open_id.trim() !== "") {
+              console.log("Found open id" + open_id);
+              wx.setStorageSync('deyci:open_id', open_id)
+            }            
           },
           fail: (response) => {
             console.log("fail to find open id: " + response)

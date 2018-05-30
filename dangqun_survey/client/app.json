@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/start/start",
-    "pages/public_survey/public_survey",
     "pages/industry_survey/industry_survey",
     "pages/weixindoc/weixindoc"
   ],
@@ -9,21 +7,6 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#e64340",
     "navigationBarTextStyle": "white"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/public_survey/public_survey",
-        "iconPath": "images/tabbar/calendar.png",
-        "selectedIconPath": "images/tabbar/calendar_active.png",
-        "text": "员工调查问卷"
-      },
-      {
-        "pagePath": "pages/industry_survey/industry_survey",
-        "iconPath": "images/tabbar/team.png",
-        "selectedIconPath": "images/tabbar/team_active.png",
-        "text": "企业调研问卷"
-      }
-    ]
   }
+
 }

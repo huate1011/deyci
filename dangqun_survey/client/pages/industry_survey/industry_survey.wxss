@@ -1,23 +1,12 @@
-
+@import "../../components/radio/radio.wxss";
+@import "../../components/checkbox/checkbox.wxss";
+@import "../../components/input/input.wxss";
 .line-control {  
   border-bottom: #888888 5px solid;
   border-top: #888888 5px solid;
-  background-color: #fff;
-  margin-top: 40rpx; 
+  background-color: #fff;  
 }
 .line {margin:10rpx; margin-bottom: 50rpx;}
-
-.line radio-group view {
-  border-bottom: #888888 2px solid;
-  border-top: #888888 2px solid;
-  background-color: #fff;
-}
-
-.line checkbox-group view {
-  border-bottom: #888888 2px solid;
-  border-top: #888888 2px solid;
-  background-color: #fff;
-}
 
 .root {
 background: #e64340;

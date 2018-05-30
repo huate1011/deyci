@@ -153,15 +153,3 @@ border-radius: 50px;
 flex-basis: 200rpx;
 }
 
-.copyright {
-  background: #118fff;  
-  font-size: 28rpx;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right:0;
-  top:300rpx;
-  color: #999;
-  text-align: center;
-}
-

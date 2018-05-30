@@ -1,279 +1,84 @@
-<view class="root">  
-  <form bindsubmit='submitSurvey' report-submit="true">    
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+<import src="../../components/checkbox/checkbox.wxml"/>
+<import src="../../components/radio/radio.wxml"/>
+
+<view class="root">
+  <template is="head" data="{{title: '企业高管或HR代表企业填写'}}"/>
+  <form bindsubmit='submitSurvey' report-submit="true">
     <view class="line">
       <label>所属行业</label>
       <view class="line-control">
-        <input type='text' name='occupation' class="item" value='' />
+        <input class="weui-input" auto-focus type='text' name='所属行业' value='' />
       </view>
     </view>
     <view class="line">
       <label>您来自哪个公司:</label>
       <view class="line-control">
-          <input type='text' name='nameinput' value='' bindinput='findCompanies'/>
-      </view>
-      <view>
-        <radio-group name="name">
-          <view hidden='{{matchingcompanies[0]}}'>
-            <radio value="others" checked='true'/>
-            <label>贵公司不在列表内</label>
-          </view>
-          <view hidden='{{!matchingcompanies[0]}}'>
-            <radio value="{{matchingcompanies[0]}}" />
-            <label>{{matchingcompanies[0]}}</label>
-          </view>
-          <view hidden='{{!matchingcompanies[1]}}'>
-            <radio value="{{matchingcompanies[1]}}" />
-            <label>{{matchingcompanies[1]}}</label>
-          </view>
-          <view hidden='{{!matchingcompanies[2]}}'>
-            <radio value="{{matchingcompanies[2]}}" />
-            <label>{{matchingcompanies[2]}}</label>
-          </view>
-          <view hidden='{{!matchingcompanies[3]}}'>
-            <radio value="{{matchingcompanies[3]}}" />
-            <label>{{matchingcompanies[3]}}</label>
-          </view>
+          <input class="weui-input" type='text' name='公司名字查找' value='' bindinput='findCompanies'/>
+      </view>      
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="searchChange" name="公司名字">
+          <label class="weui-cell weui-check__label" wx:for="{{matchingcompanies}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="{{index == 0 ? true : false}}"/>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
         </radio-group>      
       </view>      
     </view>
     <view class="line">
       <label>联系人姓名</label>
       <view class="line-control">
-        <input type='text' name='contactname' class="item" value='' />
+        <input type='text' name='联系人姓名' class="weui-input" value='' />
       </view>
     </view>
     <view class="line">
       <label>联系人职务</label>
       <view class="line-control">
-        <input type='text' name='jobrole' class="item" value='' />
+        <input type='text' name='联系人职务' class="weui-input" value='' />
       </view>
     </view>
     <view class="line">
       <label>联系人电话</label>
       <view class="line-control">
-        <input type='number' name='contactphone' class="item" value='' />
+        <input type='number' name='联系人电话' class="weui-input" value='' />
       </view>
     </view> 
     
     <view class="line">
       <label>贵公司员工数量:</label>
       <view class="line-control">        
-          <input type='number' name='employeeno' value=''/>        
+          <input class="weui-input" type='number' name='贵公司员工数量' value=''/>        
       </view>      
     </view>
     <view class="line">
       <label>贵公司员工平均年龄约:</label>
       <view class="line-control">        
-          <input type='number' name='averageage' value='' maxlength='2'/>
+          <input class="weui-input" type='number' name='贵公司员工平均年龄约' value='' maxlength='2'/>
       </view>      
     </view>
-    <view class="line">
-      <label>贵公司成立了以下哪些组织？(多选)</label>
-      <checkbox-group name='currentdangorgs' bindchange='checkDang'>  
-        <view>
-          <checkbox value="1" />
-          <label>党支部</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>团支部</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>工会</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>妇联</label>
-        </view>
-        <view>
-          <checkbox value="5" />
-          <label>义工服务队</label>
-        </view>
-      </checkbox-group>    
-    </view>
-    <view class="line" hidden='{{!hasdangorganisations}}'>
-      <label>如有以上组织，平时组织活动频次:(单选)</label>
-      <radio-group name="activityfrequency">      
-        <view>
-          <radio value="1" />
-          <label>每月一次</label>
-        </view>
-        <view>
-          <radio value="2" />
-          <label>每季度一次</label>
-        </view>
-        <view>
-          <radio value="3" />
-          <label>半年一次</label>
-        </view>
-        <view>
-          <radio value="4" />
-          <label>不定期，根据公司业务情况安排</label>
-        </view>
-      </radio-group>
-    </view>
-    <view class="line" hidden='{{!hasdangorganisations}}'>
-      <label>以上组织，平常会开展什么活动？(单选)</label>
-      <radio-group name="activitytype">      
-        <view>
-          <radio value="1" />
-          <label>娱乐活动</label>
-        </view>
-        <view>
-          <radio value="2" />
-          <label>户外活动</label>
-        </view>
-        <view>
-          <radio value="3" />
-          <label>培训学习</label>
-        </view>
-      </radio-group>
-    </view>
-    <view class="line">
-      <label>如果没有以上组织，贵公司是否有意向成立以下组织?(多选)</label>
-      <checkbox-group name='prospectivedangorgs'>          
-        <view>
-          <checkbox value="1" />
-          <label>党支部</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>团支部</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>工会</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>妇联</label>
-        </view>
-        <view>
-          <checkbox value="5" />
-          <label>义工服务队</label>
-        </view>
-      </checkbox-group>    
-    </view>
-    <view class="line">
-      <label>如果没有以上组织，贵公司是否了解成立以上组织的要求和流程:(单选)</label>
-      <radio-group name="knowrequirements">      
-        <view>
-          <radio value="1" />
-          <label>非常了解</label>
-        </view>
-        <view>
-          <radio value="2" />
-          <label>我想了解</label>
-        </view>
-        <view>
-          <radio value="3" />
-          <label>我不了解</label>
-        </view>
-      </radio-group>
-    </view>
-    <view class="line">
-      <label>贵公司平时会组织哪些活动?(多选)</label>
-      <checkbox-group name='pastactivities'>          
-        <view>
-          <checkbox value="1" />
-          <label>员工生日会</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>团队拓展训练</label>
-        </view>
-        <view>
-          <checkbox value="0" />
-          <label>其他</label>
-          <input type='text' name='otherpastactivies' value='' placeholder='如选择其他请填写'/>
-        </view>        
-      </checkbox-group>    
-    </view>
-    <view class="line">
-      <label>成立以上组织，您觉得对贵公司有以下哪些帮助?(多选)</label>
-      <checkbox-group name='owncontributions'>          
-        <view>
-          <checkbox value="1" />
-          <label>增加团队凝聚力</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>提升员工对公司的认同感</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>加强公司内部的交流与互动</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>提升企业文化传递</label>
-        </view>
-        <view>
-          <checkbox value="5" />
-          <label>提升企业形象</label>
-        </view>
-        <view>
-          <checkbox value="6" />
-          <label>没有帮助</label>
-        </view>
-      </checkbox-group>    
-    </view>
-    <view class="line">
-      <label>您觉得公司组织活动会有哪些方面的困难?(多选)</label>
-      <checkbox-group name='difficulties'>          
-        <view>
-          <checkbox value="1" />
-          <label>活动经费</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>公司高层参与度</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>员工参与热情低</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>活动内容与形式缺乏新颖性</label>
-        </view>
-        <view>
-          <checkbox value="0" />
-          <label>其他</label>
-          <input type='text' name='otherdifficulties' value='' placeholder='如选择其他请填写'/>
-        </view>
-      </checkbox-group>    
-    </view>
-    <view class="line">
-      <label>您是否了解党群服务中心提供以下服务?(多选)</label>
-      <checkbox-group name='knowservices'>          
-        <view>
-          <checkbox value="1" />
-          <label>员工关爱</label>
-        </view>
-        <view>
-          <checkbox value="2" />
-          <label>培训学习</label>
-        </view>
-        <view>
-          <checkbox value="3" />
-          <label>法律支持</label>
-        </view>
-        <view>
-          <checkbox value="4" />
-          <label>支持成立党、青、工、妇组织</label>
-        </view>        
-      </checkbox-group>    
-    </view>
+    <template is="checkbox" data="{{...questions[0]}}"></template>
+    <block wx:if='{{hasdangorganisations}}'>
+      <template is="radio" data="{{...questions[1]}}"></template>
+      <template is="radio" data="{{...questions[2]}}"></template>
+    </block>    
+    <template is="checkbox" data="{{...questions[3]}}"></template>
+    <template is="radio" data="{{...questions[4]}}"></template>
+    <template is="checkbox" data="{{...questions[5]}}"></template>
+    <template is="checkbox" data="{{...questions[6]}}"></template>
+    <template is="checkbox" data="{{...questions[7]}}"></template>
+    <template is="checkbox" data="{{...questions[8]}}"></template>
     <view class="line">
       <label>（开放式问题）您对党群服务中心的期待和建议:</label>
       <view class="line-control">
-        <textarea name='comments' value='' />
+        <textarea name='期待和建议' value='' />
       </view>
     </view>
     <view>
       <button formType="submit" type='primary'>提交问卷</button>
     </view>
   </form>
+  <template is="foot" />
 </view>

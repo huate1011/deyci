@@ -1,0 +1,5 @@
+<template name="foot">
+  <navigator class="page-foot" openType="switchTab" url="/page/start/start" hover-class="none">
+    <text class='copyright'>© 2018 deyci.com 技术支持</text>
+  </navigator>
+</template>

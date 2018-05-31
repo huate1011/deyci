@@ -43,8 +43,8 @@ Page({
             success: function () {
               // 登录态未过期              
               console.log('登录成功', userInfo);
-              wx.switchTab({
-                url: '/pages/public_survey/public_survey'
+              wx.redirectTo({
+                url: '/pages/index/index'
               })              
             },
 

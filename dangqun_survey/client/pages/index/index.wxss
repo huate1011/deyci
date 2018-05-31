@@ -1,10 +1,21 @@
+@import "../../components/input/input.wxss";
+button{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
 .root {
-    background: #efeff4;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
+background: #e64340;
+position: absolute;
+top:0rpx;
+bottom: 0;
+right:0;
+left:0;
+border-left: #888888 3px solid;
+border-right: #888888 3px solid;
 }
 .line {
     padding-top: 30rpx;

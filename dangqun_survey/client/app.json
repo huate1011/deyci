@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/industry_survey/industry_survey",
+    "pages/public_survey/public_survey",
+    "pages/enduser/enduser",
     "pages/weixindoc/weixindoc"
   ],
   "window": {

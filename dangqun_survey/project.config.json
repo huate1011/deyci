@@ -34,8 +34,14 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pb",
+					"name": "public",
 					"pathName": "pages/public_survey/public_survey",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "enduser",
+					"pathName": "pages/enduser/enduser",
 					"query": ""
 				}
 			]

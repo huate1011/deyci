@@ -1,9 +1,10 @@
-
+@import "../../components/radio/radio.wxss";
+@import "../../components/checkbox/checkbox.wxss";
+@import "../../components/input/input.wxss";
 .line-control {
   border-bottom: #888888 5px solid;
   border-top: #888888 5px solid;
-  background-color: #fff;
-  margin-top: 40rpx; 
+  background-color: #fff;  
 }
 .line {margin:10rpx; margin-bottom: 50rpx;}
 

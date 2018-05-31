@@ -10,11 +10,11 @@
                 <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
               </view>              
               <view class="weui-cell__bd">{{item.name}}</view>
-              <view class="weui-cell__bd">
-              <input name='其他{{name}}' placeholder="如选择其他请填写" wx:if="{{item.name == '其他'}}"/>
+              <view class="weui-cell__bd">              
+                <input name='其他{{name}}' placeholder="如选择其他请填写" auto-focus wx:if="{{item.name == '其他' && item.checked}}"/>
               </view>
             </label>            
-          </checkbox-group>
+          </checkbox-group>          
         </view>
       </view>
     </view>  

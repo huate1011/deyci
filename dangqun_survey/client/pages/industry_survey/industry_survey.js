@@ -23,6 +23,7 @@ Page({
         question: "贵公司成立了以下哪些组织？(多选)", 
         name:"已成立组织",
         index:0,
+        size:5,
         items:[
           { value: '党支部', name: '党支部' },
           { value: '团支部', name: '团支部' },
@@ -35,6 +36,7 @@ Page({
         question: "如有以上组织，平时组织活动频次:(单选)", 
         name: "组织活动频次",
         index: 1,
+        size: 4,
         items: [
           { value: '每月一次', name: '每月一次' },
           { value: '每季度一次', name: '每季度一次' },
@@ -46,6 +48,7 @@ Page({
         question: "以上组织，平常会开展什么活动？(单选)",
         name: "组织什么活动",
         index: 2,
+        size: 3,
         items: [
           { value: '娱乐活动', name: '娱乐活动' },
           { value: '户外活动', name: '户外活动' },          
@@ -56,6 +59,7 @@ Page({
         question: "如果没有以上组织，贵公司是否有意向成立以下组织?(多选)",
         name: "意向成立组织",
         index: 3,
+        size: 5,
         items: [
           { value: '党支部', name: '党支部' },
           { value: '团支部', name: '团支部' },
@@ -68,6 +72,7 @@ Page({
         question: "如果没有以上组织，贵公司是否了解成立以上组织的要求和流程:(单选)",
         name: "了解组织要求",
         index: 4,
+        size: 3,
         items: [
           { value: '非常了解', name: '非常了解' },
           { value: '我想了解', name: '我想了解' },          
@@ -78,6 +83,7 @@ Page({
         question: "贵公司平时会组织哪些活动?(多选)",
         name: "公司活动",
         index: 5,
+        size: 3,
         items: [
           { value: '员工生日会', name: '员工生日会' },
           { value: '团队拓展训练', name: '团队拓展训练' },
@@ -88,6 +94,7 @@ Page({
         question: "成立以上组织，您觉得对贵公司有以下哪些帮助?(多选)",
         name: "帮助成立组织",
         index: 6,
+        size: 6,
         items: [
           { value: '增加团队凝聚力', name: '增加团队凝聚力' },
           { value: '提升员工对公司的认同感', name: '提升员工对公司的认同感' },
@@ -101,6 +108,7 @@ Page({
         question: "您觉得公司组织活动会有哪些方面的困难?(多选)",
         name: "组织活动困难",
         index: 7,
+        size: 5,
         items: [
           { value: '活动经费', name: '活动经费' },
           { value: '公司高层参与度', name: '公司高层参与度' },
@@ -113,6 +121,7 @@ Page({
         question: "您是否了解党群服务中心提供以下服务?(多选)",
         name: "了解党群服务",
         index: 8,
+        size: 4,
         items: [
           { value: '员工关爱', name: '员工关爱' },
           { value: '培训学习', name: '培训学习' },
@@ -155,7 +164,7 @@ Page({
     questions[index].items = items
     this.setData({
       questions: questions,
-      hasdangorganisations: values.length === 0 ? false : true
+      hasdangorganisations: index===0 && values.length > 0 ? true : false
     });
   },
 
@@ -176,19 +185,23 @@ Page({
   },
 
   findCompanies: function(e) {
+    var input = e.detail.value
     var that = this
     var results = []
-    for (var i = 0; i < this.data.companies.length; i++) {
-      if (this.data.companies[i].name.includes(e.detail.value)) {
-        var company = {}
-        company['name'] = this.data.companies[i].name
-        company['value'] = this.data.companies[i].name
-        results.push(company)
+    if (input.trim() !== "") {
+      for (var i = 0; i < this.data.companies.length; i++) {
+        if (this.data.companies[i].name.includes(input)) {
+          var company = {}
+          company['name'] = this.data.companies[i].name
+          company['value'] = this.data.companies[i].name
+          results.push(company)
+        }
+        if (results.length == 4) {
+          break;
+        }
       }
-      if (results.length == 4) {
-        break;
-      }
-    }    
+    }
+        
     if(results.length == 0) {
       var company = {}
       company['name'] = "贵公司不在列表"
@@ -198,58 +211,26 @@ Page({
     that.setData({ matchingcompanies: results })    
   },
 
-  checkDang: function(e) {    
-    var that = this
-    this.setData({
-      hasdangorganisations: e.detail.value.length === 0 ? false : true
-    })    
-  },  
-
   submitSurvey: function (e) {
-    var formData = e.detail.value  
-    // if (formData['currentdangorgs'].length > 0) {
-    //   if (formData['activityfrequency'].length === 0) {
-    //     util.showModel("错误", '平时组织活动频次没有填');
-    //     return
-    //   } else if (formData['activitytype'].length === 0) {
-    //     util.showModel("错误", '平常会开展什么活动还没有填');
-    //     return
-    //   }
-    // }
-
-    if (formData['averageage'].trim() === "") {
-      util.showModel("错误", '贵公司员工平均年龄约还没有填');      
-    // } else if (formData['employeeno'].trim() === "") {
-    //   util.showModel("错误", '贵公司员工数量还没有填');      
-    // } else if (formData['contactphone'].trim() === "") {
-    //   util.showModel("错误", '联系人电话还没有填');
-    // } else if (formData['contactname'].trim() === "") {
-    //   util.showModel("错误", '联系人姓名还没有填');
-    // } else if (formData['jobrole'].trim() === "") {
-    //   util.showModel("错误", '联系人职务还没有填');
-    // } else if (formData['occupation'].trim() === "") {
-    //   util.showModel("错误", '所属行业还没有填');
-    // } else if (formData['prospectivedangorgs'].length === 0) {      
-    //   util.showModel("错误", '贵公司是否有意向成立党组织,还没有填');      
-    // } else if (formData['knowrequirements'].trim() === "") {
-    //   util.showModel("错误", '贵公司是否了解成立党组织的要求和流程, 还没有填');
-    // } else if (formData['pastactivities'].length === 0) {
-    //   util.showModel("错误", '贵公司平时会组织哪些活动还没有填');
-    // } else if (formData['owncontributions'].length === 0) {
-    //   util.showModel("错误", '您觉得对贵公司有哪些帮助, 还没有填');
-    // } else if (formData['difficulties'].length === 0) {
-    //   util.showModel("错误", '您觉得公司组织活动会有哪些方面的困难, 还没有填');
-    // } else if (formData['knowservices'].length === 0) {
-    //   util.showModel("错误", '您是否了解党群服务中心提供的服务, 还没有填');
-    // } else if (formData['comments'].length === 0) {
-    //   util.showModel("错误", '您对党群服务中心的期待和建议, 还没有填');
-    } else {
-      if (formData['name'] == "others") {
-        formData['name'] = formData['nameinput']
-      }
-      delete formData['nameinput']
-      surveyUtil.sendSurvey(this.data.takeSession, formData, e.detail.formId,  this.data.surveyType)
+    var formData = e.detail.value
+    if (formData['公司名字'] == "其他") {
+      formData['公司名字'] = formData['公司名字查找']
     }
+    delete formData['公司名字查找']
+
+    for (var key in formData) {          
+      if (formData[key] instanceof String && formData[key].trim() === "" 
+        || formData[key].length == 0) {
+        if (key === '已成立组织' && formData['已成立组织'].length === 0) {   
+          continue;
+        } else if (key === '组织什么活动' && formData['已成立组织'].length === 0) {
+          continue;
+        }
+        util.showModel("错误", key + ',还没有填'); 
+        return
+      }
+    }
+    surveyUtil.sendSurvey(this.data.takeSession, formData, e.detail.formId,  this.data.surveyType)    
   },
 
   /**

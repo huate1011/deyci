@@ -7,9 +7,9 @@
   <template is="head" data="{{title: '企业高管或HR代表企业填写'}}"/>
   <form bindsubmit='submitSurvey' report-submit="true">
     <view class="line">
-      <label>所属行业</label>
+      <label>行业领域</label>
       <view class="line-control">
-        <input class="weui-input" auto-focus type='text' name='所属行业' value='' />
+        <input class="weui-input" auto-focus type='text' name='行业领域' value='' />
       </view>
     </view>
     <view class="line">

@@ -161,11 +161,15 @@ Page({
       }
     }
     var questions = this.data.questions;
-    questions[index].items = items
+    questions[index].items = items    
     this.setData({
-      questions: questions,
-      hasdangorganisations: index===0 && values.length > 0 ? true : false
+      questions: questions    
     });
+    if(index === 0) {
+      this.setData({
+        hasdangorganisations: values.length > 0
+      });      
+    }
   },
 
   searchChange: function (e) {

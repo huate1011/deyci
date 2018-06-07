@@ -25,6 +25,7 @@ RUN apt-get update -q  \
  gcc \
  make \
  build-essential \
+ libpng-dev \
  libkrb5-dev \
  sudo \
  apt-utils \
@@ -32,13 +33,13 @@ RUN apt-get update -q  \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-RUN sudo apt-get install -yq nodejs \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN apt-get install -yq nodejs \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install MEAN.JS Prerequisites
-RUN npm install --quiet -g gulp bower yo mocha karma-cli pm2 && npm cache clean
+RUN npm install --quiet -g gulp bower yo mocha karma-cli pm2 && npm cache verify 
 
 RUN mkdir -p /opt/mean.js/public/lib
 WORKDIR /opt/mean.js
@@ -49,7 +50,7 @@ WORKDIR /opt/mean.js
 # when the local package.json file changes.
 # Install npm packages
 COPY package.json /opt/mean.js/package.json
-RUN npm install --quiet && npm cache clean
+RUN npm install --quiet && npm cache verify
 
 # Install bower packages
 COPY bower.json /opt/mean.js/bower.json

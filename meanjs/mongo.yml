@@ -17,6 +17,7 @@ services:
 
   mongo-express:
     image: mongo-express
+    container_name: db-express
     restart: always
     ports:
       - 8081:8081
@@ -26,7 +27,7 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: "user"
       ME_CONFIG_BASICAUTH_PASSWORD: "password"
   web:
-    image: meanjs:latest
+    image: deyci/nodeserver:build-master-2
     restart: always
     container_name: meanjs
     ports:

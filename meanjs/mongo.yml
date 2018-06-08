@@ -6,6 +6,7 @@ services:
   mongo:
     image: mongo
     restart: always
+    container_name: db
     ports:
      - 27017:27017
     volumes:
@@ -24,4 +25,18 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_BASICAUTH_USERNAME: "user"
       ME_CONFIG_BASICAUTH_PASSWORD: "password"
+  web:
+    image: meanjs:latest
+    restart: always
+    container_name: meanjs
+    ports:
+     - "3000:3000"
+     - "5858:5858"
+     - "8080:8080"
+     - "35729:35729"
+    environment:
+     - NODE_ENV=development
+     - DB_1_PORT_27017_TCP_ADDR=db
+    depends_on:
+     - mongo
 

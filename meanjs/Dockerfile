@@ -60,4 +60,4 @@ RUN bower install --quiet --allow-root --config.interactive=false
 COPY . /opt/mean.js
 
 # Run MEAN.JS server
-CMD npm install && npm start
+CMD npm start

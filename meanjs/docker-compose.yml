@@ -1,8 +1,8 @@
 version: '2'
 services:
   web:
+    image: meanjs:latest
     restart: always
-    build: .
     container_name: meanjs
     ports:
      - "3000:3000"
@@ -17,7 +17,7 @@ services:
     volumes_from:
      - web-data
   web-data:
-    build: .
+    image: meanjs:latest
     entrypoint: /bin/true
     volumes:
      - ./:/opt/mean.js
@@ -25,16 +25,16 @@ services:
      - /opt/mean.js/public
      - /opt/mean.js/uploads
   db:
-    image: mongo:3.2
+    image: mongo
     restart: always
     ports:
      - "27017:27017"
     volumes_from:
       - db-data
   db-data:
-    image: mongo:3.2
+    image: mongo
     volumes:
-      - /data/db
+      - /data/mongodb/:/data/db/
       - /var/lib/mongodb
       - /var/log/mongodb
     entrypoint: /bin/true

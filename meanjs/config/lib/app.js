@@ -5,8 +5,11 @@
  */
 var config = require('../config'),
   mongooseService = require('./mongoose'),
+  knexService = require('./knex'),
   express = require('./express'),
+  fs = require('fs'),
   chalk = require('chalk'),
+  path = require('path'),
   seed = require('./mongo-seed');
 
 function seedDB() {
@@ -16,10 +19,35 @@ function seedDB() {
   }
 }
 
+function initMySQL() {
+  config.files.server.models.mysql.forEach(function (modelPath) {
+    // var content = fs.readFileSync(path.resolve(modelPath), 'utf8');
+    // knexService.raw(content).then(function() {
+    //   console.log('mysql 数据库初始化成功！');
+    // }).catch(function(err) {
+    //     throw new Error(err)
+    // });
+
+    knexService.schema.hasTable('users').then(function(exists) {
+      if (!exists) {
+        return knexService.schema.createTable('users', function(t) {
+          t.increments('id').primary();
+          t.string('first_name', 100);
+          t.string('last_name', 100);
+          t.text('bio');
+        });
+      } else {
+          console.log('mysql already exists！');
+      }
+    });
+  });
+}
+
 module.exports.init = function init(callback) {
   mongooseService.connect(function (db) {
     // Initialize Models
     mongooseService.loadModels(seedDB);
+    initMySQL();
 
     // Initialize express
     var app = express.init(db);
@@ -43,7 +71,8 @@ module.exports.start = function start(callback) {
       console.log();
       console.log(chalk.green('Environment:     ' + process.env.NODE_ENV));
       console.log(chalk.green('Server:          ' + server));
-      console.log(chalk.green('Database:        ' + config.db.uri));
+      console.log(chalk.green('Mongo:        ' + config.mongodb.uri));
+      console.log(chalk.green('MySQL:        ' + config.mysql.connection.host));
       console.log(chalk.green('App version:     ' + config.meanjs.version));
       if (config.meanjs['meanjs-version'])
         console.log(chalk.green('MEAN.JS version: ' + config.meanjs['meanjs-version']));

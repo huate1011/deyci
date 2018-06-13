@@ -12,7 +12,7 @@ var _ = require('lodash'),
 // Load the mongoose models
 module.exports.loadModels = function (callback) {
   // Globbing model files
-  config.files.server.models.forEach(function (modelPath) {
+  config.files.server.models.mongo.forEach(function (modelPath) {
     require(path.resolve(modelPath));
   });
 
@@ -21,15 +21,15 @@ module.exports.loadModels = function (callback) {
 
 // Initialize Mongoose
 module.exports.connect = function (callback) {
-  mongoose.Promise = config.db.promise;
+  mongoose.Promise = config.mongodb.promise;
 
-  var options = _.merge(config.db.options || {}, { useMongoClient: true });
+  var options = _.merge(config.mongodb.options || {}, { useMongoClient: true });
 
   mongoose
-    .connect(config.db.uri, options)
+    .connect(config.mongodb.uri, options)
     .then(function (connection) {
       // Enabling mongoose debug mode if required
-      mongoose.set('debug', config.db.debug);
+      mongoose.set('debug', config.mongodb.debug);
 
       // Call callback FN
       if (callback) callback(connection.db);

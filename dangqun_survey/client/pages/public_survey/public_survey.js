@@ -18,21 +18,34 @@ Page({
      */
     questions: [
       {
+        "question": "您最近参与过的一次活动:",
+        "name": "最近一次活动",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 0,
+        "size": 0,
+        "items": []
+      },
+      {
         "question": "您更愿意在活动中承担的角色: (单选)",
         "name": "角色承担",
-        "index": 0,
+        "column":{"type": "text", "size": 255},
+        "type": "radio",
+        "index": 1,
         "size":4,
         "items": [
           { "value": "参与者", "name": "参与者" },
           { "value": "策划者", "name": "策划者" },
           { "value": "传播者", "name": "传播者" },
-          { "value": "组织者", "name": "组织者" },
+          { "value": "组织者", "name": "组织者" }
         ]
       },
       {
         "question": "您喜欢的活动领域: (多选)",
         "name": "喜好类型",
-        "index": 1,
+        "column": { "type": "text", "size": 255 },
+        "index": 2,
+        "type": "checkbox",
         "size": 4,
         "items": [
           { "value": "学习培训类", "name": "学习培训类" },
@@ -44,20 +57,24 @@ Page({
       {
         "question": "组织哪类活动您会感兴趣参加: (多选)",
         "name": "兴趣活动",
-        "index": 2,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 3,
         "size": 5,
         "items": [
           { "value": "运动", "name": "运动" },
           { "value": "文艺", "name": "文艺如音乐，摄影摄像，手工等)" },
           { "value": "娱乐休闲", "name": "娱乐休闲（如桌游，ktv)" },
           { "value": "公益活动", "name": "公益活动" },
-          { "value": "学习培训", "name": "学习培训(职业发展，知识提升" },
+          { "value": "学习培训", "name": "学习培训(职业发展，知识提升" }
         ]
       },
       {
         "question": "组织哪类培训您会感兴趣参加: (多选)",
         "name": "兴趣培训",
-        "index": 3,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 4,
         "size": 7,
         "items": [
           { "value": "工会知识", "name": "工会知识" },
@@ -72,7 +89,9 @@ Page({
       {
         "question": "您的兴趣爱好会体现在？(多选)",
         "name": "个人爱好",
-        "index": 4,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 5,
         "size": 6,
         "items": [
           { "value": "电影", "name": "电影" },
@@ -86,7 +105,9 @@ Page({
       {
         "question": "更愿意参加哪种规模的活动？(单选)",
         "name": "活动规模",
-        "index": 5,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 6,
         "size": 4,
         "items": [
           { "value": "20人以内", "name": "20人以内" },
@@ -98,7 +119,9 @@ Page({
       {
         "question": "您平时多久参加一次集体活动？(单选)",
         "name": "活动频率",
-        "index": 6,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 7,
         "size": 3,
         "items": [
           { "value": "每周一次", "name": "每周一次" },
@@ -109,7 +132,9 @@ Page({
       {
         "question": "您愿意参与的活动频次？(单选)",
         "name": "意愿频次",
-        "index": 7,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 8,
         "size": 3,
         "items": [
           { "value": "每周一次", "name": "每周一次" },
@@ -120,7 +145,9 @@ Page({
       {
         "question": "您愿意参与的活动时间？(单选)",
         "name": "意愿时间",
-        "index": 8,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 9,
         "size": 4,
         "items": [
           { "value": "周末晚上", "name": "周末晚上" },
@@ -132,7 +159,9 @@ Page({
       {
         "question": "您的休闲时光？(单选)",
         "name": "休息时间",
-        "index": 9,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 10,
         "size": 4,
         "items": [
           { "value": "双休", "name": "双休" },
@@ -145,7 +174,9 @@ Page({
       {
         "question": "您是否会主动寻找活动？(单选)",
         "name": "主动寻找",
-        "index": 10,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 11,
         "size": 2,
         "items": [
           { "value": "会", "name": "会" },
@@ -155,7 +186,9 @@ Page({
       {
         "question": "通过什么渠道寻找活动？(多选)",
         "name": "参与渠道",
-        "index": 11,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 12,
         "size": 5,
         "items": [
           { "value": "公司组织", "name": "公司组织" },
@@ -168,7 +201,9 @@ Page({
       {
         "question": "一个好的活动，您更看中哪一点？(多选)",
         "name": "理想特质",
-        "index": 12,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 13,
         "size": 4,
         "items": [
           { "value": "优质的内容", "name": "优质的内容" },
@@ -180,7 +215,9 @@ Page({
       {
         "question": "您更期待在活动中收获？(多选)",
         "name": "收获倾向",
-        "index": 13,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 14,
         "size": 3,
         "items": [
           { "value": "学到技能收获知识", "name": "学到技能、收获知识" },
@@ -191,7 +228,9 @@ Page({
       {
         "question": "您是否了解创业广场党群服务中心？(单选)",
         "name": "了解党群",
-        "index": 14,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 15,
         "size": 3,
         "items": [
           { "value": "不知道", "name": "不知道" },
@@ -202,7 +241,9 @@ Page({
       {
         "question": "您是否参加过创业广场党群服务中心的活动？(单选)",
         "name": "党群参与",
-        "index": 15,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 16,
         "size": 2,
         "items": [
           { "value": "参加过", "name": "参加过" },
@@ -212,7 +253,9 @@ Page({
       {
         "question": "您知道工会是做什么的吗？(多选)",
         "name": "了解工会",
-        "index": 16,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 17,
         "size": 3,
         "items": [
           { "value": "发福利组织活动等", "name": "发福利，组织活动等" },
@@ -223,7 +266,9 @@ Page({
       {
         "question": "您是通过什么渠道了解工会的？(多选)",
         "name": "工会传播",
-        "index": 17,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 18,
         "size": 8,
         "items": [
           { "value": "企业工会宣传", "name": "企业工会宣传" },
@@ -239,7 +284,9 @@ Page({
       {
         "question": "如已加入工会，您加入的渠道是？(单选)",
         "name": "入会分析",
-        "index": 18,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 19,
         "size": 7,
         "items": [
           { "value": "企业规定入职时自动加入", "name": "企业规定，入职时自动加入" },
@@ -254,7 +301,9 @@ Page({
       {
         "question": "您希望工会提供哪些职业技能培训？(多选)",
         "name": "需求分析",
-        "index": 19,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 20,
         "size": 7,
         "items": [
           { "value": "投资理财", "name": "投资理财" },
@@ -269,7 +318,9 @@ Page({
       {
         "question": "您更喜欢青年之家的哪个服务？(多选)",
         "name": "青内涵",
-        "index": 20,
+        "column": { "type": "text", "size": 1024 },
+        "type": "checkbox",
+        "index": 21,
         "size": 7,
         "items": [
           { "value": "青组织", "name": "青·组织：智慧团建·推优入党·青年之声" },
@@ -284,7 +335,9 @@ Page({
       {
         "question": "您是否知道园区里的青年之家？(单选)",
         "name": "知道青",
-        "index": 21,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 22,
         "size": 3,
         "items": [
           { "value": "刚刚知道", "name": "刚刚知道" },
@@ -293,9 +346,29 @@ Page({
         ]
       },
       {
+        "question": "未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:",
+        "name": "期待和建议",
+        "column": { "type": "text", "size": 2048 },
+        "type": "textarea",
+        "index": 23,
+        "size": 0,
+        "items": []
+      },
+      {
+        "question": "您在工作中的专业领域是？",
+        "name": "专业领域",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 24,
+        "size": 0,
+        "items": []
+      },
+      {
         "question": "您的职业: (单选)",
         "name": "职业",
-        "index": 22,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 25,
         "size": 3,
         "items": [
           { "value": "上班族", "name": "上班族" },
@@ -306,7 +379,9 @@ Page({
       {
         "question": "您的职务: (单选)",
         "name": "职务",
-        "index": 23,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 26,
         "size": 4,
         "items": [
           { "value": "员工", "name": "员工" },
@@ -314,11 +389,22 @@ Page({
           { "value": "公司高层", "name": "公司高层" },
           { "value": "您自己的定位", "name": "您自己的定位" }
         ]
-      },           
+      },   
+      {
+        "question": "贵公司的名字: ",
+        "name": "公司名字",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 27,
+        "size": 0,
+        "items": []
+      },        
       {
         "question": "性别",
         "name": "性别",
-        "index": 24,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 28,
         "size": 2,
         "items": [
           { "value": "男", "name": "男" },
@@ -326,9 +412,20 @@ Page({
         ]
       },
       {
+        "question": "您的电话:",
+        "name": "电话",
+        "column": { "type": "number", "size": 0 },
+        "type": "textbox",
+        "index": 29,
+        "size": 0,
+        "items": []
+      },
+      {
         "question": "您的年龄范围: (单选)",
         "name": "年龄范围",
-        "index": 25,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 30,
         "size": 3,
         "items": [
           { "value": "28岁以下", "name": "28岁以下" },
@@ -340,7 +437,9 @@ Page({
       {
         "question": "政治面貌: (单选)",
         "name": "政治面貌",
-        "index": 26,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 31,
         "size": 3,
         "items": [
           { "value": "群众", "name": "群众" },
@@ -349,6 +448,27 @@ Page({
         ]
       }
     ]
+  },
+
+  bindReplaceInput: function (e) {
+    var value = e.detail.value
+    var pos = e.detail.cursor
+    var left
+    if (pos !== -1) {
+      // 光标在中间
+      left = e.detail.value.slice(0, pos)
+      // 计算光标的位置
+      pos = left.replace(/11/g, '2').length
+    }
+
+    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
+    return {
+      value: value.replace(/11/g, '2'),
+      cursor: pos
+    }
+
+    // 或者直接返回字符串,光标在最后边
+    // return value.replace(/11/g,'2'),
   },
 
   radioChange: function (e) {

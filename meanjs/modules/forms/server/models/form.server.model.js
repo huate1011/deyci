@@ -6,12 +6,78 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
   path = require('path'),
-  config = require(path.resolve('./config/config')),
   chalk = require('chalk');
 
 /**
- * Article Schema
+ * Form Schema
  */
+
+var FormsSchema = new Schema({
+  question: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'question cannot be blank'
+  },
+  name: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'name cannot be blank'
+  },
+  column: {
+    type: {
+      type: String,
+      default: '',
+      trim: true,
+      required: 'type cannot be blank'
+    },
+    size: {
+      type: Number,
+      default: 255,
+      required: 'size cannot be blank'
+    }
+  },
+  type: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'type cannot be blank'
+  },
+  index: {
+    type: Number,
+    default: 0,
+    min: 0,
+    required: 'index cannot be blank'
+  },
+  size: {
+    type: Number,
+    default: 0,
+    min: 0,
+    required: 'size cannot be blank'
+  },
+  items: [
+    {
+      name: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'name cannot be blank'
+      },
+      value: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'value cannot be blank'
+      }
+    }
+  ]
+});
+
+// FormsSchema.statics.seed = seed;
+//
+// mongoose.model('Forms', FormsSchema);
+
 var FormSchema = new Schema({
   created: {
     type: Date,
@@ -29,11 +95,7 @@ var FormSchema = new Schema({
     min: 0,
     required: 'Version cannot be blank'
   },
-  content: {
-    type: String,
-    default: '',
-    trim: true
-  }
+  forms: [FormsSchema]
 });
 
 FormSchema.statics.seed = seed;

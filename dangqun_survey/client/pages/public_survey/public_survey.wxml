@@ -2,66 +2,13 @@
 <import src="../../common/foot.wxml" />
 <import src="../../components/checkbox/checkbox.wxml"/>
 <import src="../../components/radio/radio.wxml"/>
+<import src="../../components/input/input.wxml"/>
 
 <view class="root">  
   <form bindsubmit='submitSurvey' report-submit="true">    
-    <view class="line">
-      <label>您最近参与过的一次活动:</label>
-      <view class="line-control">        
-        <input class="weui-input" type='text' name='最近一次活动' value=''/>
-      </view>      
+    <view wx:for="{{questions}}" wx:key="index">
+      <template is="{{item.type}}" data="{{...item}}"></template>   
     </view>
-    <template is="radio" data="{{...questions[0]}}"></template>
-    <template is="checkbox" data="{{...questions[1]}}"></template>
-    <template is="checkbox" data="{{...questions[2]}}"></template>
-    <template is="checkbox" data="{{...questions[3]}}"></template>
-    <template is="checkbox" data="{{...questions[4]}}"></template>
-    <template is="radio" data="{{...questions[5]}}"></template>
-    <template is="radio" data="{{...questions[6]}}"></template>
-    <template is="radio" data="{{...questions[7]}}"></template>
-    <template is="radio" data="{{...questions[8]}}"></template>
-    <template is="radio" data="{{...questions[9]}}"></template>
-    <template is="radio" data="{{...questions[10]}}"></template>
-    <template is="checkbox" data="{{...questions[11]}}"></template>
-    <template is="checkbox" data="{{...questions[12]}}"></template>
-    <template is="checkbox" data="{{...questions[13]}}"></template>
-    <template is="radio" data="{{...questions[14]}}"></template>
-    <template is="radio" data="{{...questions[15]}}"></template>
-    <template is="checkbox" data="{{...questions[16]}}"></template>
-    <template is="checkbox" data="{{...questions[17]}}"></template>
-    <template is="radio" data="{{...questions[18]}}"></template>
-    <template is="checkbox" data="{{...questions[19]}}"></template>
-    <template is="checkbox" data="{{...questions[20]}}"></template>
-    <template is="radio" data="{{...questions[21]}}"></template>    
-    <view class="line">
-      <label>未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:</label>
-      <view class="line-control">
-        <textarea name='期待和建议' value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>您在工作中的专业领域是？</label>
-      <view class="line-control">
-        <input class="weui-input" type='text' name='专业领域' value='' />
-      </view>
-    </view>
-    <template is="radio" data="{{...questions[22]}}"></template>
-    <template is="radio" data="{{...questions[23]}}"></template>
-    <view class="line">
-      <label>贵公司的名字:</label>
-      <view class="line-control">        
-        <input class="weui-input" type='text' name='公司名字' value=''/>
-      </view>      
-    </view>
-    <template is="radio" data="{{...questions[24]}}"></template>
-    <view class="line">
-      <label>您的电话</label>
-      <view class="line-control">
-        <input class="weui-input" type='number' name='电话' value='' />
-      </view>
-    </view> 
-    <template is="radio" data="{{...questions[25]}}"></template>
-    <template is="radio" data="{{...questions[26]}}"></template>    
     <button formType="submit" type='primary'>提交问卷</button>    
   </form>
 </view>

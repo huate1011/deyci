@@ -3,9 +3,11 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/dangqun_survey" />
       <excludeFolder url="file://$MODULE_DIR$/meanjs/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/meanjs/.vscode" />
       <excludeFolder url="file://$MODULE_DIR$/meanjs/public/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/weixin" />
       <excludePattern pattern="*.md" />
       <excludePattern pattern="package-lock.json" />
       <excludePattern pattern="*.log" />

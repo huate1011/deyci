@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS `Volunteers`;
 CREATE TABLE `Volunteers` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `open_id` varchar(2048) COLLATE utf8mb4_unicode_ci,

@@ -52,6 +52,15 @@ function initMySQL(value) {
         })
       }
     });
+  // initialise basic mysql tables
+  config.files.server.models.mysql.forEach(function (modelPath) {
+    var content = fs.readFileSync(path.resolve(modelPath), 'utf8');
+    knexService.raw(content).then(function () {
+      console.log('mysql 数据库初始化成功！' + modelPath);
+    }).catch(function (err) {
+      console.log(chalk.bold.yellow('mysql 数据库初始化失败！' + err.sqlMessage));
+    })
+  });
 }
 
 module.exports.init = function init(callback) {

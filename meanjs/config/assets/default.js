@@ -57,7 +57,7 @@ module.exports = {
     allJS: ['server.js', 'config/**/*.js', 'modules/*/server/**/*.js'],
     models: {
       mongo: 'modules/*/server/models/**/*.js',
-      mysql: 'modules/volunteers/server/models/**/*.sql'
+      mysql: ['modules/volunteers/server/models/**/*.sql', 'modules/qcloud/server/models/**/*.sql']
     },
     routes: ['modules/!(core)/server/routes/**/*.js', 'modules/core/server/routes/**/*.js'],
     sockets: 'modules/*/server/sockets/**/*.js',

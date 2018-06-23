@@ -1,6 +1,5 @@
 //login.js
 //获取应用实例
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var constants = require('../../vendor/wafer2-client-sdk/lib/constants')
 var config = require('../../config')
 var util = require('../../utils/util.js')
@@ -15,7 +14,7 @@ Page({
     userInfo: {}
   },
   
-  goToIndex:function(e){   
+  goToIndex:function(e){       
     var that = this
     try {
       wx.setStorageSync('deyci:userInfo', e.detail.userInfo)
@@ -31,8 +30,8 @@ Page({
     try {
       var value = wx.getStorageSync('deyci:open_id')
       if (value) {        
-        wx.request({
-          url: config.service.sqlqueryUrl,
+        var options = {      
+          url: config.service.sqlqueryUrl,    
           data: { open_id: value },
           header: {
             'content-type': 'application/json' // 默认值
@@ -52,8 +51,12 @@ Page({
                 url: '/pages/login/login'
               })
             }
+          },
+          fail: function (err) {                        
+            console.log("Normal error handling: " + err.errMsg)          
           }
-        })        
+        }
+        util.wxSafeCall(wx.request, options, config.service.sqlqueryUrlBackup)
       } else {
         // Otherwise, this user needs to be registered
         wx.redirectTo({
@@ -61,7 +64,7 @@ Page({
         })
       }
     } catch (e) {
-      util.showModel('查找openid失败', e)
+      util.showModel('查找openid失败', e.message)
     }        
   },
 
@@ -81,7 +84,7 @@ Page({
         that.setData({ authentication_code: loginResult.code})
       },
       fail: function (loginError) {
-        util.showModal(constants.ERR_WX_LOGIN_FAILED, '微信登录失败，请检查网络状态')
+        util.showModel(constants.ERR_WX_LOGIN_FAILED, '微信登录失败，请检查网络状态')
       },
     });    
   },

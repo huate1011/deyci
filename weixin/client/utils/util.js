@@ -1,3 +1,5 @@
+var config = require('../config')
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -54,4 +56,20 @@ var decodeWXResult = (options) => {
   return wxResult;
 }
 
-module.exports = { formatTime, showBusy, showSuccess, showModel, encodeWXResult, decodeWXResult}
+var wxSafeCall = (mainFn, options, urlBackup) => {  
+  var failFn = options.fail
+  var completeFn = options.complete
+  options.fail = function (err) {     
+    console.log("Function fail to call: " + err.errMsg || err.message)
+    options.url = urlBackup    
+    options.loginUrl = config.service.loginUrlBackup
+    options.fail = failFn
+    options.complete = completeFn
+    mainFn(options)
+  }
+  options.complete = function() {}
+  options.loginUrl = config.service.loginUrl
+  mainFn(options)
+}
+
+module.exports = { formatTime, showBusy, showSuccess, showModel, encodeWXResult, decodeWXResult, wxSafeCall}

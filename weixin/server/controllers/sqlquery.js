@@ -10,7 +10,7 @@ module.exports = async ctx => {
   //    * 解析微信发送过来的请求体
   //    * 可查看微信文档：https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/receive.html#接收消息和事件
   //    */
-  var memberTable = "MemberInfo"
+  var memberTable = "会员信息"
   const open_id = ctx.request.query.open_id;  
   const data = await mysql(memberTable).where({ 'open_id': open_id }).first()
   ctx.status = 200

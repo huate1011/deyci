@@ -1,5 +1,6 @@
 var constants = require('./constants');
 var utils = require('./utils');
+var custom_utils = require('../../../utils/util');
 var Session = require('./session');
 var loginLib = require('./login');
 
@@ -45,7 +46,7 @@ function request(options) {
     var originHeader = options.header || {};
 
     // 成功回调
-    var callSuccess = function () {
+    var callSuccess = function () {      
         success.apply(null, arguments);
         complete.apply(null, arguments);
     };
@@ -57,21 +58,23 @@ function request(options) {
     };
 
     // 是否已经进行过重试
-    var hasRetried = false;
-
+    var hasRetried = false;    
     if (requireLogin) {
-        doRequestWithLogin();
+        doRequestWithLogin(options.loginUrl);
     } else {
         doRequest();
     }
 
     // 登录后再请求
-    function doRequestWithLogin() {
-        loginLib.login({ success: doRequest, fail: callFail });
+    function doRequestWithLogin(loginUrl) {
+        loginLib.login({ 
+          loginUrl: loginUrl, 
+          success: doRequest, 
+          fail: callFail });
     }
 
     // 实际进行请求的方法
-    function doRequest() {
+    function doRequest() {           
         var authHeader = buildAuthHeader(Session.get());
         try{
         wx.request(utils.extend({}, options, {
@@ -102,6 +105,7 @@ function request(options) {
 
             fail: function(e) {
               console.log(e)
+              options.fail(e);
             },
             complete: function (e) {
               console.log(e)

@@ -1,4 +1,5 @@
-var utils = require('./utils');
+var utils = require('./utils'); 
+var custom_utils = require('../../../utils/util');
 var constants = require('./constants');
 var Session = require('./session');
 
@@ -65,7 +66,7 @@ var defaultOptions = {
     method: 'GET',
     success: noop,
     fail: noop,
-    loginUrl: null,
+    loginUrl: null
 };
 
 /**
@@ -78,7 +79,7 @@ var defaultOptions = {
  * @param {Function} options.success(userInfo) 登录成功后的回调函数，参数 userInfo 微信用户信息
  * @param {Function} options.fail(error) 登录失败后的回调函数，参数 error 错误信息
  */
-var login = function login(options) {
+var login = function login(options) {    
     options = utils.extend({}, defaultOptions, options);
 
     if (!defaultOptions.loginUrl) {
@@ -121,7 +122,7 @@ var login = function login(options) {
             header: header,
             method: options.method,
             data: options.data,
-            success: function (result) {
+            success: function (result) {              
                 var data = result.data;
 
                 // 成功地响应会话信息
@@ -148,7 +149,7 @@ var login = function login(options) {
                 var error = new LoginError(constants.ERR_LOGIN_FAILED, '登录失败，可能是网络错误或者服务器发生异常');
                 options.fail(error);
             },
-        });
+        });        
     };
 
     doLogin();
@@ -161,5 +162,5 @@ var setLoginUrl = function (loginUrl) {
 module.exports = {
     LoginError: LoginError,
     login: login,
-    setLoginUrl: setLoginUrl,
+    setLoginUrl: setLoginUrl    
 };

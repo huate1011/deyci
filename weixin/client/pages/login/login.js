@@ -18,40 +18,41 @@ var showSuccess = text => wx.showToast({
 });
 
 // 显示失败提示
-var showModel = (title, content) => {
+var showModel = (title, content, success) => {
   wx.hideToast();
 
   wx.showModal({
     title,
     content: JSON.stringify(content),
-    showCancel: false
+    showCancel: false,
+    success: success || function(){}
   });
 };
 
 // validate form
 var validateForm = (formData, thisData) => {
-  if (formData['origin'].trim() === "") {
+  if (formData['籍贯'].trim() === "") {
     return '籍贯忘记填了';
   }
-  if (formData['workplace'].trim() === "") {
+  if (formData['工作单位'].trim() === "") {
     return '工作单位忘记填了';
   }
-  if (formData['emergencyname'].trim() === "") {
+  if (formData['紧急联系人'].trim() === "") {
     return '紧急联系人忘记填了';
   }
-  if (formData['emergencyphone'].trim() === "") {
+  if (formData['紧急联系电话'].trim() === "") {
     return '紧急联系人电话忘记填了';
   }
-  if (formData['politics'].trim() === "") {
+  if (formData['政治面貌'].trim() === "") {
     return '政治面貌忘记填了';
   }
-  if (new Date().getFullYear() - new Date(thisData.dob).getFullYear() > 18 && formData['phone'].trim() === "") {
+  if (new Date().getFullYear() - new Date(thisData.dob).getFullYear() > 18 && formData['电话'].trim() === "") {
     return '手机号码忘记填了';
   }
-  if (formData['address'].trim() === "") {
-    return '所在街道忘记填了';
+  if (formData['居住地址'].trim() === "") {
+    return '居住地址忘记填了';
   }
-  if (formData['council'].trim() === "") {
+  if (formData['所在街道社区'].trim() === "") {
     return '街道社区忘记填了';
   }
   if (formData['personalidtype'] === "chineseid" && !/^\d{17}(\d|x)$/i.test(formData['personalid'])) {
@@ -64,7 +65,7 @@ var validateForm = (formData, thisData) => {
     return '身份证背面照片还没上传';
   }
 
-  if (formData['email'] !== "" && !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['email'])) {
+  if (formData['电子邮箱'] !== "" && !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(formData['电子邮箱'])) {
     return '邮箱不正确';
   }
   return null;
@@ -102,23 +103,23 @@ Page({
 
   doRegister: function (e) {
     var formData = e.detail.value
-    var validationResult = validateForm(formData, this.data);
-    if (validationResult !== null){
-      showModel('错误', validationResult)
-      return false
-    }
+    // var validationResult = validateForm(formData, this.data);
+    // if (validationResult !== null){
+    //   showModel('错误', validationResult)
+    //   return false
+    // }
 
     util.showBusy('请求中...')
     var that = this
     var open_id = this.data.open_id
-    formData['idhead'] = this.data.idhead
-    formData['idback'] = this.data.idback
+    formData['身份证正面'] = this.data.idhead
+    formData['身份证反面'] = this.data.idback
     formData['open_id'] = open_id    
-    formData['dob'] = this.data.dob
-    formData['pob'] = this.data.pob
-    formData['personality'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
+    formData['生日'] = this.data.dob
+    formData['户籍'] = this.data.pob
+    formData['性格'] = [formData.personalityone, formData.personalitytwo, formData.personalitythree]
     if (formData['personalidtype'] === "otherid") {
-      formData['personalid'] = 'Other' + formData['personalid']
+      formData['身份号'] = '其他-' + formData['身份号']
     }
     delete formData['personalityone']
     delete formData['personalitytwo']
@@ -126,7 +127,7 @@ Page({
     delete formData['personalidtype']
     console.log('form发生了submit事件，携带数据为：', e.detail.value)    
     var options = {
-      url: config.service.registerUrl,
+      url: config.service.registerUrl,      
       data: formData,
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -137,9 +138,11 @@ Page({
           showModel('注册失败', result.data.error) 
         } else {
           wx.setStorageSync('deyci:open_id', open_id)
-          wx.redirectTo({
-            url: '/pages/chat/chat'
-          })
+          showModel('注册成功', result.data, function(result){            
+            wx.redirectTo({
+              url: '/pages/chat/chat'
+            })
+          });           
         }        
         console.log('request success', result)        
       },
@@ -148,10 +151,10 @@ Page({
         console.log('request fail', error);
       }
     }
-    if (this.data.takeSession) {  // 使用 qcloud.request 带登录态登录
-      qcloud.request(options)
+    if (this.data.takeSession) {  // 使用 qcloud.request 带登录态登录  
+      util.wxSafeCall(qcloud.request, options, config.service.registerUrlBackup)
     } else {    // 使用 wx.request 则不带登录态
-      wx.request(options)
+      util.wxSafeCall(wx.request, options, config.service.registerUrlBackup)
     }
   },
 
@@ -168,7 +171,7 @@ Page({
       success: function (res) {
         var filePath = res.tempFilePaths[0]
         showBusy('上传图片中...')
-        wx.uploadFile({
+        var options = {         
           url: config.service.uploadUrl,
           filePath: filePath,
           name: 'file',
@@ -190,8 +193,8 @@ Page({
             showModel('上传图片失败', e)
             console.error(e)
           }
-        })
-
+        }
+        util.wxSafeCall(wx.uploadFile, options, config.service.uploadUrlBackup)        
       },
       fail: function (e) {
         showModel('图片选择失败', e)
@@ -226,8 +229,8 @@ Page({
   onLoad: function (options) {
     var that = this
     // 调用登录接口    
-    qcloud.request({
-      url: config.service.requestUrl,
+    var options = {
+      url: config.service.requestUrl,      
       login: true,
       success(result) {
         console.log("reg:" + result.data.data)
@@ -240,7 +243,8 @@ Page({
         util.showModel('请求失败', error)
         console.log('request fail', error)
       }
-    }) 
+    }    
+    util.wxSafeCall(qcloud.request, options, config.service.requestUrlBackup);
     // Set rendering data for this page
     var that = this
     that.setData({

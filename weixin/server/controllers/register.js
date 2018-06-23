@@ -7,8 +7,8 @@ async function getVolunteerID(tableName, gender) {
   midnight.setSeconds(0)
   var existingid = null
   try {
-    const data = await mysql(tableName).max('volunteerid').where('last_visit_time', '>', midnight).first();
-    existingid = data['max(`volunteerid`)']
+    const data = await mysql(tableName).max('自愿者号码').where('last_visit_time', '>', midnight).first();
+    existingid = data['max(`自愿者号码`)']
   } catch (err) {
     console.log(msg)    
   }
@@ -30,24 +30,24 @@ module.exports = async ctx => {
 //    * 解析微信发送过来的请求体
 //    * 可查看微信文档：https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/receive.html#接收消息和事件
 //    */
-  var memberTable = "MemberInfo"
+  var memberTable = "会员信息"
   const member = ctx.request.body;
   // Try to set the volunteer id
   var now = new Date();  
   
   member['create_time'] = now;
   member['last_visit_time'] = now  
-  member['volunteerid'] = await getVolunteerID(memberTable, member['gender'] === 'Female'? 2 : 1)
+  member['自愿者号码'] = await getVolunteerID(memberTable, member['gender'] === 'Female'? 2 : 1)
   // console.log('exeu sql:' + JSON.stringify(member))
   try{
+    ctx.type = 'application/json'
     const res = await mysql(memberTable).insert(member)
     ctx.response.status = 200
-    ctx.response.body = "注册成功" + member['volunteerid']
+    ctx.response.body = "志愿者号码：" + member['自愿者号码']
   } catch (err) {
     msg = 'Error: ' + JSON.stringify(err)
     console.log(msg)
-    ctx.status = 400
-    ctx.type = 'application/json'
+    ctx.status = 400    
     ctx.body = ''
     if (err['code'] == 'ER_DUP_ENTRY') {
       if (err['sqlMessage'].indexOf('phone') > -1) {

@@ -1,4 +1,5 @@
 var requestLib = require('./request');
+var custom_utils = require('../../../utils/util');
 var wxTunnel = require('./wxTunnel');
 
 /**
@@ -31,8 +32,8 @@ var DEFAULT_MAX_RECONNECT_TRY_TIMES = 5;
 // 每次重连前，等待时间的增量值
 var DEFAULT_RECONNECT_TIME_INCREASE = 1000;
 
-function Tunnel(serviceUrl) {
-    if (currentTunnel && currentTunnel.status !== STATUS_CLOSED) {
+function Tunnel(serviceUrl, serviceBackupUrl) {  
+    if (currentTunnel && currentTunnel.status !== STATUS_CLOSED) {      
         throw new Error('当前有未关闭的信道，请先关闭之前的信道，再打开新信道');
     }
 
@@ -45,6 +46,7 @@ function Tunnel(serviceUrl) {
     // 暴露实例状态以及方法
     //=========================================================================
     this.serviceUrl = serviceUrl;
+    this.serviceBackupUrl = serviceBackupUrl;
     this.socketUrl = null;
     this.status = null;
 
@@ -138,18 +140,19 @@ function Tunnel(serviceUrl) {
     //=========================================================================
     var isFirstConnection = true;
     var isOpening = false;
+    var isMainServerDown = false;
 
     /**
      * 连接信道服务器，获取 WebSocket 连接地址，获取地址成功后，开始进行 WebSocket 连接
      */
-    function openConnect() {
+    function openConnect() {      
         if (isOpening) return;
         isOpening = true;
 
         // 只有关闭状态才会重新进入准备中
         setStatus(isFirstConnection ? STATUS_CONNECTING : STATUS_RECONNECTING);
 
-        requestLib.request({
+        var options = {
             url: serviceUrl,
             method: 'GET',
             success: function (response) {
@@ -161,18 +164,18 @@ function Tunnel(serviceUrl) {
             },
             fail: dispatchConnectServiceError,
             complete: () => isOpening = false,
-        });
+        };
+        custom_utils.wxSafeCall(requestLib.request, options, serviceBackupUrl);
 
         function dispatchConnectServiceError(detail) {
             if (isFirstConnection) {
-                setStatus(STATUS_CLOSED);
+              setStatus(STATUS_CLOSED);
 
-                dispatchEvent('error', {
-                    code: ERR_CONNECT_SERVICE,
-                    message: '连接信道服务失败，网络错误或者信道服务没有正确响应',
-                    detail: detail || null,
-                });
-
+              dispatchEvent('error', {
+                  code: ERR_CONNECT_SERVICE,
+                  message: '连接信道服务失败，网络错误或者信道服务没有正确响应',
+                  detail: detail || null,
+              });
             } else {
                 startReconnect(detail);
             }

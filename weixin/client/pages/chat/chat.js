@@ -102,26 +102,25 @@ Page({
             success: function (loginResult) {
               console.log("chat room request code: " + loginResult.code)
               wx.setStorageSync("deyci:code", loginResult.code)              
-              qcloud.request({
-                url: config.service.requestUrl,
+              var options = {
+                url: config.service.requestUrl,                
                 login: true,
                 success: (response) => {
                   console.log("success: chat room qcloud request: " + loginResult.code)
                   that.setData({
                     me: response.data.data                    
-                  })                  
+                  })       
+                  that.connect();           
                 },
                 fail: (response) => {
                   console.log("fail: chat room qcloud request: " + response)
                   that.setData({
                     me: {'openId': wx.getStorageSync('deyci:open_id')}
                   })
-                },
-                complete:(response) => {
-                  console.log("complete: chat room qcloud request: " + response.data)
                   that.connect();
                 }
-              });
+              };
+              util.wxSafeCall(qcloud.request, options, config.service.requestUrlBackup);
             },
             fail: function (loginError) {
               that.pushMessage(createSystemMessage('微信登录失败，请检查网络状态'));      
@@ -146,7 +145,8 @@ Page({
         this.amendMessage(createSystemMessage('正在加入群聊...'));
 
         // 创建信道
-        var tunnel = this.tunnel = new qcloud.Tunnel(config.service.tunnelUrl);
+        var tunnel = this.tunnel = new qcloud.Tunnel(config.service.tunnelUrl,
+          config.service.tunnelUrlBackup);
 
         // 连接成功后，去掉「正在加入群聊」的系统提示
         tunnel.on('connect', () => this.popMessage());

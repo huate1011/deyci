@@ -10,7 +10,7 @@ async function getVolunteerID(tableName, gender) {
     const data = await mysql(tableName).max('自愿者号码').where('last_visit_time', '>', midnight).first();
     existingid = data['max(`自愿者号码`)']
   } catch (err) {
-    console.log(msg)    
+    console.log(JSON.stringify(err))    
   }
   if (existingid === null) {
     return midnight.getFullYear() * 100000000 + (midnight.getMonth() + 1) * 1000000 +
@@ -44,9 +44,8 @@ module.exports = async ctx => {
     const res = await mysql(memberTable).insert(member)
     ctx.response.status = 200
     ctx.response.body = "志愿者号码：" + member['自愿者号码']
-  } catch (err) {
-    msg = 'Error: ' + JSON.stringify(err)
-    console.log(msg)
+  } catch (err) {    
+    console.log('Error: ' + JSON.stringify(err))
     ctx.status = 400    
     ctx.body = ''
     if (err['code'] == 'ER_DUP_ENTRY') {

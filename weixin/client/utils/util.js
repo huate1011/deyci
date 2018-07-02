@@ -59,7 +59,7 @@ var decodeWXResult = (options) => {
 var wxSafeCall = (mainFn, options, urlBackup) => {  
   var failFn = options.fail
   var completeFn = options.complete
-  options.fail = function (err) {     
+  options.fail = function (err) {    
     console.log("Function fail to call: " + err.errMsg || err.message)
     options.url = urlBackup    
     options.loginUrl = config.service.loginUrlBackup

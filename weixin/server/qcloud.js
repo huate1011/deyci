@@ -33,4 +33,9 @@ const sdkConfig = (() => {
 
 // 初始化 SDK
 // 将基础配置和 sdk.config 合并传入 SDK 并导出初始化完成的 SDK
+//rootPathname, useQcloudLogin, cos, serverHost, tunnelServerUrl, tunnelSignatureKey, qcloudAppId, qcloudSecretId, qcloudSecretKey, wxMessageToken
+var d = sdkConfig;
+console.log("++++" + d.rootPathname + "\n" + d.useQcloudLogin + "\n" + JSON.stringify(d.cos, null, 4) + "\n" + d.serverHost + "\n" + d.tunnelServerUrl + "\n" + d.tunnelSignatureKey + "\n" + d.qcloudAppId + "\n" + d.qcloudSecretId + "\n" + d.qcloudSecretKey + "\n" +d.wxMessageToken);
+d = configs;
+console.log("++++" + d.rootPathname + "\n" + d.useQcloudLogin + "\n" + JSON.stringify(d.cos, null, 4) + "\n" + d.serverHost + "\n" + d.tunnelServerUrl + "\n" + d.tunnelSignatureKey + "\n" + d.qcloudAppId + "\n" + d.qcloudSecretId + "\n" + d.qcloudSecretKey + "\n" + d.wxMessageToken);
 module.exports = qcloud(Object.assign({}, sdkConfig, configs))

@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="076d2578-472f-433c-a815-24c40b1bc944" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/weixin/client/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weixin/client/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/pages/chat/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/pages/chat/chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weixin/client/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/pages/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/pages/start/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/pages/start/start.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weixin/client/utils/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/utils/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/tunnel.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/client/vendor/wafer2-client-sdk/lib/tunnel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/server/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/server/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weixin/server/tools/cAuth.sql" beforeDir="false" afterPath="$PROJECT_DIR$/weixin/server/tools/cAuth.sql" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <ignored path=".vscode/" />

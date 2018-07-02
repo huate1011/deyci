@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://98qyslge.qcloud.la'
+var host = 'https://deyci.deyci.cn'
 // var backup_host = 'https://98qyslge.qcloud.la'
 var backup_host = 'https://deyci.deyci.cn'
 

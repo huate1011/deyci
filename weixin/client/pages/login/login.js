@@ -103,11 +103,11 @@ Page({
 
   doRegister: function (e) {
     var formData = e.detail.value
-    // var validationResult = validateForm(formData, this.data);
-    // if (validationResult !== null){
-    //   showModel('错误', validationResult)
-    //   return false
-    // }
+    var validationResult = validateForm(formData, this.data);
+    if (validationResult !== null){
+      showModel('错误', validationResult)
+      return false
+    }
 
     util.showBusy('请求中...')
     var that = this

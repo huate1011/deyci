@@ -2,17 +2,12 @@
 <import src="../../common/foot.wxml" />
 <import src="../../components/checkbox/checkbox.wxml"/>
 <import src="../../components/radio/radio.wxml"/>
+<import src="../../components/input/input.wxml"/>
 
 <view class="root">
   <template is="head" data="{{title: '企业高管或HR代表企业填写'}}"/>
   <form bindsubmit='submitSurvey' report-submit="true">
-    <view class="line">
-      <label>行业领域</label>
-      <view class="line-control">
-        <input class="weui-input" auto-focus type='text' name='行业领域' value='' />
-      </view>
-    </view>
-    <view class="line">
+     <view class="line">
       <label>您来自哪个公司:</label>
       <view class="line-control">
           <input class="weui-input" type='text' name='公司名字查找' value='' bindinput='findCompanies'/>
@@ -27,58 +22,13 @@
           </label>
         </radio-group>      
       </view>      
+    </view>    
+
+    <view wx:for="{{questions}}" wx:key="index">      
+        <template is="{{item.type}}" data="{{...item}}" wx:if='{{hasdangorganisations || (index != 7 && index != 8)}}'></template>      
     </view>
-    <view class="line">
-      <label>联系人姓名</label>
-      <view class="line-control">
-        <input type='text' name='联系人姓名' class="weui-input" value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>联系人职务</label>
-      <view class="line-control">
-        <input type='text' name='联系人职务' class="weui-input" value='' />
-      </view>
-    </view>
-    <view class="line">
-      <label>联系人电话</label>
-      <view class="line-control">
-        <input type='number' name='联系人电话' class="weui-input" value='' />
-      </view>
-    </view> 
-    
-    <view class="line">
-      <label>贵公司员工数量:</label>
-      <view class="line-control">        
-          <input class="weui-input" type='number' name='贵公司员工数量' value=''/>        
-      </view>      
-    </view>
-    <view class="line">
-      <label>贵公司员工平均年龄约:</label>
-      <view class="line-control">        
-          <input class="weui-input" type='number' name='贵公司员工平均年龄约' value='' maxlength='2'/>
-      </view>      
-    </view>
-    <template is="checkbox" data="{{...questions[0]}}"></template>
-    <block wx:if='{{hasdangorganisations}}'>
-      <template is="radio" data="{{...questions[1]}}"></template>
-      <template is="radio" data="{{...questions[2]}}"></template>
-    </block>    
-    <template is="checkbox" data="{{...questions[3]}}"></template>
-    <template is="radio" data="{{...questions[4]}}"></template>
-    <template is="checkbox" data="{{...questions[5]}}"></template>
-    <template is="checkbox" data="{{...questions[6]}}"></template>
-    <template is="checkbox" data="{{...questions[7]}}"></template>
-    <template is="checkbox" data="{{...questions[8]}}"></template>
-    <view class="line">
-      <label>（开放式问题）您对党群服务中心的期待和建议:</label>
-      <view class="line-control">
-        <textarea name='期待和建议' value='' />
-      </view>
-    </view>
-    <view>
-      <button formType="submit" type='primary'>提交问卷</button>
-    </view>
+
+      <button formType="submit" type='primary'>提交问卷</button>    
   </form>
   <template is="foot" />
 </view>

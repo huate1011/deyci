@@ -20,9 +20,65 @@ Page({
      */
     questions:[
       {
+        "question": "行业领域:",
+        "name": "行业领域",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 0,
+        "size": 0,
+        "items": []
+      },
+      {
+        "question": "联系人姓名:",
+        "name": "联系人姓名",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 1,
+        "size": 0,
+        "items": []
+      },  
+      {
+        "question": "联系人职务:",
+        "name": "联系人职务",
+        "column": { "type": "text", "size": 255 },
+        "type": "textbox",
+        "index": 2,
+        "size": 0,
+        "items": []
+      }, 
+      {
+        "question": "联系人电话:",
+        "name": "联系人电话",
+        "column": { "type": "number", "size": 0 },
+        "type": "textbox",
+        "index": 3,
+        "size": 0,
+        "items": []
+      },    
+      {
+        "question": "贵公司员工数量:",
+        "name": "贵公司员工数量",
+        "column": { "type": "number", "size": 0 },
+        "type": "textbox",
+        "index": 4,
+        "size": 0,
+        "items": []
+      }, 
+      {
+        "question": "贵公司员工平均年龄约:",
+        "name": "贵公司员工平均年龄约",
+        "column": { "type": "number", "size": 0 },
+        "type": "textbox",
+        "index": 5,
+        "size": 0,
+        "items": []
+      }, 
+      {
         "question": "贵公司成立了以下哪些组织？(多选)", 
         "name":"已成立组织",
-        "index":0,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 6,
         "size":5,
         "items":[
           { "value": "党支部", "name": "党支部" },
@@ -35,7 +91,9 @@ Page({
       {
         "question": "如有以上组织，平时组织活动频次:(单选)", 
         "name": "组织活动频次",
-        "index": 1,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 7,
         "size": 4,
         "items": [
           { "value": "每月一次", "name": "每月一次" },
@@ -47,7 +105,9 @@ Page({
       {
         "question": "以上组织，平常会开展什么活动？(单选)",
         "name": "组织什么活动",
-        "index": 2,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 8,
         "size": 3,
         "items": [
           { "value": "娱乐活动", "name": "娱乐活动" },
@@ -58,7 +118,9 @@ Page({
       {
         "question": "如果没有以上组织，贵公司是否有意向成立以下组织?(多选)",
         "name": "意向成立组织",
-        "index": 3,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 9,
         "size": 5,
         "items": [
           { "value": "党支部", "name": "党支部" },
@@ -71,7 +133,9 @@ Page({
       {
         "question": "如果没有以上组织，贵公司是否了解成立以上组织的要求和流程:(单选)",
         "name": "了解组织要求",
-        "index": 4,
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "index": 10,
         "size": 3,
         "items": [
           { "value": "非常了解", "name": "非常了解" },
@@ -82,7 +146,9 @@ Page({
       {
         "question": "贵公司平时会组织哪些活动?(多选)",
         "name": "公司活动",
-        "index": 5,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 11,
         "size": 3,
         "items": [
           { "value": "员工生日会", "name": "员工生日会" },
@@ -93,7 +159,9 @@ Page({
       {
         "question": "成立以上组织，您觉得对贵公司有以下哪些帮助?(多选)",
         "name": "帮助成立组织",
-        "index": 6,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 12,
         "size": 6,
         "items": [
           { "value": "增加团队凝聚力", "name": "增加团队凝聚力" },
@@ -107,7 +175,9 @@ Page({
       {
         "question": "您觉得公司组织活动会有哪些方面的困难?(多选)",
         "name": "组织活动困难",
-        "index": 7,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 13,
         "size": 5,
         "items": [
           { "value": "活动经费", "name": "活动经费" },
@@ -120,7 +190,9 @@ Page({
       {
         "question": "您是否了解党群服务中心提供以下服务?(多选)",
         "name": "了解党群服务",
-        "index": 8,
+        "column": { "type": "text", "size": 255 },
+        "type": "checkbox",
+        "index": 14,
         "size": 4,
         "items": [
           { "value": "员工关爱", "name": "员工关爱" },
@@ -128,6 +200,15 @@ Page({
           { "value": "法律支持", "name": "法律支持" },
           { "value": "支持成立党、青、工、妇组织", "name": "支持成立党、青、工、妇组织" }
         ]
+      },
+      {
+        "question": "(开放式问题）您对党群服务中心的期待和建议:",
+        "name": "期待和建议",
+        "column": { "type": "text", "size": 2048 },
+        "type": "textarea",
+        "index": 15,
+        "size": 0,
+        "items": []
       }
     ]
   },
@@ -165,11 +246,32 @@ Page({
     this.setData({
       questions: questions    
     });
-    if(index === 0) {
+    if(index === 6) {
       this.setData({
         hasdangorganisations: values.length > 0
       });      
     }
+  },
+
+  bindReplaceInput: function (e) {
+    var value = e.detail.value
+    var pos = e.detail.cursor
+    var left
+    if (pos !== -1) {
+      // 光标在中间
+      left = e.detail.value.slice(0, pos)
+      // 计算光标的位置
+      pos = left.replace(/11/g, '2').length
+    }
+
+    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
+    return {
+      value: value.replace(/11/g, '2'),
+      cursor: pos
+    }
+
+    // 或者直接返回字符串,光标在最后边
+    // return value.replace(/11/g,'2'),
   },
 
   searchChange: function (e) {
@@ -228,6 +330,8 @@ Page({
         if (key === '已成立组织' && formData['已成立组织'].length === 0) {   
           continue;
         } else if (key === '组织什么活动' && formData['已成立组织'].length === 0) {
+          continue;
+        } else if (key === '期待和建议' && formData['期待和建议'].length === 0) {
           continue;
         }
         util.showModel("错误", key + ',还没有填'); 

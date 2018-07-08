@@ -3,18 +3,19 @@
     <view class="page-body">
       <view class="page-section">
         <view class="page-section-title">{{question}}</view>
-        <view class="weui-cells weui-cells_after-title">
-          <checkbox-group bindchange="checkboxChange" data-index="{{index}}" name="{{name}}">
+        <view class="weui-cells weui-cells_after-title">          
+          <checkbox-group bindchange="checkboxChange" data-index="{{index}}" name="{{name}}">            
             <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
               <view class="weui-cell__hd">
                 <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
               </view>              
-              <view class="weui-cell__bd">{{item.name}}</view>
+              <view wx:if="{{item.name !== '其他'}}">{{item.name}}</view>
               <view class="weui-cell__bd">              
-                <input name='其他{{name}}' placeholder="如选择其他请填写" auto-focus wx:if="{{item.name == '其他' && item.checked}}"/>
+                <input name='其他{{name}}' placeholder="其他（请填写）" focus="{{item.checked}}" wx:if="{{item.name == '其他'}}"/>
               </view>
             </label>            
           </checkbox-group>          
+          <input type="text" focus="{{focus}}" style='height:1rpx; float:right; width:1rpx'/>
         </view>
       </view>
     </view>  

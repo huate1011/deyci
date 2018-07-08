@@ -5,7 +5,7 @@
         <view class="line">
           <label>{{question}}</label>
           <view class="line-control">        
-            <input class="weui-input" bindinput='bindReplaceInput' type='{{column.type}}' name='{{name}}' data-index="{{index}}" value=''/>
+            <input class="weui-input" type='{{column.type}}' focus="{{focus}}" name='{{name}}' data-index="{{index}}" value=""/>
           </view>      
         </view>                  
       </view>
@@ -19,8 +19,8 @@
       <view class="page-section">                
         <view class="line">
           <label>{{question}}</label>
-          <view class="line-control">        
-            <textarea class="weui-input" bindinput='bindReplaceInput' name='{{name}}' data-index="{{index}}" value=''/>
+          <view class="line-control">
+            <textarea class="weui-input" name='{{name}}' focus="{{focus}}" data-index="{{index}}" style="height:5em; width:100%" value=''/>
           </view>      
         </view>                  
       </view>

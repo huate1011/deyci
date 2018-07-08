@@ -22,8 +22,6 @@ Page({
         "name": "最近一次活动",
         "column": { "type": "text", "size": 255 },
         "type": "textbox",
-        "index": 0,
-        "size": 0,
         "items": []
       },
       {
@@ -31,8 +29,6 @@ Page({
         "name": "角色承担",
         "column":{"type": "text", "size": 255},
         "type": "radio",
-        "index": 1,
-        "size":4,
         "items": [
           { "value": "参与者", "name": "参与者" },
           { "value": "策划者", "name": "策划者" },
@@ -43,10 +39,8 @@ Page({
       {
         "question": "您喜欢的活动领域: (多选)",
         "name": "喜好类型",
-        "column": { "type": "text", "size": 255 },
-        "index": 2,
-        "type": "checkbox",
-        "size": 4,
+        "column": { "type": "text", "size": 255 },        
+        "type": "checkbox",        
         "items": [
           { "value": "学习培训类", "name": "学习培训类" },
           { "value": "社交活动类", "name": "社交活动类" },
@@ -58,9 +52,7 @@ Page({
         "question": "组织哪类活动您会感兴趣参加: (多选)",
         "name": "兴趣活动",
         "column": { "type": "text", "size": 255 },
-        "type": "checkbox",
-        "index": 3,
-        "size": 5,
+        "type": "checkbox",        
         "items": [
           { "value": "运动", "name": "运动" },
           { "value": "文艺", "name": "文艺如音乐，摄影摄像，手工等)" },
@@ -74,8 +66,6 @@ Page({
         "name": "兴趣培训",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 4,
-        "size": 7,
         "items": [
           { "value": "工会知识", "name": "工会知识" },
           { "value": "法律法规", "name": "法律法规" },
@@ -91,8 +81,6 @@ Page({
         "name": "个人爱好",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 5,
-        "size": 6,
         "items": [
           { "value": "电影", "name": "电影" },
           { "value": "音乐", "name": "音乐" },
@@ -107,8 +95,6 @@ Page({
         "name": "活动规模",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 6,
-        "size": 4,
         "items": [
           { "value": "20人以内", "name": "20人以内" },
           { "value": "20-50人", "name": "20-50人" },
@@ -121,8 +107,6 @@ Page({
         "name": "活动频率",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 7,
-        "size": 3,
         "items": [
           { "value": "每周一次", "name": "每周一次" },
           { "value": "每月一次", "name": "每月一次" },
@@ -134,8 +118,6 @@ Page({
         "name": "意愿频次",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 8,
-        "size": 3,
         "items": [
           { "value": "每周一次", "name": "每周一次" },
           { "value": "每月一次", "name": "每月一次" },
@@ -147,8 +129,6 @@ Page({
         "name": "意愿时间",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 9,
-        "size": 4,
         "items": [
           { "value": "周末晚上", "name": "周末晚上" },
           { "value": "下班后晚7点到晚9点）", "name": "下班后（19:00-21:00）" },
@@ -161,14 +141,11 @@ Page({
         "name": "休息时间",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 10,
-        "size": 4,
         "items": [
           { "value": "双休", "name": "双休" },
           { "value": "单休", "name": "单休" },
           { "value": "大小周", "name": "大小周" },
           { "value": "月度调休", "name": "月度调休" }
-
         ]
       },
       {
@@ -176,8 +153,6 @@ Page({
         "name": "主动寻找",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 11,
-        "size": 2,
         "items": [
           { "value": "会", "name": "会" },
           { "value": "不会", "name": "不会" }
@@ -188,8 +163,6 @@ Page({
         "name": "参与渠道",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 12,
-        "size": 5,
         "items": [
           { "value": "公司组织", "name": "公司组织" },
           { "value": "社区组织", "name": "社区组织" },
@@ -203,8 +176,6 @@ Page({
         "name": "理想特质",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 13,
-        "size": 4,
         "items": [
           { "value": "优质的内容", "name": "优质的内容" },
           { "value": "合理的时间安排", "name": "合理的时间安排" },
@@ -217,8 +188,6 @@ Page({
         "name": "收获倾向",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 14,
-        "size": 3,
         "items": [
           { "value": "学到技能收获知识", "name": "学到技能、收获知识" },
           { "value": "拓展眼界增长见识", "name": "拓展眼界、增长见识" },
@@ -230,8 +199,6 @@ Page({
         "name": "了解党群",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 15,
-        "size": 3,
         "items": [
           { "value": "不知道", "name": "不知道" },
           { "value": "略微了解", "name": "略微了解" },
@@ -243,8 +210,6 @@ Page({
         "name": "党群参与",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 16,
-        "size": 2,
         "items": [
           { "value": "参加过", "name": "参加过" },
           { "value": "还没有", "name": "还没有" }
@@ -255,8 +220,6 @@ Page({
         "name": "了解工会",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 17,
-        "size": 3,
         "items": [
           { "value": "发福利组织活动等", "name": "发福利，组织活动等" },
           { "value": "给员工维权", "name": "给员工维权" },
@@ -268,8 +231,6 @@ Page({
         "name": "工会传播",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 18,
-        "size": 8,
         "items": [
           { "value": "企业工会宣传", "name": "企业工会宣传" },
           { "value": "朋友介绍", "name": "朋友介绍" },
@@ -286,8 +247,6 @@ Page({
         "name": "入会分析",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 19,
-        "size": 7,
         "items": [
           { "value": "企业规定入职时自动加入", "name": "企业规定，入职时自动加入" },
           { "value": "同事介绍加入", "name": "同事介绍加入" },
@@ -303,8 +262,6 @@ Page({
         "name": "需求分析",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",
-        "index": 20,
-        "size": 7,
         "items": [
           { "value": "投资理财", "name": "投资理财" },
           { "value": "平面设计", "name": "平面设计" },
@@ -320,8 +277,6 @@ Page({
         "name": "青内涵",
         "column": { "type": "text", "size": 1024 },
         "type": "checkbox",
-        "index": 21,
-        "size": 7,
         "items": [
           { "value": "青组织", "name": "青·组织：智慧团建·推优入党·青年之声" },
           { "value": "青公益", "name": "青·公益：提供社会公益活动" },
@@ -337,8 +292,6 @@ Page({
         "name": "知道青",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 22,
-        "size": 3,
         "items": [
           { "value": "刚刚知道", "name": "刚刚知道" },
           { "value": "愿意参加青年之家的活动", "name": "愿意参加青年之家的活动" },
@@ -346,12 +299,23 @@ Page({
         ]
       },
       {
+        "question": "您近3个月内，办理过哪类事物？（单选）",
+        "name": "近来办理事务种类",
+        "column": { "type": "text", "size": 255 },
+        "type": "radio",
+        "items": [
+          { "value": "落户", "name": "落户" },
+          { "value": "证件", "name": "证件" },
+          { "value": "社保、医保、公积金", "name": "社保、医保、公积金" },
+          { "value": "人才补助申请", "name": "人才补助申请" },
+          { "value": "租房", "name": "租房" },
+        ]
+      },
+      {
         "question": "未来，我们会定期在党群服务中心开展各种活动，你有什么建议或者期待（如形式、内容等）（开放题）:",
         "name": "期待和建议",
         "column": { "type": "text", "size": 2048 },
         "type": "textarea",
-        "index": 23,
-        "size": 0,
         "items": []
       },
       {
@@ -359,8 +323,6 @@ Page({
         "name": "专业领域",
         "column": { "type": "text", "size": 255 },
         "type": "textbox",
-        "index": 24,
-        "size": 0,
         "items": []
       },
       {
@@ -368,8 +330,6 @@ Page({
         "name": "职业",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 25,
-        "size": 3,
         "items": [
           { "value": "上班族", "name": "上班族" },
           { "value": "自由职业者", "name": "自由职业者" },
@@ -381,8 +341,6 @@ Page({
         "name": "职务",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 26,
-        "size": 4,
         "items": [
           { "value": "员工", "name": "员工" },
           { "value": "部门负责人", "name": "部门负责人" },
@@ -395,8 +353,6 @@ Page({
         "name": "公司名字",
         "column": { "type": "text", "size": 255 },
         "type": "textbox",
-        "index": 27,
-        "size": 0,
         "items": []
       },        
       {
@@ -404,8 +360,6 @@ Page({
         "name": "性别",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 28,
-        "size": 2,
         "items": [
           { "value": "男", "name": "男" },
           { "value": "女", "name": "女" }
@@ -416,8 +370,6 @@ Page({
         "name": "电话",
         "column": { "type": "number", "size": 0 },
         "type": "textbox",
-        "index": 29,
-        "size": 0,
         "items": []
       },
       {
@@ -425,8 +377,6 @@ Page({
         "name": "年龄范围",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 30,
-        "size": 3,
         "items": [
           { "value": "28岁以下", "name": "28岁以下" },
           { "value": "28-30岁", "name": "28-30岁" },
@@ -439,8 +389,6 @@ Page({
         "name": "政治面貌",
         "column": { "type": "text", "size": 255 },
         "type": "radio",
-        "index": 31,
-        "size": 3,
         "items": [
           { "value": "群众", "name": "群众" },
           { "value": "团员", "name": "团员" },
@@ -448,27 +396,6 @@ Page({
         ]
       }
     ]
-  },
-
-  bindReplaceInput: function (e) {
-    var value = e.detail.value
-    var pos = e.detail.cursor
-    var left
-    if (pos !== -1) {
-      // 光标在中间
-      left = e.detail.value.slice(0, pos)
-      // 计算光标的位置
-      pos = left.replace(/11/g, '2').length
-    }
-
-    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
-    return {
-      value: value.replace(/11/g, '2'),
-      cursor: pos
-    }
-
-    // 或者直接返回字符串,光标在最后边
-    // return value.replace(/11/g,'2'),
   },
 
   radioChange: function (e) {
@@ -525,21 +452,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    surveyUtil.loadData()   
+    // load user info
+    var dataInterval = setInterval(function () {
+      if (surveyUtil.loadData()) {
+        console.log("clearing the time interval")
+        clearInterval(dataInterval)
+      }
+    }, 3000);
+    console.log("timer set to load user info")
+
+    // load and set questions        
+    var tmpQuestions = this.data.questions;
+
+    for (var i = 0; i < tmpQuestions.length; i++) {
+      tmpQuestions[i].index = i;
+      tmpQuestions[i].size = tmpQuestions[i].items.length;
+    }
+    this.setData({ questions: tmpQuestions });
+    console.log("questions index and size updated")
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    surveyUtil.loadData() 
+  onReady: function () {    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    surveyUtil.loadData() 
+  onShow: function () {    
   },
 
   /**
@@ -565,8 +507,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    surveyUtil.loadData() 
+  onReachBottom: function () {    
   },
 
   /**

@@ -25,7 +25,7 @@
     </view>    
 
     <view wx:for="{{questions}}" wx:key="index">      
-        <template is="{{item.type}}" data="{{...item}}" wx:if='{{hasdangorganisations || (index != 7 && index != 8)}}'></template>      
+        <template is="{{item.type}}" data="{{...item}}" wx:if='{{hasdangorganisations || (item.name !== "组织活动频次" && item.name !== "组织什么活动")}}'></template>      
     </view>
 
       <button formType="submit" type='primary'>提交问卷</button>    

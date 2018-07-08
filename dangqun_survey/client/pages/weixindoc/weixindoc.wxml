@@ -1,1 +1,9 @@
-<web-view src="https://mp.weixin.qq.com/s/NS-p1Iriv9lUYwb1tk03NA#wechat_redirect"></web-view>
+<view class="container">  
+  <view class="title">
+    <icon class="icon-box-img" type="success" size="150"></icon>
+    <text>成功提交，感谢您合作</text>
+  </view>
+  <view class="confirm-btn">
+    <navigator target="miniProgram" open-type="navigate" app-id="wx7c85beb9f548a88d" path="pages/activity/pages/activityDetail/activityDetail?isODOpen=0&id=3774" extra-data="" version="release">更多关于党群服务中心</navigator>
+  </view>  
+</view>

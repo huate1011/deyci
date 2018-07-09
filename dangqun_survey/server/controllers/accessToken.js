@@ -3,8 +3,8 @@ const https = require('https')
 const request = require('request')
 
 module.exports = async ctx => {  
-  try {
-    var response = await ctx.get('/cgi-bin/token?grant_type=client_credential&appid=wxff42a2142aefae7b' + '&secret=' + '13d6cab12cb6aa2526588cbe40687881', null, {
+  try {    
+    var response = await ctx.get('/cgi-bin/token?grant_type=client_credential&appid=' + config.appId + '&secret=' + config.appSecret, null, {
       'User-Agent': 'koa-http-request'
     });
     

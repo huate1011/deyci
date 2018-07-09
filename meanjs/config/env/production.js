@@ -12,7 +12,8 @@ module.exports = {
   port: process.env.PORT || 8443,
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
-  db: {
+  mongodb: {
+    promise: global.Promise,
     uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
     options: {
       /**
@@ -31,8 +32,27 @@ module.exports = {
 
       */
     },
+    options: {user:'mean', pass:'miaologic'},
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
+  },
+  mysql: {
+    client: 'mysql',
+    connection: {
+      host: '172.16.0.4',
+      port: 3306,
+      user: 'root',
+      password : '5Ewn0577',
+      database : 'cAuth',
+      charset: 'utf8mb4',
+      multipleStatements: true
+    },
+    migrations: {
+      directory: './knex/migrations',
+    },
+    seeds: {
+      directory: './knex/seeds'
+    }
   },
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan

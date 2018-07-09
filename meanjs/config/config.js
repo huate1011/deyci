@@ -144,7 +144,9 @@ var initGlobalConfigFiles = function (config, assets) {
   };
 
   // Setting Globbed model files
-  config.files.server.models = getGlobbedPaths(assets.server.models);
+  config.files.server.models = {};
+  config.files.server.models.mongo = getGlobbedPaths(assets.server.models.mongo);
+  config.files.server.models.mysql = getGlobbedPaths(assets.server.models.mysql);
 
   // Setting Globbed route files
   config.files.server.routes = getGlobbedPaths(assets.server.routes);

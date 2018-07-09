@@ -6,7 +6,7 @@ const CONF = {
     appId: 'wxff42a2142aefae7b',
 
     // 微信小程序 App Secret
-    appSecret: '13d6cab12cb6aa2526588cbe40687881',
+    appSecret: '368f9c26ebaaff7ef0e5f01b404f8667',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,

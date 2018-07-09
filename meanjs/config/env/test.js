@@ -3,11 +3,30 @@
 var defaultEnvConfig = require('./default');
 
 module.exports = {
-  db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-test',
-    options: {},
+  mongodb: {
+    promise: global.Promise,
+    uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost:27017') + '/mean_test',
+    options: {user:'mean', pass:'miaologic'},
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
+  },
+  mysql: {
+    client: 'mysql',
+    connection: {
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password : 'newpassword',
+      database : 'cAuth',
+      charset: 'utf8mb4',
+      multipleStatements: true
+    },
+    migrations: {
+      directory: './knex/migrations',
+    },
+    seeds: {
+      directory: './knex/seeds'
+    }
   },
   log: {
     // logging with Morgan - https://github.com/expressjs/morgan

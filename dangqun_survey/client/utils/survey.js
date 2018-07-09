@@ -2,7 +2,7 @@ var qcloud = require('../vendor/wafer2-client-sdk/index')
 var config = require('../config')
 var util = require('util')
 
-var loadData = () => {
+var loadData = () => {  
   if (wx.getStorageSync('deyci:open_id') === null || wx.getStorageSync('deyci:open_id') === "") {    
     wx.login({
       success: function (loginResult) {
@@ -13,8 +13,8 @@ var loadData = () => {
           login: true,
           success: (response) => {
             var open_id = response.data.data.openId
-            if (open_id instanceof string && open_id.trim() !== "") {
-              console.log("Found open id" + open_id);
+            if (JSON.stringify(open_id).trim() !== "") {
+              console.log("Saving open id: " + open_id);
               wx.setStorageSync('deyci:open_id', open_id)
             }            
           },
@@ -27,7 +27,11 @@ var loadData = () => {
         console.log('微信登录失败，请检查网络状态' + loginError);
       },
     });
-  }  
+    return false;
+  } else {    
+    console.log('found open id: ' + wx.getStorageSync('deyci:open_id'))
+    return true;
+  }
 }
 
 var sendSurvey = (takeSession, formData, formId, surveyType) => {  
@@ -48,18 +52,19 @@ var sendSurvey = (takeSession, formData, formId, surveyType) => {
     success: function (result) {
       if (result.statusCode > 210) {
         util.showModel('提交失败', result.data.error)
-      } else {
-        util.showSuccess('提交成功')        
+      } else {                
         if (wx.getStorageSync('deyci:open_id')) {          
           util.sendMsg(
             wx.getStorageSync('deyci:open_id'),            
             formId,
             wx.getStorageSync('deyci:userInfo').nickName
-          );
-          wx.redirectTo({
-            url: '/pages/weixindoc/weixindoc'
-          })
+          );          
+        } else {
+          console.log('fail to message due to missing open id')
         }
+        wx.redirectTo({
+          url: '/pages/weixindoc/weixindoc'
+        })
       }
       console.log('request success', result)
     },

@@ -5,6 +5,25 @@ var config = require('../../config')
 var util = require('../../utils/util')
 var surveyUtil = require('../../utils/survey')
 
+var updateQuestions = (that, index, items, datasetName) => {
+  // Set the current checkbox in the editing mode
+  var tmpQuestions = that.data.questions;
+  for (var i = 0; i < tmpQuestions.length; i++) {
+    if (tmpQuestions[i].name === datasetName) {
+      tmpQuestions[i].editing = true;
+    } else {
+      tmpQuestions[i].editing = false;
+    }
+  }
+
+  // update the items        
+  tmpQuestions[index].items = items
+  that.setData({
+    questions: tmpQuestions
+  });
+};
+
+
 Page({
 
   /**
@@ -405,11 +424,9 @@ Page({
     for (var i = 0, len = items.length; i < len; ++i) {
       items[i].checked = items[i].value == e.detail.value
     }
-    var questions = this.data.questions;
-    questions[index].items = items
-    this.setData({
-      questions: questions
-    });
+    // Set the current checkbox in the editing mode
+    updateQuestions(this, index, items, e.target.dataset.name);
+
   },
 
   checkboxChange: function (e) {
@@ -426,11 +443,8 @@ Page({
         }
       }
     }
-    var questions = this.data.questions;
-    questions[index].items = items
-    this.setData({
-      questions: questions      
-    });
+    // Set the current checkbox in the editing mode
+    updateQuestions(this, index, items, e.target.dataset.name);
   },
 
   submitSurvey: function (e) {
@@ -466,6 +480,7 @@ Page({
 
     for (var i = 0; i < tmpQuestions.length; i++) {
       tmpQuestions[i].index = i;
+      tmpQuestions[i].editing = true;
       tmpQuestions[i].size = tmpQuestions[i].items.length;
     }
     this.setData({ questions: tmpQuestions });

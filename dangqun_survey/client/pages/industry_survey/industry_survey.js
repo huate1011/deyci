@@ -391,6 +391,8 @@ Page({
           continue;
         } else if (key === '期待和建议' && formData['期待和建议'].length === 0) {
           continue;
+        } else if (key.startsWith('其他') && formData[key].length ===0 && formData[key.substring(2)].indexOf('其他') == -1) {
+          continue;
         }
         util.showModel("错误", key + ',还没有填');
         

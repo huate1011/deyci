@@ -9,20 +9,21 @@
   height: 100%;  
 }
 
-.title {
+.message {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  margin-top: 100rpx;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  width: 500rpx;
 }
 
 .icon-box-img {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  
+  justify-content: center;  
 }
 
 .confirm-btn {
@@ -32,12 +33,12 @@
   align-items: stretch;
   justify-content: center;
   font-size: 13pt;
-  line-height: 85rpx;
-  height: 85rpx;
+  line-height: 100rpx;
+  height: 100rpx;
   background: #118fff;
   color: #fff;
   text-align: center;
   border-radius: 50px;
-  width: 400rpx;  
+  width: 500rpx;  
   margin-top: 100rpx;
 }

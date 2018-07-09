@@ -299,10 +299,10 @@ Page({
         ]
       },
       {
-        "question": "您近3个月内，办理过哪类事物？（单选）",
+        "question": "您近3个月内，办理过哪类事物？（多选）",
         "name": "近来办理事务种类",
         "column": { "type": "text", "size": 255 },
-        "type": "radio",
+        "type": "checkbox",
         "items": [
           { "value": "落户", "name": "落户" },
           { "value": "证件", "name": "证件" },

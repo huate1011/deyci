@@ -34,14 +34,20 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "public",
+					"name": "end",
+					"pathName": "pages/weixindoc/weixindoc",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pub",
 					"pathName": "pages/public_survey/public_survey",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "enduser",
-					"pathName": "pages/enduser/enduser",
+					"name": "ind",
+					"pathName": "pages/industry_survey/industry_survey",
 					"query": ""
 				}
 			]

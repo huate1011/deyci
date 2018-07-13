@@ -7,16 +7,7 @@ button{
   margin: 0 auto;
   width: 60%;
 }
-.root {
-background: #e64340;
-position: absolute;
-top:0rpx;
-bottom: 0;
-right:0;
-left:0;
-border-left: #888888 3px solid;
-border-right: #888888 3px solid;
-}
+
 .line {
     padding-top: 30rpx;
 }

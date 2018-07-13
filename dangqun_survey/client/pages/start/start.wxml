@@ -27,10 +27,10 @@
     </view>
     <view class="bd">                
         <button type='primary' class=".confirm-btn" bindgetuserinfo="goToIndex" open-type="getUserInfo"> 
-          <text space="emsp">深圳湾创业广场\n党群服务中心调查问卷</text>
+          <text space="emsp">深圳湾创业广场\n党群服务中心调研问卷</text>
         </button>       
       <text class="copyright">
-      © {{year}} deyci.com 技术支持
+      © {{year}} deyci.cn 技术支持
       </text>
     </view>
   </view>  

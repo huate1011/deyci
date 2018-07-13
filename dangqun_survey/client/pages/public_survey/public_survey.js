@@ -313,12 +313,12 @@ Page({
         "type": "radio",
         "items": [
           { "value": "刚刚知道", "name": "刚刚知道" },
-          { "value": "愿意参加青年之家的活动", "name": "愿意参加青年之家的活动" },
+          { "value": "愿意参加青年之家的活动", "name": "不知道，但愿意参加" },
           { "value": "不感兴趣", "name": "不感兴趣" }
         ]
       },
       {
-        "question": "您近3个月内，办理过哪类事物？（多选）",
+        "question": "您近3个月内，办理过哪类业务？（多选）",
         "name": "近来办理事务种类",
         "column": { "type": "text", "size": 255 },
         "type": "checkbox",

@@ -1,16 +1,19 @@
 <import src="../../common/head.wxml" />
 <import src="../../common/foot.wxml" />
 
+
+
+
 <view class="root">
-  <template is="head" data="{{title: '--选择调查问卷类型--'}}"/>
+  <template is="head" data="{{title: '--请选择调查问卷类型--'}}"/>
 
   <view class="page-body">
     <view class="btn-area" id="buttonContainer">      
       <navigator url="/pages/public_survey/public_survey" hover-class="navigator-hover">
-        <button type="primary">个人调查问卷</button>
+        <button type="primary">个人调研问卷</button>
       </navigator>
       <navigator url="/pages/industry_survey/industry_survey" hover-class="other-navigator-hover">
-        <button type="primary">企业调查问卷</button>
+        <button type="primary">企业调研问卷</button>
       </navigator>
     </view>
   </view>

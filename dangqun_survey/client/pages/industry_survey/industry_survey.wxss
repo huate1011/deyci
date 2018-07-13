@@ -8,16 +8,6 @@
 }
 .line {margin:10rpx; margin-bottom: 50rpx;}
 
-.root {
-background: #e64340;
-position: absolute;
-top:0rpx;
-left:3rpx;
-right: 0;
-border-left: #888888 10px solid;
-border-right: #888888 10px solid;
-}
-
 .title{
   background: #e64340;      
   font-size: 43rpx;

@@ -4,11 +4,11 @@
     <text>成功提交，感谢参与</text>
   </view>
   <view class="message">    
-    <text>本月精彩活动：
+    <text>精彩活动：
 创业超级公开课、青春学堂、活力瑜伽、红色影片、公益讲堂、动感踏板、尤克里里……
 </text>
   </view>
   <view class="confirm-btn">
-    <navigator target="miniProgram" open-type="navigate" app-id="wx7c85beb9f548a88d" path="pages/activity/pages/activityDetail/activityDetail?isODOpen=0&id=3774" extra-data="" version="release">点击查看详细地点与时间排期</navigator>
+    <navigator target="miniProgram" open-type="navigate" app-id="wx7c85beb9f548a88d" path="pages/activity/pages/activityDetail/activityDetail?isODOpen=0&id=3774" extra-data="" version="release">详情点我报名        </navigator>
   </view>  
 </view>

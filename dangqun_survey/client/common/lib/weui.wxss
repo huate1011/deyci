@@ -12,6 +12,24 @@ page {
   text-align: center; 
   font-size: 28rpx;
 }
+
+.container {
+background: #e64340;
+align-items: stretch;
+padding: 0;
+height: 100%;
+overflow: hidden;
+}
+.root {
+
+position: absolute;
+top:0rpx;
+left:3rpx;
+right: 0;
+border-left: #888888 10px solid;
+border-right: #888888 10px solid;
+}
+
 icon {
   vertical-align: middle;
 }

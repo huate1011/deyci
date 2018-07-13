@@ -1,7 +1,6 @@
 /**start.wxss**/
-
+@import "../../common/lib/weui.wxss";
 .banner {
-background: 20% #09bb07 Press;
 position: absolute;
 height: 400rpx;
 justify-content: center;
@@ -10,8 +9,7 @@ left: 0;
 right: 0;
 }
 
-.intro {
-  background: #e64340;
+.intro {  
   color: #fff;
   margin-bottom: 10rpx;
   font-size: 27rpx;
@@ -19,14 +17,6 @@ right: 0;
   text-align:center;
 }
 
-
-.container {
-background: #e64340;
-align-items: stretch;
-padding: 0;
-height: 100%;
-overflow: hidden;
-}
 .content{
 flex: 1;
 display: flex;

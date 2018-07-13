@@ -10,7 +10,6 @@ right: 0;
 }
 
 .intro {  
-  color: #fff;
   margin-bottom: 10rpx;
   font-size: 27rpx;
   font-style: 微软雅黑;
@@ -145,11 +144,10 @@ flex-basis: 200rpx;
 
 .copyright {    
   font-size: 28rpx;    
-  color: #999;
-  top:0;
+  color: #999;  
   bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 80rpx;  
+  margin: 30% 10%;
   text-align: center;
 }

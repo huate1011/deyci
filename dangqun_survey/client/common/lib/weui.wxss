@@ -15,21 +15,22 @@ page {
 
 .container {
 background: #e64340;
+color: black;
 align-items: stretch;
 padding: 0;
 height: 100%;
 overflow: hidden;
 }
 .root {
-
+background: #e64340;
 position: absolute;
 top:0rpx;
-left:3rpx;
-right: 0;
-border-left: #888888 10px solid;
-border-right: #888888 10px solid;
+bottom: 0;
+right:0;
+left:0;
+border-left: #888888 3px solid;
+border-right: #888888 3px solid;
 }
-
 icon {
   vertical-align: middle;
 }

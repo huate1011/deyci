@@ -1,0 +1,23 @@
+<template name="checkbox">
+  <view class="container">
+    <view class="page-body">
+      <view class="page-section">
+        <view class="page-section-title">{{question}}</view>
+        <view class="weui-cells weui-cells_after-title">          
+          <checkbox-group bindchange="checkboxChange" data-index="{{index}}" data-name="{{name}}" name="{{name}}">            
+            <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+              <view class="weui-cell__hd">
+                <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+              </view>              
+              <view wx:if="{{item.name !== '其他'}}">{{item.name}}</view>
+              <view class="weui-cell__bd">              
+                <input name='其他{{name}}' placeholder="其他（请填写）" focus="{{item.checked && editing}}" wx:if="{{item.name == '其他'}}"/>
+              </view>
+            </label>            
+          </checkbox-group>          
+          <input type="text" focus="{{focus}}" style='height:1rpx; float:right; width:1rpx'/>
+        </view>
+      </view>
+    </view>  
+  </view>
+</template>

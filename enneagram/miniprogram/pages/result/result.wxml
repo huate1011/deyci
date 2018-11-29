@@ -1,0 +1,22 @@
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+
+<view class="root">  
+  <form bindsubmit='submitSurvey' report-submit="true">    
+    <view wx:for="{{personality}}" wx:key="index">
+      <view class="container">
+        <view class="page-body">
+          <view class="page-section">
+            <view class="weui-cells__title">{{item.key}}</view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell__hd">
+                <text> {{item.value}} </text>
+              </view>                  
+            </view>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </form>
+  <template is="foot" />
+</view>

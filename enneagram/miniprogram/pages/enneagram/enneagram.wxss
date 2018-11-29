@@ -1,0 +1,31 @@
+@import "../../components/radio/radio.wxss";
+
+.line-control {
+  border-bottom: #888888 5px solid;
+  border-top: #888888 5px solid;
+  background-color: #fff;  
+}
+.line {margin:10rpx; margin-bottom: 50rpx;}
+
+.line radio-group view {
+  border-bottom: #888888 2px solid;
+  border-top: #888888 2px solid;
+  background-color: #fff;
+}
+
+.line checkbox-group view {
+  border-bottom: #888888 2px solid;
+  border-top: #888888 2px solid;
+  background-color: #fff;
+}
+
+.title{
+  background: #e64340;      
+  font-size: 43rpx;
+  text-align:center;
+}
+
+.text {
+  cursor: default;
+  line-height: 1.68em;
+}

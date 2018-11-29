@@ -1,0 +1,13 @@
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+<import src="../../components/radio/radio.wxml"/>
+
+<view class="root">  
+  <form bindsubmit='submitSurvey' report-submit="true">    
+    <view wx:for="{{questions}}" wx:key="index">
+      <template is="{{item.type}}" data="{{...item}}"></template>   
+    </view>
+    <button formType="submit" type='primary'>提交问卷</button>    
+  </form>
+    <template is="foot" />
+</view>

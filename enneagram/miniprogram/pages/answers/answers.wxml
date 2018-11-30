@@ -4,7 +4,12 @@
 <view class="root">  
   <form bindsubmit='submitSurvey' report-submit="true">    
     <view wx:for="{{summary}}" wx:key="index">
-      <view class="container">
+      <view class="uploader">
+       <navigator url="/pages/result/result?data={{item.claz}}" open-type="navigate" class="uploader-text">
+         <text>{{item.title}} --- 分数: {{item.score}}</text>
+      </navigator>
+    </view>
+      <!-- <view class="container">
         <view class="page-body">
           <view class="page-section">
             <view class="weui-cells weui-cells_after-title">
@@ -16,7 +21,7 @@
             </view>
           </view>
         </view> 
-      </view>
+      </view> -->
     </view>
   </form>
   <template is="foot" />

@@ -3,10 +3,14 @@
 <import src="../../components/radio/radio.wxml"/>
 
 <view class="root">  
+  <view class="progress">
+    <label>当前的进度: {{currentIndex}} / {{questions.length}}</label>
+    <progress percent="{{currentIndex/questions.length * 100}}" color='pink' stroke-width='12' border-radius='10' active/>
+  </view>
   <form bindsubmit='submitSurvey' report-submit="true">    
-    <view wx:for="{{questions}}" wx:key="index">
-      <template is="{{item.type}}" data="{{...item}}"></template>   
-    </view>
+    <!-- <view wx:for="{{questions}}" wx:key="index"> -->
+      <template is="{{questions[currentIndex].type}}" data="{{...questions[currentIndex]}}"></template>   
+    <!-- </view> -->
     <button formType="submit" type='primary'>提交问卷</button>    
   </form>
     <template is="foot" />

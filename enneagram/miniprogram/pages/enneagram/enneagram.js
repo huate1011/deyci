@@ -90,7 +90,7 @@ Page({
         }
         ]
       },
-      {
+/*      {
         "type": "radio",
         "items": [{
           "value": "H",
@@ -825,14 +825,15 @@ Page({
           { "value": "B", "name": "我为自己的可靠性与诚实而感到自豪" }
         ]
       },
-      {
+*/      {
         "type": "radio",
         "items": [
           { "value": "E", "name": "我花大量的时间反省--理解自己的感受对我来说是很重要的" },
           { "value": "G", "name": "我花大量的时间反省--做完事情对我来说是很重要的" }
         ]
       }
-    ]
+    ],
+    currentIndex: 1
   },
 
   onLoad: function (options) {
@@ -843,8 +844,7 @@ Page({
       tmpQuestions[i].index = i + 1;
     }
     this.setData({ questions: tmpQuestions });
-    console.log("questions index and size updated")
-
+    console.log("questions index and size updated");
   },
 
   radioChange: function (e) {
@@ -860,6 +860,12 @@ Page({
   },
 
   submitSurvey: function (e) {
+    var oldIndex = this.data.currentIndex;
+    if (oldIndex < this.data.questions.length) {
+      this.setData({ currentIndex: oldIndex + 1 });
+      return;
+    }
+    
     var formData = e.detail.value
     var answers = {};
     // Count the answers

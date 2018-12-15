@@ -18,7 +18,6 @@ background: #FFFFCC;
 color: black;
 align-items: stretch;
 padding: 0;
-height: 100%;
 overflow: hidden;
 }
 .root {

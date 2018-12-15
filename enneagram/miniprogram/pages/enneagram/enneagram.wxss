@@ -29,3 +29,9 @@
   cursor: default;
   line-height: 1.68em;
 }
+
+.progress {     
+  color: #e64340;  
+  text-align: center; 
+  font-size: 40rpx;
+}

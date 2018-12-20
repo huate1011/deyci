@@ -1,22 +1,4 @@
 // pages/enneagram.js
-var updateQuestions = (that, index, items, datasetName) => {
-  // Set the current checkbox in the editing mode
-  var tmpQuestions = that.data.questions;
-  for (var i = 0; i < tmpQuestions.length; i++) {
-    if (tmpQuestions[i].name === datasetName) {
-      tmpQuestions[i].editing = true;
-    } else {
-      tmpQuestions[i].editing = false;
-    }
-  }
-
-  // update the items        
-  tmpQuestions[index].items = items
-  that.setData({
-    questions: tmpQuestions
-  });
-};
-
 // 显示失败提示
 var showModel = (title, content) => {
   wx.hideToast();
@@ -41,6 +23,33 @@ var showSuccess = text => wx.showToast({
   icon: 'success',
   duration: 3000
 })
+
+var sendAnswers = (answers, recommendations, name, id, phone, type) => {
+  var options = {
+    url: 'https://db.deyci.cn/api/answers',
+    data: JSON.stringify({ 
+      'answers': answers, 'recommendations': recommendations, 'name': name, 'id': id, 'phone': phone, 'type': type}),
+    header: {
+      'content-type': 'application/json',
+      'cache-control':'no-cache'
+    },
+    method: 'POST',
+    success: function (result) {
+      if (result.statusCode > 210) {
+        console.log('提交失败', result.data.error)
+      } else {
+        console.log('request succeeded with:', JSON.stringify(result.data));
+        wx.navigateTo({
+          url: '/pages/answers/answers?data=' + JSON.stringify(recommendations),
+        })
+      }
+    },
+    fail: function (error) {
+      console.log('request fail', error);
+    }
+  }
+  wx.request(options);
+}
 
 Page({
 
@@ -833,7 +842,9 @@ Page({
         ]
       }
     ],
-    currentIndex: 1
+    currentIndex: 0,
+    answers: {},
+    detailedAnswers: {}
   },
 
   onLoad: function (options) {
@@ -849,37 +860,33 @@ Page({
 
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
-    var index = e.target.dataset.index - 1
-    var items = this.data.questions[index].items;
-    for (var i = 0, len = items.length; i < len; ++i) {
-      items[i].checked = items[i].value == e.detail.value
-    }
-    // Set the current checkbox in the editing mode
-    updateQuestions(this, index, items, e.target.dataset.name);
-
   },
 
-  submitSurvey: function (e) {
-    var oldIndex = this.data.currentIndex;
-    if (oldIndex < this.data.questions.length) {
-      this.setData({ currentIndex: oldIndex + 1 });
-      return;
-    }
-    
-    var formData = e.detail.value
-    var answers = {};
+  submitSurvey: function (e) {    
+    var formData = e.detail.value;
+    var answers = this.data.answers;
+    var detailedAnswers = this.data.detailedAnswers;
     // Count the answers
     for (var key in formData) {
       if (formData[key] instanceof String && formData[key].trim() === ""
         || formData[key].length == 0) {
         showModel("错误", '第' + key + '题没有填');
-        return
+        return;
       }
+      detailedAnswers[key] = formData[key];
       if (formData[key] in answers) {
         answers[formData[key]] += 1;
       } else {
         answers[formData[key]] = 1;
-      }
+      }      
+    }
+    this.setData({answers: answers});
+    this.setData({detailedAnswers: detailedAnswers});
+    // check the question index
+    var oldIndex = this.data.currentIndex;
+    if (oldIndex < this.data.questions.length - 1) {
+      this.setData({ currentIndex: oldIndex + 1 });
+      return;
     }
 
     // Sort all the answers
@@ -902,9 +909,6 @@ Page({
         }
       }
     }
-    console.log("Formdata： " + JSON.stringify(sortedAnswers));
-    wx.navigateTo({
-      url: '/pages/answers/answers?data=' + JSON.stringify(sortedAnswers),
-    })
+    sendAnswers(detailedAnswers, sortedAnswers, "name", "id", "phone", this.data.surveyType);
   },
 })

@@ -15,7 +15,7 @@ Page({
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
       })
-      return
+      return;
     }
 
     // 获取用户信息
@@ -44,6 +44,45 @@ Page({
         userInfo: e.detail.userInfo
       })
     }
+  },
+
+  onEnneagram: function(e) {
+    var options = {
+      url: 'https://db.deyci.cn/api/quizz?apiKey=IOVBcqqf7J',
+      header: {
+        'content-type': 'application/json',
+        'cache-control': 'no-cache'
+      },
+      method: 'GET',
+      success: function (result) {
+        if (result.statusCode > 210) {
+          console.log('提交失败', result.data.error)
+          showModel("错误", '数据库请求失败,' + result.data.error);
+        } else {
+          console.log('request succeeded with:', JSON.stringify(result.data));
+          for (let i = 0; i < result.data.length; ++i) {
+            if (result.data[i].type === "Enneagram") {
+              // load and set questions        
+              var tmpQuestions = result.data[i].questions;
+
+              for (var i = 0; i < tmpQuestions.length; i++) {
+                tmpQuestions[i].index = i + 1;
+              }
+              console.log("questions index and size updated");
+              wx.navigateTo({
+                url: '/pages/enneagram/enneagram?userInfo=' + JSON.stringify(e.detail.userInfo) + '&questions=' + JSON.stringify(tmpQuestions),
+              })
+              break;
+            }
+          }
+        }
+      },
+      fail: function (error) {
+        console.log('request fail', error);
+        showModel("错误", '数据库停止响应,' + error);
+      }
+    }
+    wx.request(options);
   },
 
   onGetOpenid: function() {

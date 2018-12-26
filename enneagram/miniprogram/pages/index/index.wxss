@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import "../../common/lib/weui.wxss";
 
 page {
   background: #f6f6f6;

@@ -2,7 +2,7 @@
   <view class="container">
     <view class="page-body">
       <view class="page-section">
-        <view class="weui-cells__title">请回答第{{index}}个题目</view>
+        <view class="weui-cells__title">第{{index}}个题目, 请选择与您最接近的选项</view>
         <view class="weui-cells weui-cells_after-title">
           <radio-group bindchange="radioChange" name="{{index}}" data-index="{{index}}" data-name="{{index}}" focus="{{focus}}">
             <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">

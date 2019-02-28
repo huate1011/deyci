@@ -1,0 +1,1 @@
+<view class="userInfoGongGao" style="background:{{marquee.bgcolor}};font-size:{{marquee.size}};font-weight: {{marquee.weight}};color: {{marquee.color}}"><view id="txt1" style="animation: roll linear {{duration}}s infinite">{{marquee.con}}</view></view>

@@ -1,0 +1,1 @@
+<view><view class="wallet_status_box"><image class="wallet_status_icon" src="https://www.haojian.cn/wximg/wallet_finish_icon.png"></image><view class="f36 c3 mb20 pl20">提现成功！</view><view class="f26 c9">提现金额已到达您的微信账户</view></view><view class="finish_btn" catchtap="sureFinish">完成</view></view>

@@ -1,0 +1,1 @@
+Page{background:#f2f3f4}.box_2_ding{position:relative;height:90rpx;margin:0 30rpx}.box_2_ding .rightIcon{right:0}.sure_top_btn{height:80rpx;text-align:center;line-height:80rpx;color:#fff;background:#ff8542;font-size:32rpx;margin:0 30rpx;margin-top:60rpx;border:none;border-radius:10rpx}@import "/pages/commonPage/payTemp.wxss";

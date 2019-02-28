@@ -1,0 +1,36 @@
+<!--客服弹框-->
+<view class="tankuang {{tankuang[0]}}" bindtap="closeKF" data-index="0"></view>
+<view class="alter2 {{tankuang[0]}}">
+    <view class="alterTitle">
+        <view class='alter2Close' bindtap="closeKF" data-index="0">
+            <image src="https://www.haojian.cn/wximg/close.png"></image>
+        </view>
+        <view class="txt_center c3 f34 bbe9s">联系方式</view>
+    </view>
+    <view wx:if="{{detail.customer_service.wx_qrcode.original_url}}" class="f20 txt_center cc mtb30">点击查看大图，识别二维码，添加客服微信号</view>
+    <view wx:if="{{detail.customer_service.wx_qrcode.original_url}}" class='ewcode_box'> 
+        <image mode="scaleToFill" data-imgurl='{{detail.customer_service.wx_qrcode.original_url}}' catchtap='seeBigImg' class="tankuang1_4" src="{{detail.customer_service.wx_qrcode.original_url}}"></image>
+    </view>
+
+    <view wx:if='{{detail.customer_service.tel}}' class='contact_btn_box' style="background:#{{peise.mcolor}}" data-phone='{{detail.customer_service.tel}}' bindtap="call">
+        <view class='contact_btn_info'>
+            <view class='contact_btn_left'>
+                <image class='phoneIcon_img' src='https://www.haojian.cn/wximg/phoneIcon.png'></image>
+                <view class='f26 cf mlr10'>拨打电话：</view>
+                <view class='f26 cf'>{{detail.customer_service.tel}}</view>
+            </view>
+            <image class='contact_btn_right' src='https://www.haojian.cn/wximg/right_icon1.png'></image>
+        </view> 
+    </view>
+
+    <view class='contact_btn_box mb30' style="background:#{{peise.mcolor}}">
+        <button class='contact_btn' open-type="contact"></button>
+        <view class='contact_btn_info'>
+            <view class='contact_btn_left'>
+                <image class='wxIcon_img' src='https://www.haojian.cn/wximg/wxIcon.png'></image>
+                <view class='f26 cf mlr10'>微信对话</view>
+            </view>
+            <image class='contact_btn_right' src='https://www.haojian.cn/wximg/right_icon1.png'></image>
+        </view> 
+    </view>
+</view>

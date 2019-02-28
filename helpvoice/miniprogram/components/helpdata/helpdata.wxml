@@ -1,0 +1,19 @@
+<template name="helpdata">
+  <view class="uploader">
+      <view class="uploader-text" bindtap="offerHelp" data-openId="{{openId}}">
+        <view>
+          <text>{{userName}}</text>
+        </view>
+        <view>  
+          <text>{{address}}</text>
+        </view>
+          <text>{{voiceText}}</text>
+        <view>
+          <text>{{dtime}}</text>
+        </view>
+      </view>
+      <view>
+        <icon type="{{accepted}}" size="40" />
+      </view>
+  </view>
+</template>

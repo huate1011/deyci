@@ -1,0 +1,1 @@
+<block wx:if="{{alterRequestStatus}}"><include src="/pages/commonPage/extension/temp.wxml"/></block><block wx:if="{{selasInfo.status === 'active'}}"><include src="/pages/commonPage/wx-button.wxml"/></block>

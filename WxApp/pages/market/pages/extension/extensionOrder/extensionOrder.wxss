@@ -1,0 +1,1 @@
+Page{background:#f2f3f4}.tg_t{height:120rpx;line-height:120rpx;z-index:10;background:#f2f3f4}.nav,.tg_t{position:fixed;width:100%;top:0;left:0}.nav{height:100rpx;line-height:100rpx;z-index:20}.nav_line{height:4rpx;width:60%;position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:none}.active .nav_line{display:block}

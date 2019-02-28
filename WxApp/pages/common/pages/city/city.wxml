@@ -1,0 +1,1 @@
+<view class="wrapper"><list-html data="{{city}}" binddetail="bindtap" search="{{value}}"></list-html></view>

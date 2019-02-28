@@ -1,0 +1,1 @@
+"use strict";Page({data:{},onLoad:function(n){},onShow:function(){},sureFinish:function(){wx.navigateBack({delta:1})}});

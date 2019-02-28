@@ -1,0 +1,1 @@
+"use strict";var page1=require("../common/danpinDetail.js").buildPage();page1.config=function(){this.state.detailType="video"},Page(page1);

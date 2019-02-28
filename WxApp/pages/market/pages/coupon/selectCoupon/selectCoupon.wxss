@@ -1,0 +1,1 @@
+@import "/pages/commonPage/coupon/myCoupon.wxss";.couponBtn{width:40rpx;height:40rpx;margin:0 auto;display:block}.sureBtn{position:fixed;bottom:0;width:100%;height:100rpx;line-height:100rpx;background:#fff;color:#ff6464}.sureBtn_space{padding-bottom:100rpx}.noData{position:absolute;top:50%;left:50%;transform:translate(-50%);font-size:28rpx;color:#ccc;text-align:center}

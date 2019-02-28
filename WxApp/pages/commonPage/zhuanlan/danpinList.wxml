@@ -1,0 +1,1 @@
+<include src="/pages/commonPage/common.wxml"/><block wx:if="{{requestStatus}}"><view class="bgfff" wx:if="{{danpinList.length > 0}}"><view class="pos" wx:for="{{danpinList}}" wx:key=""><include src="/pages/commonPage/zhuanlan/danpinList1.wxml"/></view></view></block>

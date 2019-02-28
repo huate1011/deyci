@@ -1,0 +1,1 @@
+"use strict";var page0=require("../page.js").buildPage(),common=getApp().globalData.commonFun;page0.config=function(e){this.state.key="page0";var a=this;common.getAlter(this,"indexpop",function(e,t){a.setData({alter:e,alterHidden:t,x:10,y:350})})},Page(page0);

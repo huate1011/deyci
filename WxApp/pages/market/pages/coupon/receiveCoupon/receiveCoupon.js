@@ -1,0 +1,1 @@
+"use strict";Page({data:{interfaceName:"receiveCoupon",contactStatus:!0},onLoad:function(t){}});

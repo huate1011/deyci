@@ -1,0 +1,1 @@
+"use strict";var page2=require("../page.js").buildPage();page2.config=function(e){this.state.key="page2"},Page(page2);

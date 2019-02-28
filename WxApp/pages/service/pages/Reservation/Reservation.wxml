@@ -1,0 +1,24 @@
+<view class="top_line"></view><include src="/pages/commonPage/common.wxml"/><view class="t1 ptb30" style="background:#{{peise.mcolor}}"><image class="Head_img" src="{{detail.photo.thumb_medium_url}}"></image><view class="cf txt_center f32">{{detail.name}}</view></view><view class="t2 plr30 box_b pb30 mt20"><form bindsubmit="inputSubmit" report-submit="true"><view class="bgfff br10"><view class="bbe9s p30 box_b flex_start"><input class="f32 c9 flex1" placeholder="请输入姓名" bindinput="nameInput" value="{{nameValue}}"/><text class="color-red f26">*</text></view><view class="p30 box_b flex_start"><input class="f32 c9 flex1" placeholder="请输入电话号码" bindinput="numberInput" value="{{myInfo.phone}}"/><text class="color-red f26">*</text></view></view><view class="br10 mt20 bgfff"><picker class="pl30 ptb30 box_b bbe9s" mode="selector" range="{{skills}}" value="{{index}}" name="service" bindchange="listenerPickerSelected"><view class="flex_between pos"><view class="f32 c3">服务选项</view><view class="mr30"><view class="f30 c3 mr30" wx:if="{{skill}}">{{skill}}</view><view class="f30 c3 mr30" wx:else>请选择</view></view><image class="rightIcon" src="https://www.haojian.cn/wximg/right_icon.png"></image></view></picker></view><view class="bgfff p30 box_b bbe9s flex_between flex_items"><view class="f32 c3">预约人数</view><view class="peoplecount flex_between flex_items be9s txt_center f30"><view bindtap="subtract0" class="plr20">-</view><view class="coun flex1">{{person}}</view><view bindtap="add0" class="plr20">+</view></view></view><view class="bgfff p30 box_b"><view class="flex_between flex_items"><view class="f32 c3">预约总金额</view><view wx:if="{{Total > 0}}" class="f32 txt_right" style="color:#{{peise.mcolor}}">￥{{Total}}</view><view wx:else class="f32 txt_right" style="color:#{{peise.mcolor}}">免费</view></view><view wx:if="{{Total > 0 && detail.member.isMember}}" class="flex_between flex_items mt10"><view style="margin:0" class="member_prise mt5">{{membName}}{{member}}折</view><view class="card_price_box"><view class="price_lf flex_start flex_items"><image class="img_1" src="https://www.haojian.cn/wximg/market/card_price.png"></image><image class="img_2" src="https://www.haojian.cn/wximg/market/card_price_icon.png"></image><view class="f20 cf">会员价</view></view><view class="card_price">￥{{memberTotal}}</view></view></view></view><view wx:if="{{theme == true}}" class="bgfff ptb30 mt20 flex_around txt_center br10" bindtap="BombBox"><view><view class="f24 c9">开始日期</view><view class="f32 c3 bold mt30">{{chosedTime}}</view></view><text wx:if="{{daydates > 0}}" class="Numberdays">{{daydates}}天</text><view class="{{showView2 ? 'show' : 'hide'}}"><view class="f24 c9">结束时间</view><view class="f32 c3 bold mt30">{{chosedClock}}</view></view></view><view wx:else class="bgfff ptb30 mt20 flex_around txt_center br10" bindtap="BombBox"><view><view class="f24 c9">开始日期</view><view class="f32 c3 bold mt30">{{chosedTime}}</view></view><view class="{{showView2 ? 'show' : 'hide'}}"><view class="f24 c9">结束时间</view><view class="f32 c3 bold mt30">{{chosedClock}}</view></view></view><view class="bgfff plr20 box_b mt20"><include src="/pages/commonPage/common/input/formTemp.wxml"/></view><view class="bgfff p30 box_b mt20 br10"><view class="f34 c0 bold">{{CustomRemark}}</view><view class="textarea1 be9s br10 p20 box_b f32 c9 mt20" wx:if="{{textarea_t}}" data-val=""><view class="textarea11" wx:if="{{!txtval}}" bindtap="textarea1" data-val="">填写备注信息</view><view class="textarea11" wx:else bindtap="textarea1" data-val="{{txtval}}">{{txtval}}</view></view><textarea wx:else class="textarea1 be9s br10 p20 box_b f32 c9 mt20" placeholder="请输入备注信息" maxlength="100" value="{{txtval}}" bindblur="textarea2" bindinput="textarea3"/>
+        </view>
+
+        <button wx:if="{{numberValue}}" class="confirm_btn mt20 txt_center cf" style="background:#{{peise.mcolor}}" form-type="submit">确定预约</button>
+
+        <block wx:else>
+            <button wx:if="{{btnPhoneNumber}}" bindgetphonenumber="bindPhoneNumber" data-types="button" open-type="getPhoneNumber" class="confirm_btn mt20 txt_center cf" style="background:#{{peise.mcolor}}">确定预约</button>
+            <view wx:else bindtap="bindPhoneNumber" data-types="importPhone" class="confirm_btn mt20 txt_center cf" style="background:#{{peise.mcolor}}">确定预约</view>
+        </block>
+        <view class="space120"></view>
+    </form>
+</view>
+
+<include src="../personal/time.wxml"/>
+
+<block wx:if="{{payAndBingPhoneStatus}}">
+    
+    <include src="/pages/commonPage/payTemp.wxml"/>
+
+    
+    <include src="/pages/commonPage/common/setPassword.wxml"/>
+
+    
+    <include src="/pages/commonPage/common/bindPhone.wxml"/></block>

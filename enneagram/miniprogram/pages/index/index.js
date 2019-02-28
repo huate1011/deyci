@@ -57,7 +57,6 @@ Page({
       success: function (result) {
         if (result.statusCode > 210) {
           console.log('提交失败', result.data.error)
-          showModel("错误", '数据库请求失败,' + result.data.error);
         } else {
           console.log('request succeeded with:', JSON.stringify(result.data));
           for (let i = 0; i < result.data.length; ++i) {
@@ -79,7 +78,6 @@ Page({
       },
       fail: function (error) {
         console.log('request fail', error);
-        showModel("错误", '数据库停止响应,' + error);
       }
     }
     wx.request(options);

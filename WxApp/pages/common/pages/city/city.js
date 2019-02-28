@@ -1,0 +1,1 @@
+"use strict";var City=require("allcity.js");Page({data:{city:City},bindtap:function(t){console.log("地址："+JSON.stringify(t.detail)),getApp().globalData.updateAddress(t.detail),setTimeout(function(t){wx.navigateBack()},200)},input:function(t){this.value=t.detail.value},searchMt:function(){this.value||(this.value=""),this.setData({value:this.value})}});

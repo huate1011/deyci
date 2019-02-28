@@ -1,0 +1,54 @@
+/*弹框*/
+
+.ewcode_box {
+    width: 230rpx;
+    height: 230rpx;
+    margin: 0 auto 40rpx;
+    padding: 15rpx;
+    border: 1rpx dashed #e9e9e9;
+}
+.tankuang1_4{
+    width: 100%;
+    height: 100%;
+}
+
+.contact_btn_box {
+    background: #ff8542;
+    line-height: 80rpx;
+    position: relative;
+    border-radius: 6rpx;
+    margin: 0 30rpx 30rpx;
+}
+.contact_btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+.contact_btn_info {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+}
+.contact_btn_left {
+    flex: 1;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+.wxIcon_img {
+    width: 32rpx;
+    height: 26rpx;
+}
+.phoneIcon_img {
+    width: 31rpx;
+    height: 32rpx;
+}
+.contact_btn_right {
+    width: 14rpx;
+    height: 26rpx;
+}

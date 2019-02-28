@@ -1,0 +1,1 @@
+<view class="bgfff mt20"><view class="ptb30 f24 c3"><view class="dianzanList1" style="border-left:6rpx solid #{{peise.mcolor}}">全部评论（{{detail.comment_count}}）</view></view><view class="pinglun"><view wx:if="{{detail.comment_count == 0}}" class="noComment">没有评论</view><block wx:else><include src="/pages/comment/comment2.wxml"/></block></view></view>

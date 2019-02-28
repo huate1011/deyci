@@ -1,0 +1,1 @@
+.wallet_status_box{margin-top:160rpx;text-align:center}.wallet_status_box .wallet_status_icon{width:80rpx;height:80rpx;margin-bottom:40rpx}.finish_btn{position:absolute;left:50%;bottom:200rpx;margin-left:-160rpx;width:320rpx;height:70rpx;line-height:70rpx;text-align:center;border:2rpx solid #ff8542;border-radius:10rpx;font-size:30rpx;color:#ff8542}

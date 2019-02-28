@@ -1,0 +1,1 @@
+<block wx:if='{{productType === "news"}}'><include src="/pages/comment/comment3.wxml"/></block><block wx:if='{{productType === "activity"}}'><include src="/pages/comment/comment4.wxml"/></block>

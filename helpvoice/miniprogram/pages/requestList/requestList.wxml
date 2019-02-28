@@ -1,0 +1,8 @@
+<import src="../../components/helpdata/helpdata.wxml"/>
+
+<view class='container'>
+  <view wx:for="{{helpList}}" wx:key="*this">
+    <template is="helpdata" data="{{...item}}"/>
+  </view>
+  
+</view>

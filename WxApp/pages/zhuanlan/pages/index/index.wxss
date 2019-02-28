@@ -1,0 +1,1 @@
+@import "/pages/commonPage/zhuanlan/dpList.wxss";@import "/pages/commonPage/zhuanlan/zlList.wxss";Page{background:#f2f3f4}.audeoPlayStatus{position:fixed;width:90rpx;height:90rpx;bottom:60rpx;right:30rpx;border-radius:100%;box-shadow:0 0 10rpx hsla(0,0%,80%,.75);background:hsla(0,0%,100%,.9);z-index:10}.audeoPlayStatus image{width:100%;height:100%;border-radius:100%}

@@ -1,4 +1,21 @@
 // miniprogram/pages/requestList/requestList.js
+// 显示成功提示
+var showSuccess = text => wx.showToast({
+  title: text,
+  icon: 'success'
+})
+
+// 显示失败提示
+var showModel = (title, content) => {
+  wx.hideToast();
+
+  wx.showModal({
+    title,
+    content: JSON.stringify(content),
+    showCancel: false
+  })
+}
+
 Page({
 
   /**
@@ -12,14 +29,17 @@ Page({
   offerHelp: function (e) {
     var that = this;
     wx.request({
-      url: "https://helpvoice.leanapp.cn/offerhelp?openid=" + e.currentTarget.dataset.openid,
+      url: "https://helpvoice.leanapp.cn/todos",
       method: "POST",
-      header: {
-        'content-type': 'application/json'
+      data: {
+        objectId: e.currentTarget.dataset.objectid,
       },
-      success(result) {
+      success(res) {
         showSuccess('请求成功完成');
-        console.log('request success', JSON.stringify(result.data));
+        console.log('request success', JSON.stringify(res.data.result));
+        that.setData({
+          helpList: res.data.result
+        })
       },
       fail(error) {
         showModel('请求失败', error);
@@ -32,24 +52,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    // var list = [];
-    // for (let i = 0; i < 10; i++) {
-    //   list.push({
-    //     openId: "open id " + i,
-    //     voiceText: "voice text",
-    //     userName: "User nick name " + i,
-    //     phone: 13629238272,
-    //     accepted: i % 2 === 0? "success" : "cancel",
-    //     gender: "M",
-    //     address: "宝安区创业一路(深圳市宝安区政府)",
-    //     coords: [22.55329, 113.88308],
-    //     dtime: "2010-10-01"
-    //   });
-    // }
-    // that.setData({
-    //   helpList: list
-    // })
-    // return;
     wx.request({
       url: "https://helpvoice.leanapp.cn/todos",
       method: "GET",
@@ -57,9 +59,9 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log('request success', JSON.stringify(res.data.results));
+        console.log('request success', JSON.stringify(res.data.result));
         that.setData({
-          helpList: res.data.results
+          helpList: res.data.result
         })
       },
       fail(error) {

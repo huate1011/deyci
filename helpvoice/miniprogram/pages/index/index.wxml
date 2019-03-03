@@ -9,18 +9,17 @@
       class="userinfo-avatar"
       style="background-image: url({{avatarUrl}})"
     ></button>
-    <view>
-      <form bindsubmit="collectFormId" name='pushMsgFm' report-submit='true'>
-        <view class="uploader-text">
-          <button form-type="submit" class="payButton">Collect form Id</button>
-        </view>
-      </form>
+    <view class="uploader-text" style="width: 50%">
+      <text>可以接收{{formNum}}个帮助提示</text>
     </view>
+    <form bindsubmit="collectFormId" name='pushMsgFm' report-submit='true'>
+      <view class="uploader-text">
+        <button form-type="submit" class="payButton">增加</button>
+      </view>
+    </form>
   </view>
 
-
-  <!-- 上传图片 -->
-  <view class="uploader">
+  <view class="uploader" wx:if="{{0}}">
     <view class="uploader-text" bindtap="doUpload">
       <text>上传图片</text>
     </view>
@@ -29,30 +28,21 @@
     </view>
   </view>
 
-
-  <!-- 操作数据库 -->
-  <view class="uploader">
+  <view class="uploader" wx:if="{{0}}">
     <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
       <text>前端操作数据库</text>
     </navigator>
   </view>
 
-  <!-- 新建云函数 -->
-  <view class="uploader">
+  <view class="uploader" wx:if="{{0}}">
     <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
       <text>快速新建云函数</text>
     </navigator>
   </view>
 
-  <view class="uploader">
+    <view class="uploader" wx:if="{{0}}">
         <view class="uploader-text" bindtap="sendMsg">
             <text>Submit</text>
-        </view>
-    </view>
-
-     <view class="uploader">
-        <view class="uploader-text" bindtap="showLocation">
-            <text>Show Location Map</text>
         </view>
     </view>
 

@@ -36,7 +36,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    formNum: 0
   },
   startRecordingVoice: function (e) {
     recorderManager.onStart(() => {
@@ -65,6 +66,7 @@ Page({
             that.setData({ voiceUrl: data.url });
             console.log("saved url: " + that.data.voiceUrl);
           }
+          that.sendMsg();
         },
         fail: function (res) {
           console.log("Failed to request upload " + JSON.stringify(res));
@@ -99,11 +101,13 @@ Page({
     let formId = e.detail.formId;
     let formIds = this.data.formIds || [];
     formIds.push(formId);
-    this.setData({ formIds: formIds });
+    this.setData({ formIds: formIds, formNum: this.data.formNum + 1 });
+    console.log("Form number: ", this.data.formNum);
     console.log("Current form Ids: ", this.data.formIds);
   },
 
   sendMsg: function () {
+    this.setLocation();
     console.log("form id:", this.data.formIds);
     console.log("open id:", app.globalData.openid);
     console.log("voice url:", this.data.voiceUrl);
@@ -171,31 +175,6 @@ Page({
             scope: 'scope.userLocation', 
           })
         }
-        if (res.authSetting['scope.userLocation']) {
-          wx.getLocation({
-            type: 'gcj02',
-            success: function (res) {
-              //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
-              qqmapsdk.reverseGeocoder({
-                location: {
-                  latitude: res.latitude,
-                  longitude: res.longitude
-                },
-                success: function (addressRes) {
-                  var address = addressRes.result.formatted_addresses.recommend;
-                  console.log("Got address: " + address + " and coords: " + [res.latitude, res.longitude]);
-                  that.setData({
-                    address: address,
-                    coords: [res.latitude, res.longitude]
-                  })
-                },
-                fail: function(err) {
-                  console.log("Error: " + err);
-                }
-              })
-            }
-          })
-        }
 
         if (!res.authSetting['scope.record']) {
           wx.authorize({
@@ -206,20 +185,27 @@ Page({
     })
   },
 
-  showLocation: function(e) {
-    var that = this;
+  setLocation: function() {
     wx.getLocation({
-      type: 'gcj02', // 返回可以用于wx.openLocation的经纬度
-      success(res) {
-        const latitude = res.latitude 
-        const longitude = res.longitude
-        that.setData({
-          coords: [latitude, longitude]
-        })
-        wx.openLocation({
-          latitude,
-          longitude,
-          scale: 18
+      type: 'gcj02',
+      success: function (res) {
+        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: function (addressRes) {
+            var address = addressRes.result.formatted_addresses.recommend;
+            console.log("Got address: " + address + " and coords: " + [res.latitude, res.longitude]);
+            that.setData({
+              address: address,
+              coords: [res.latitude, res.longitude]
+            })
+          },
+          fail: function (err) {
+            console.log("Error: " + err);
+          }
         })
       }
     })

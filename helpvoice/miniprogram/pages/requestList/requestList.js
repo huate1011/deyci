@@ -26,6 +26,16 @@ Page({
 
   },
 
+  viewMap: function(e) {
+    var coords = e.currentTarget.dataset.coords;
+    wx.openLocation({
+      latitude: coords[0],
+      longitude: coords[1],
+      scale: 18,
+      address: e.currentTarget.dataset.address
+    })
+  },
+
   offerHelp: function (e) {
     var that = this;
     wx.request({

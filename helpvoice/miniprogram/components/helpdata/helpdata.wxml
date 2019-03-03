@@ -1,19 +1,35 @@
 <template name="helpdata">
   <view class="uploader">
-      <view class="uploader-text" bindtap="offerHelp" data-objectId="{{objectId}}">
+      <view class="uploader-text" >
+        <view bindtap="viewMap" data-address="{{address}}" data-coords="{{coords}}"> 
+          <view>
+            <text>{{address}}</text>
+          </view>
+          <view>
+            <text>{{dtime}}</text>
+          </view>
+        </view>
         <view>
           <text>{{username}}</text>
         </view>
-        <view>  
-          <text>{{address}}</text>
-        </view>
-          <text>{{content}}</text>
         <view>
-          <text>{{dtime}}</text>
+          <text>{{phone}}</text>
         </view>
-      </view>
-      <view>
-        <icon type="{{accepted === 'No'?'success':'cancel'}}" size="40" />
+        <view>
+          <text>{{content}}</text>
+        </view>
+        <block wx:if="{{accepted === 'No'}}">
+          <view bindtap="offerHelp" data-objectId="{{objectId}}">
+            <text>请问您是否可以提供帮组?</text>
+            <icon type="{{accepted === 'No'?'success':'waiting'}}" size="30" />
+          </view>
+        </block>
+        <block wx:else>
+          <view class="uploader-icon">
+            <text>已经有人提供帮组...........</text>
+            <icon type="{{accepted === 'No'?'success':'waiting'}}"  size="30" />
+          </view>
+        </block>
       </view>
   </view>
 </template>
